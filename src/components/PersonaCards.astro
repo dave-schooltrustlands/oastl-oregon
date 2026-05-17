@@ -1,0 +1,43 @@
+---
+const personas = [
+  {
+    label: 'Parent of a K-12 student',
+    line: 'You can enroll your child as a Class A member ($1/year) — the practical step that puts Oregon students in standing to sue.',
+    cta: 'Enroll your child',
+    href: '/join/#class-a',
+  },
+  {
+    label: 'Student',
+    line: 'Oregon’s appellate court just confirmed your standing. Ask a parent to enroll you; you can be named in the next phase of the case.',
+    cta: 'Become a co-plaintiff',
+    href: '/join/#class-a',
+  },
+  {
+    label: 'Teacher · school-board member · educator',
+    line: 'You see the funding gap up close. Class B membership ($5/year) joins the coalition with full voting rights.',
+    cta: 'Join Class B',
+    href: '/join/#class-b',
+  },
+  {
+    label: 'Oregon resident who cares about public schools',
+    line: 'The Common School Fund is your inheritance too. Class B is open to any Oregonian 18+; nonprofits join as Class C.',
+    cta: 'Join the coalition',
+    href: '/join/',
+  },
+];
+---
+<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+  {personas.map((p) => (
+    <a
+      href={p.href}
+      class="group block bg-oastl-bone border border-oastl-forest/20 rounded-sm p-5 hover:border-oastl-gold transition-colors"
+    >
+      <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-2">You are a</div>
+      <h3 class="font-serif text-xl text-oastl-forest font-semibold leading-tight mb-2">{p.label}</h3>
+      <p class="text-sm text-oastl-ink/80 leading-relaxed mb-3">{p.line}</p>
+      <span class="text-sm font-medium text-oastl-action group-hover:text-oastl-gold">
+        {p.cta} →
+      </span>
+    </a>
+  ))}
+</div>

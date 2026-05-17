@@ -1,0 +1,48 @@
+---
+const duties = [
+  {
+    n: 1,
+    name: 'Duty of undivided loyalty to the beneficiary',
+    gloss: 'A trustee acts solely in the interest of the beneficiary — Oregon’s schoolchildren — and may not divert trust assets to other purposes.',
+  },
+  {
+    n: 2,
+    name: 'Duty to preserve trust property',
+    gloss: 'School-trust lands and the Common School Fund are corpus. They must be safeguarded against loss, encumbrance, and waste.',
+  },
+  {
+    n: 3,
+    name: 'Duty to exercise reasonable care and skill',
+    gloss: 'Trust assets must be managed with the prudence a careful person would apply to the affairs of another — not the standard of ordinary politics.',
+  },
+  {
+    n: 4,
+    name: 'Duty to make trust property productive',
+    gloss: 'The corpus must generate income. Idle or under-managed lands betray the perpetual promise to the beneficiaries.',
+  },
+  {
+    n: 5,
+    name: 'Duty to take and keep exclusive control',
+    gloss: 'The trustee may not delegate away control of the corpus to actors who do not owe fiduciary duties to the beneficiaries.',
+  },
+  {
+    n: 6,
+    name: 'Duty to pay income to beneficiary',
+    gloss: 'Income from the trust must reach the common schools — the beneficiaries the trust was created to serve.',
+  },
+];
+---
+<ol class="grid gap-4 md:grid-cols-2">
+  {duties.map((d) => (
+    <li class="bg-oastl-cream border border-oastl-forest/15 rounded-sm p-5">
+      <div class="flex items-baseline gap-3 mb-1">
+        <span class="font-mono text-xs text-oastl-gold">{String(d.n).padStart(2, '0')}</span>
+        <h3 class="font-serif text-lg font-semibold text-oastl-forest leading-snug">{d.name}</h3>
+      </div>
+      <p class="text-[15px] text-oastl-ink/80 leading-relaxed">{d.gloss}</p>
+    </li>
+  ))}
+</ol>
+<p class="mt-6 text-sm text-oastl-ink/70 italic">
+  Frame for Oregon: these are what the State of Oregon owes Oregon’s schoolchildren and what OASTL’s litigation seeks to enforce.
+</p>

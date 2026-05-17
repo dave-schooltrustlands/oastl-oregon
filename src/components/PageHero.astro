@@ -1,0 +1,30 @@
+---
+export interface Props {
+  eyebrow?: string;
+  title: string;
+  dek?: string;
+  variant?: 'default' | 'dark';
+}
+const { eyebrow, title, dek, variant = 'default' } = Astro.props;
+const isDark = variant === 'dark';
+---
+<section class:list={[
+  'border-b',
+  isDark ? 'bg-oastl-forest text-oastl-cream border-oastl-canopy' : 'bg-oastl-cream/40 text-oastl-ink border-oastl-forest/15',
+]}>
+  <div class="mx-auto max-w-6xl px-5 py-12 md:py-16">
+    {eyebrow && (
+      <div class:list={[
+        'font-mono text-[11px] tracking-[0.22em] uppercase mb-3',
+        isDark ? 'text-oastl-gold' : 'text-oastl-forest',
+      ]}>{eyebrow}</div>
+    )}
+    <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight tracking-tight">{title}</h1>
+    {dek && (
+      <p class:list={[
+        'mt-4 text-lg md:text-xl leading-relaxed max-w-3xl',
+        isDark ? 'text-oastl-cream/90' : 'text-oastl-ink/80',
+      ]} set:html={dek} />
+    )}
+  </div>
+</section>

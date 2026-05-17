@@ -1,0 +1,43 @@
+---
+export interface Props {
+  title?: string;
+  eyebrow?: string;
+  href?: string;
+  tone?: 'cream' | 'forest' | 'bone';
+  class?: string;
+}
+const { title, eyebrow, href, tone = 'cream', class: extraClass = '' } = Astro.props;
+
+const toneClass =
+  tone === 'forest' ? 'bg-oastl-forest text-oastl-cream border-oastl-canopy/40' :
+  tone === 'bone'   ? 'bg-oastl-bone text-oastl-ink border-oastl-forest/20' :
+                      'bg-oastl-cream text-oastl-ink border-oastl-forest/15';
+
+const isLink = !!href;
+const Tag = isLink ? 'a' : 'div';
+---
+<Tag
+  href={href}
+  class:list={[
+    'block border rounded-sm p-6 transition-colors',
+    toneClass,
+    isLink ? 'hover:border-oastl-gold hover:shadow-sm cursor-pointer' : '',
+    extraClass,
+  ]}
+>
+  {eyebrow && (
+    <div class:list={[
+      'font-mono text-[10px] tracking-[0.22em] uppercase mb-2',
+      tone === 'forest' ? 'text-oastl-gold' : 'text-oastl-forest',
+    ]}>{eyebrow}</div>
+  )}
+  {title && (
+    <h3 class="font-serif text-xl md:text-2xl font-semibold leading-snug mb-2">{title}</h3>
+  )}
+  <div class:list={[
+    'leading-relaxed text-[15px]',
+    tone === 'forest' ? 'text-oastl-cream/90' : 'text-oastl-ink/80',
+  ]}>
+    <slot />
+  </div>
+</Tag>

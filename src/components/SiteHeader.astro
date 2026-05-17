@@ -1,0 +1,48 @@
+---
+const nav = [
+  { label: 'Briefing Room',   href: '/briefing-room/' },
+  { label: 'Legal Desk',      href: '/legal-desk/' },
+  { label: 'Field Notes',     href: '/field-notes/' },
+  { label: 'Coalition Table', href: '/coalition-table/' },
+  { label: 'Founding Texts',  href: '/founding-texts/' },
+  { label: 'Join',            href: '/join/' },
+  { label: 'Donate',          href: '/donate/' },
+];
+
+const current = Astro.url?.pathname || '/';
+---
+<header class="border-b border-oastl-forest/20 bg-oastl-bone/95 backdrop-blur sticky top-0 z-30">
+  <div class="mx-auto max-w-6xl px-5 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+    <a href="/" class="flex items-baseline gap-3 group">
+      <span class="font-serif text-2xl font-semibold text-oastl-forest tracking-tight group-hover:text-oastl-canopy">OASTL</span>
+      <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-ink/60">Oregon Advocates for School Trust Lands</span>
+    </a>
+    <nav class="text-sm flex flex-wrap items-center gap-x-5 gap-y-2">
+      {nav.map((item) => {
+        const isCurrent = current === item.href || (item.href !== '/' && current.startsWith(item.href));
+        const isDonate = item.label === 'Donate';
+        if (isDonate) {
+          return (
+            <a
+              href={item.href}
+              class="inline-flex items-center gap-1 rounded-sm border border-oastl-gold bg-oastl-gold/10 px-3 py-1 text-oastl-forest font-medium hover:bg-oastl-gold hover:text-white transition-colors"
+            >
+              {item.label}
+            </a>
+          );
+        }
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'hover:text-oastl-gold transition-colors',
+              isCurrent ? 'text-oastl-forest font-semibold border-b-2 border-oastl-gold pb-0.5' : 'text-oastl-ink/80',
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+  </div>
+</header>

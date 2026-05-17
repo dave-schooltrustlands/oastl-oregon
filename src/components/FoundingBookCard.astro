@@ -1,0 +1,59 @@
+---
+export interface Props {
+  /** Variant: 'full' for dedicated page, 'compact' for homepage band */
+  variant?: 'full' | 'compact';
+}
+const { variant = 'full' } = Astro.props;
+---
+<article class:list={[
+  'border border-oastl-forest/20 bg-oastl-cream rounded-sm',
+  variant === 'full' ? 'p-8 md:p-10' : 'p-6',
+]}>
+  <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
+    OASTL Founding Scholarship · 2025
+  </div>
+  <h3 class:list={[
+    'font-serif font-semibold text-oastl-forest leading-tight',
+    variant === 'full' ? 'text-3xl md:text-4xl' : 'text-2xl',
+  ]}>
+    <em>Oregon’s Constitutional Duties to Schools</em>
+  </h3>
+  <p class="mt-2 text-sm text-oastl-ink/70 font-mono uppercase tracking-wide">
+    by Margaret Bird &amp; Dave Sullivan
+  </p>
+  <p class="mt-4 text-[15px] md:text-base text-oastl-ink/85 leading-relaxed">
+    {variant === 'full' ? (
+      <>
+        Co-authored by OASTL board members Margaret Bird and Dave Sullivan,
+        <em> Oregon’s Constitutional Duties to Schools </em>
+        uncovers the billion-dollar betrayal of Oregon’s school trust lands and demands accountability.
+        The book is the Oregon-specific peer to the broader campus’s founding scholarship —
+        <em> Schools of the Republic </em> at the Library and
+        <em> The Eighth Anchor </em> at the Institute.
+        Available free as a PDF download; also available on Amazon in Kindle, paperback, and hardback formats.
+      </>
+    ) : (
+      <>
+        The Oregon-specific case for fiduciary accountability. The billion-dollar betrayal of Oregon’s school trust lands, and the constitutional argument for restoring them.
+      </>
+    )}
+  </p>
+  <div class="mt-5 flex flex-wrap gap-3 text-sm">
+    {/* TODO[Dave]: replace href="#" with the live PDF URL when captured */}
+    <a
+      href="#"
+      data-todo="pdf-url"
+      class="inline-flex items-center gap-1 rounded-sm border border-oastl-forest bg-oastl-forest text-oastl-cream px-4 py-2 hover:bg-oastl-canopy"
+    >
+      Download free PDF
+    </a>
+    {/* TODO[Dave]: replace href="#" with the Amazon listing URL when captured */}
+    <a
+      href="#"
+      data-todo="amazon-url"
+      class="inline-flex items-center gap-1 rounded-sm border border-oastl-forest/40 text-oastl-forest px-4 py-2 hover:border-oastl-gold hover:text-oastl-gold"
+    >
+      Order from Amazon
+    </a>
+  </div>
+</article>

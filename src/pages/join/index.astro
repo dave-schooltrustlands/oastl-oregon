@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+<BaseLayout
+  title="Join · OASTL"
+  description="Membership in OASTL is open to Oregon residents and nonprofits. Class A students, Class B grownups, Class C nonprofits, Class D — and the student co-plaintiff sign-up."
+  path="/join/"
+>
+  <PageHero
+    eyebrow="Join"
+    title="The coalition that holds Oregon to its constitutional duties."
+    dek="Membership is the legal and political infrastructure of accountability. Four classes; one mission."
+  />
+
+  <!-- Prominent Student Co-Plaintiff CTA -->
+  <section class="bg-oastl-forest text-oastl-cream">
+    <div class="mx-auto max-w-4xl px-5 py-14">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
+        Current campaign · Student plaintiffs
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl font-semibold leading-tight">
+        Enroll your child as a Class A member — and as a potential co-plaintiff.
+      </h2>
+      <p class="mt-4 text-[17px] text-oastl-cream/90 leading-relaxed font-serif max-w-3xl">
+        On January 28, 2026 the Oregon Court of Appeals confirmed that Oregon students have legal standing to enforce the Common School Fund. OASTL is now naming K-12 students as co-plaintiffs in the next phase of the case. Parents and guardians enroll on their behalf as Class A members ($1/year).
+      </p>
+      <a
+        href="#enroll"
+        class="mt-6 inline-flex items-center gap-2 bg-oastl-gold text-oastl-forest px-5 py-3 rounded-sm font-medium hover:bg-oastl-cream transition-colors"
+      >
+        Enroll a student →
+      </a>
+    </div>
+  </section>
+
+  <!-- The four classes -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-5xl px-5 py-16 space-y-10">
+
+      <article id="class-a" class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-8 scroll-mt-24">
+        <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">Class A</div>
+        <h3 class="mt-1 font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          Oregon Students <span class="text-oastl-ink/60 font-normal text-2xl">· K-12, ages ~4–18</span>
+        </h3>
+        <p class="mt-2 text-sm font-mono uppercase tracking-wide text-oastl-ink/60">Dues: $1 / year</p>
+        <p class="mt-4 text-[16px] text-oastl-ink/85 leading-relaxed">
+          The constitutional beneficiaries of the Common School Fund. Parents and legal guardians enroll Class A members on their behalf. Class A members are eligible to be named as co-plaintiffs in the active litigation.
+        </p>
+      </article>
+
+      <article id="class-b" class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-8 scroll-mt-24">
+        <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">Class B</div>
+        <h3 class="mt-1 font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          Oregon Grownups <span class="text-oastl-ink/60 font-normal text-2xl">· 18+</span>
+        </h3>
+        <p class="mt-2 text-sm font-mono uppercase tracking-wide text-oastl-ink/60">Dues: $5 / year</p>
+        <p class="mt-4 text-[16px] text-oastl-ink/85 leading-relaxed">
+          Parents, grandparents, teachers, PTA members, college students, principals, school-board members, superintendents — any Oregon resident 18 or older. Class B carries full voting membership in OASTL.
+        </p>
+      </article>
+
+      <article id="class-c" class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-8 scroll-mt-24">
+        <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">Class C</div>
+        <h3 class="mt-1 font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          Oregon Non-profits
+        </h3>
+        <p class="mt-2 text-sm font-mono uppercase tracking-wide text-oastl-ink/60" data-todo="class-c-dues">
+          Dues: TBD · pending board confirmation
+        </p>
+        <p class="mt-4 text-[16px] text-oastl-ink/85 leading-relaxed">
+          PTAs, school boards, individual schools, school districts, Oregon-based nonprofit organizations. Class C joins the coalition with organizational standing.
+        </p>
+      </article>
+
+      <article id="class-d" class="border border-dashed border-oastl-blueprint/40 bg-oastl-bone rounded-sm p-8 scroll-mt-24 text-oastl-ink/70">
+        <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-blueprint">Class D</div>
+        <h3 class="mt-1 font-serif text-3xl md:text-4xl font-semibold leading-tight">
+          Class D <span class="text-base font-mono uppercase text-oastl-blueprint">· Pending confirmation</span>
+        </h3>
+        <p class="mt-2 text-sm font-mono uppercase tracking-wide text-oastl-blueprint" data-todo="class-d-description">
+          Definition and dues pending
+        </p>
+        <p class="mt-4 text-[16px] leading-relaxed">
+          A fourth membership class exists in OASTL’s bylaws and was truncated in the source harvest. Definition, dues, and eligibility will be filled in once confirmed by the OASTL board secretary.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Enrollment form -->
+  <section id="enroll" class="bg-oastl-cream/40 border-t border-oastl-forest/15 scroll-mt-24">
+    <div class="mx-auto max-w-2xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Enrollment
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight mb-3">
+        Join the coalition.
+      </h2>
+      <p class="text-oastl-ink/80 leading-relaxed">
+        For v1, enrollment runs through a notify-me form. Payment integration (Stripe) is wired in v1.1; meanwhile we’ll respond by email with dues and confirmation.
+      </p>
+
+      <form
+        class="mt-6 grid gap-4 border border-oastl-forest/20 bg-oastl-bone rounded-sm p-6"
+        data-todo="wire-form-backend"
+        action="mailto:info@oastl.org"
+        method="post"
+        enctype="text/plain"
+      >
+        <label class="grid gap-1 text-sm">
+          <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Your name</span>
+          <input name="name" type="text" required class="border border-oastl-forest/30 rounded-sm px-3 py-2 bg-white" />
+        </label>
+        <label class="grid gap-1 text-sm">
+          <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Email</span>
+          <input name="email" type="email" required class="border border-oastl-forest/30 rounded-sm px-3 py-2 bg-white" />
+        </label>
+        <label class="grid gap-1 text-sm">
+          <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Membership class</span>
+          <select name="class" class="border border-oastl-forest/30 rounded-sm px-3 py-2 bg-white">
+            <option value="A">Class A — Oregon Student (parent enrolling on behalf)</option>
+            <option value="B">Class B — Oregon Grownup (18+)</option>
+            <option value="C">Class C — Oregon Non-profit</option>
+            <option value="D">Class D — Other / ask us</option>
+          </select>
+        </label>
+        <label class="grid gap-1 text-sm">
+          <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">If enrolling a Class A student, the student’s first name</span>
+          <input name="student_first_name" type="text" class="border border-oastl-forest/30 rounded-sm px-3 py-2 bg-white" />
+        </label>
+        <label class="grid gap-1 text-sm">
+          <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Anything else we should know?</span>
+          <textarea name="note" rows="3" class="border border-oastl-forest/30 rounded-sm px-3 py-2 bg-white"></textarea>
+        </label>
+        <button
+          type="submit"
+          class="justify-self-start bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+        >
+          Send enrollment request
+        </button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

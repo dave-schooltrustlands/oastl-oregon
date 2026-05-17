@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PersonaCards from '../components/PersonaCards.astro';
+import StateTrackerTeaser from '../components/StateTrackerTeaser.astro';
+import LedgerCard from '../components/LedgerCard.astro';
+import FoundingBookCard from '../components/FoundingBookCard.astro';
+---
+<BaseLayout
+  title="OASTL — Oregon Advocates for School Trust Lands"
+  description="Schoolchildren have standing. On January 28, 2026 the Oregon Court of Appeals confirmed Oregon students can hold the State accountable for the Common School Fund. OASTL is recruiting student co-plaintiffs."
+  path="/"
+  ogTitle="Schoolchildren have standing — OASTL"
+  ogDescription="January 28, 2026: Oregon Court of Appeals reversed dismissal in Advocates for School Trust Lands v. State of Oregon."
+>
+  <!-- Band 1 — Court Victory Hero -->
+  <section class="relative overflow-hidden bg-oastl-forest text-oastl-cream">
+    <!-- Pacific Northwest evergreen silhouette as low-opacity SVG backdrop -->
+    <svg
+      class="absolute inset-x-0 bottom-0 w-full h-72 opacity-20 pointer-events-none"
+      viewBox="0 0 1200 200"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <!-- Coastal-range silhouette: layered triangles representing Pacific Northwest evergreens -->
+      <polygon points="0,200 60,80 120,200" fill="#EFE6D2" />
+      <polygon points="80,200 160,40 240,200" fill="#EFE6D2" />
+      <polygon points="200,200 280,90 360,200" fill="#EFE6D2" />
+      <polygon points="320,200 420,30 520,200" fill="#EFE6D2" />
+      <polygon points="480,200 560,70 640,200" fill="#EFE6D2" />
+      <polygon points="600,200 700,50 800,200" fill="#EFE6D2" />
+      <polygon points="760,200 840,90 920,200" fill="#EFE6D2" />
+      <polygon points="880,200 980,30 1080,200" fill="#EFE6D2" />
+      <polygon points="1040,200 1120,70 1200,200" fill="#EFE6D2" />
+    </svg>
+    <div class="relative mx-auto max-w-6xl px-5 py-20 md:py-28">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-4">
+        January 28, 2026 · Oregon Court of Appeals
+      </div>
+      <h1 class="font-serif text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tight max-w-4xl">
+        Schoolchildren have standing.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-oastl-cream/90 leading-relaxed max-w-3xl">
+        The Court of Appeals reversed the dismissal of
+        <em>Advocates for School Trust Lands v. State of Oregon</em>,
+        confirming Oregon students have the legal right to hold the State accountable for the Common School Fund.
+        The case proceeds; we are recruiting student co-plaintiffs.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/legal-desk/"
+          class="inline-flex items-center gap-2 bg-oastl-gold text-oastl-forest px-5 py-3 rounded-sm font-medium hover:bg-oastl-cream transition-colors"
+        >
+          Read the ruling →
+        </a>
+        <a
+          href="/join/#class-a"
+          class="inline-flex items-center gap-2 border border-oastl-cream/40 text-oastl-cream px-5 py-3 rounded-sm font-medium hover:border-oastl-gold hover:text-oastl-gold transition-colors"
+        >
+          Become a student co-plaintiff
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Band 2 — Why this exists -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-3xl px-5 py-16 md:py-20">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-3">
+        Why OASTL exists
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight tracking-tight">
+        A 167-year promise, and a 160-year drift.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          Oregon entered the Union in 1859. As part of the federal compact, Congress granted Oregon two sections out of every 36-section township for the perpetual support of the common schools. Most of those lands were sold by the end of the nineteenth century. The proceeds became the Common School Fund — held in trust, in perpetuity, for the schoolchildren of Oregon.
+        </p>
+        <p>
+          In the 1920s, a State Forester named Francis Elliott consolidated the remaining scattered school-trust lands into a single contiguous forest now known as the Elliott State Forest. The Common School Fund and the Elliott State Forest are the heart of Oregon’s surviving school-trust endowment.
+        </p>
+        <p>
+          OASTL exists because the trust has been broken, the funds redirected, and the beneficiaries — the schoolchildren — left without legal voice. <strong class="text-oastl-forest font-semibold">The January 2026 appellate ruling changes the last part of that sentence.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Band 3 — Persona entry cards -->
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="mb-8">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+          Where you fit
+        </div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+          Four ways into the work.
+        </h2>
+      </div>
+      <PersonaCards />
+    </div>
+  </section>
+
+  <!-- Band 4 — Oregon in the national context (state-tracker teaser) -->
+  <StateTrackerTeaser />
+
+  <!-- Band 5 — Founding scholarship + recent victory link -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-6xl px-5 py-16 md:py-20">
+      <div class="mb-8">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+          The record
+        </div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+          The book that made the argument. The ruling that confirmed it.
+        </h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <FoundingBookCard variant="compact" />
+        <LedgerCard
+          eyebrow="January 28, 2026"
+          title="Court of Appeals reverses dismissal"
+          href="/legal-desk/"
+          tone="forest"
+        >
+          <p>
+            <em>Advocates for School Trust Lands v. State of Oregon</em>. Lead Appellate Counsel Natalie Scott of The Scott Law Group argued the case at Corvallis High School — the "Corvallis Effect" of putting student beneficiaries visibly in the room.
+          </p>
+          <p class="mt-3 text-oastl-cream/90">
+            The opinion is precedential. Read the full account on the Legal Desk. <span class="text-oastl-gold">→</span>
+          </p>
+        </LedgerCard>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

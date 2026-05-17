@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+import TrusteeDuties from '../../components/TrusteeDuties.astro';
+import CrossBridge from '../../components/CrossBridge.astro';
+---
+<BaseLayout
+  title="Legal Desk · OASTL"
+  description="Where the Oregon school-trust case is documented, tracked, and pursued. Court of Appeals ruling, lead counsel, current campaign, and the trustee-duties framework that grounds the litigation."
+  path="/legal-desk/"
+>
+  <PageHero
+    eyebrow="Legal Desk"
+    title="Where the Oregon case is documented, tracked, and pursued."
+    dek="The legal record is the spine of OASTL’s work. This is the page beneficiaries, journalists, and future plaintiffs come back to."
+  />
+
+  <!-- Section 1 — January 28, 2026 ruling -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-2">
+        Section 1 · The ruling
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        January 28, 2026 — <em>Advocates for School Trust Lands v. State of Oregon</em>
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          On January 28, 2026, the Oregon Court of Appeals issued a precedential ruling in
+          <em>Advocates for School Trust Lands v. State of Oregon</em>. The Court reversed the trial court’s dismissal of OASTL’s suit and held that Oregon schoolchildren — the beneficiaries of the Common School Fund — have legal standing to hold the State accountable for the management of the trust.
+        </p>
+        <p>
+          The reversal is a watershed for trust-lands litigation nationwide. For more than a century, the consistent procedural defense across the twenty trust-lands states has been that beneficiaries cannot sue. After January 28, 2026, that defense is no longer available in Oregon.
+        </p>
+        <p>
+          The case now proceeds on the merits. OASTL is recruiting K-12 student co-plaintiffs whose names will appear in the next filings.
+        </p>
+      </div>
+
+      <div class="mt-6 inline-block border border-oastl-blueprint/40 bg-oastl-cream/40 rounded-sm px-4 py-3 text-sm text-oastl-ink/80">
+        {/* TODO[Dave]: insert link to the published opinion PDF once URL is captured */}
+        <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-blueprint">Pending</span>
+        <span class="ml-2">Court opinion PDF — link to follow when Dave provides the URL.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 — Lead Appellate Counsel -->
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Section 2 · Lead Appellate Counsel
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+        Natalie Scott — The Scott Law Group
+      </h2>
+
+      <LedgerCard tone="bone" class="mt-6">
+        <div class="space-y-4 text-[16px] leading-relaxed">
+          <p>
+            <strong>Natalie Scott</strong>, founder of <strong>The Scott Law Group</strong>, served as Lead Appellate Counsel in the case OASTL won on January 28, 2026. Her brief and oral argument carried the standing question across the line.
+          </p>
+          <p>
+            <strong>The Corvallis Effect.</strong> Oral arguments in the case were held at Corvallis High School with a student audience present. The strategic choice put the beneficiaries — Oregon schoolchildren — visibly in the room while the standing question was argued. Lawyers, journalists, and judges have remarked on the effect.
+          </p>
+          <p>
+            <strong>The argument.</strong> Oregon’s constitutional duties to its schools are legally enforceable by the students themselves. Where the State has redirected the trust corpus or its income away from the common schools, the beneficiaries — not just a hypothetical attorney general — can sue.
+          </p>
+        </div>
+      </LedgerCard>
+    </div>
+  </section>
+
+  <!-- Section 3 — Current campaign -->
+  <section class="bg-oastl-forest text-oastl-cream">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-2">
+        Section 3 · Current campaign
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-cream font-semibold leading-tight">
+        Recruiting K-12 student co-plaintiffs.
+      </h2>
+      <p class="mt-5 text-[17px] text-oastl-cream/90 leading-relaxed font-serif">
+        The next phase of the litigation names Oregon students as co-plaintiffs. Parents and guardians enroll on behalf of their children as Class A members ($1/year). Class A is the practical bridge between a family who cares and a student named in the case caption.
+      </p>
+      <a
+        href="/join/#class-a"
+        class="mt-7 inline-flex items-center gap-2 bg-oastl-gold text-oastl-forest px-5 py-3 rounded-sm font-medium hover:bg-oastl-cream transition-colors"
+      >
+        Become a student co-plaintiff →
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 4 — Six duties of a trustee -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-5xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Section 4 · The framework
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+        The six duties of a trustee.
+      </h2>
+      <p class="mt-4 text-oastl-ink/80 max-w-3xl leading-relaxed">
+        Trust law is older than Oregon and older than the United States. It speaks in six duties. Together they tell you what the State of Oregon owes its schoolchildren — and where the failures lie.
+      </p>
+      <div class="mt-8">
+        <TrusteeDuties />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 — Cross-bridge to Library Court Room -->
+  <section class="bg-oastl-cream/40 border-t border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Section 5 · The broader record
+      </div>
+      <h2 class="font-serif text-2xl md:text-3xl text-oastl-ink font-semibold leading-tight mb-6">
+        For the historical legal record across all twenty trust-lands states, the Library keeps a Court Room.
+      </h2>
+      <CrossBridge
+        building="The Library"
+        href="https://schooltrusts.net/court/"
+        prompt="Open the Library’s Court Room"
+        note="Centuries of trust-lands jurisprudence, organized for scholars and litigators."
+      />
+    </div>
+  </section>
+</BaseLayout>

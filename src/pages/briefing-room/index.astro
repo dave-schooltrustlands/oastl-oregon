@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FactRail from '../../components/FactRail.astro';
+import CrossBridge from '../../components/CrossBridge.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+
+const facts = [
+  { label: 'Admitted', value: 'Feb 14, 1859' },
+  { label: 'Federal grant', value: '~3.4M acres' },
+  { label: 'CSF corpus', value: '~$2.0B (Jun 2025)' },
+  { label: 'FY2025 distribution', value: '$76.8M' },
+  { label: 'Status', value: 'Active litigation' },
+];
+---
+<BaseLayout
+  title="Briefing Room · OASTL"
+  description="OASTL’s Oregon dossier: Common School Fund, Elliott State Forest, the legal record, and what recovery looks like."
+  path="/briefing-room/"
+>
+  <!-- 1 — Masthead -->
+  <section class="relative bg-oastl-forest text-oastl-cream overflow-hidden">
+    <!-- Elliott-forest evergreen silhouette band -->
+    <svg
+      class="absolute inset-x-0 bottom-0 w-full h-44 opacity-25 pointer-events-none"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <polygon points="0,120 50,40 100,120" fill="#EFE6D2" />
+      <polygon points="80,120 160,20 240,120" fill="#EFE6D2" />
+      <polygon points="220,120 300,50 380,120" fill="#EFE6D2" />
+      <polygon points="360,120 440,15 520,120" fill="#EFE6D2" />
+      <polygon points="500,120 580,45 660,120" fill="#EFE6D2" />
+      <polygon points="640,120 720,25 800,120" fill="#EFE6D2" />
+      <polygon points="780,120 860,55 940,120" fill="#EFE6D2" />
+      <polygon points="920,120 1000,15 1080,120" fill="#EFE6D2" />
+      <polygon points="1060,120 1140,45 1200,120" fill="#EFE6D2" />
+    </svg>
+    <div class="relative mx-auto max-w-6xl px-5 py-16 md:py-20">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
+        Briefing Room · Oregon dossier
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight tracking-tight max-w-4xl">
+        Oregon is the live test case for whether schoolchildren can legally hold a state accountable for school-trust mismanagement.
+      </h1>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone border-b border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-10">
+      <FactRail facts={facts} />
+    </div>
+  </section>
+
+  <!-- 2 — The Common School Fund -->
+  <section id="csf" class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">§1</div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        The Common School Fund
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          On admission to the Union in 1859, Oregon received from the federal government two sections of land out of every 36-section township — Sections 16 and 36 — for the perpetual support of common schools. The grant totaled roughly 3.4 million acres.
+        </p>
+        <p>
+          Across the second half of the nineteenth century, most of these lands were sold. The proceeds were not spent; they were placed in a permanent trust — the Common School Fund — to be invested and to distribute earnings, in perpetuity, to the beneficiaries: Oregon’s public schoolchildren.
+        </p>
+        <p>
+          As of June 30, 2025, the Common School Fund stood at roughly $2.0 billion in corpus. FY2025 distributions to schools totaled approximately $76.8 million.
+        </p>
+        <p>
+          <strong class="text-oastl-forest">The decoupling problem.</strong> Over time, large portions of revenue that should flow to schools have been redirected, diluted, or absorbed into general state programs. OASTL’s position is that this is not a policy disagreement; it is a breach of the duty to pay income to the beneficiary.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 — Elliott State Forest -->
+  <section id="elliott" class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">§2</div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        The Elliott State Forest
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          Around 1920, a State Forester named <strong>Francis Elliott</strong> recognized that scattered school-trust parcels would never function as a productive endowment. He proposed — and over the following years achieved — a consolidation by federal exchange. The result was a single contiguous forest on the southern Oregon coast: the Elliott State Forest, the surviving heart of Oregon’s school-trust real assets.
+        </p>
+        <p>
+          <strong>Jerry Phillips</strong> joined the Elliott as a forester in 1956 and retired as its long-term manager in 1989. His book — written from inside the forest he managed — remains the standard reference. The Field Station keeps it online and free.
+        </p>
+        <p>
+          <strong>The Elliott State Research Forest Authority controversy.</strong> Recent proposals have moved the Elliott toward research-only / passive management. OASTL takes a substantive editorial position against that direction.
+        </p>
+      </div>
+
+      <LedgerCard tone="cream" class="mt-8">
+        <div class="space-y-3">
+          <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">OASTL editorial position</div>
+          <h3 class="font-serif text-xl text-oastl-forest font-semibold">Active management for sustained yield and fire resilience.</h3>
+          <p>
+            Passive management accumulates flammable carbon. Under Pacific Northwest conditions, that load eventually burns. Active management — harvest, thinning, road maintenance, salvage — keeps the forest productive for the beneficiaries and lowers catastrophic-fire risk for the watershed and the communities downstream.
+          </p>
+          <p>
+            As historian John Barry has put it: <em>“When you mix science and politics, you get politics.”</em>
+            OASTL’s view is that the research-only frame substitutes a political preference for the trustee’s fiduciary obligation to make trust property productive.
+          </p>
+        </div>
+      </LedgerCard>
+
+      <div class="mt-8">
+        <CrossBridge
+          building="ORWW Field Station"
+          href="http://orww.org"
+          prompt="Visit the Field Station archive"
+          note="Jerry Phillips’s book on the Elliott, Gould-McClay family records, and decades of Bob Zybach’s Pacific Northwest forestry research — kept online by ORWW."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 — The legal record -->
+  <section id="legal-record" class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">§3</div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        The legal record
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          The active case is <em>Advocates for School Trust Lands v. State of Oregon</em>. On January 28, 2026, the Oregon Court of Appeals reversed dismissal and confirmed the standing of Oregon schoolchildren as beneficiaries entitled to enforce the trust. The case proceeds on the merits with Natalie Scott of The Scott Law Group as Lead Appellate Counsel.
+        </p>
+      </div>
+      <a
+        href="/legal-desk/"
+        class="mt-6 inline-flex items-center gap-2 text-oastl-action font-medium hover:text-oastl-gold"
+      >
+        See the Legal Desk for the full case file →
+      </a>
+    </div>
+  </section>
+
+  <!-- 5 — What recovery looks like -->
+  <section id="recovery" class="bg-oastl-forest text-oastl-cream">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-2">§4</div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-cream font-semibold leading-tight">
+        What recovery looks like
+      </h2>
+      <ul class="mt-6 space-y-4 text-[17px] text-oastl-cream/90 leading-relaxed font-serif">
+        <li>
+          <strong class="text-oastl-gold">Enforceable trustee duties.</strong> A judicial determination that the six duties are legally binding on the State as trustee — not optional, not aspirational.
+        </li>
+        <li>
+          <strong class="text-oastl-gold">Transparent accounting.</strong> A public, auditable ledger that tracks where every dollar of Common School Fund income goes — and where it should have gone.
+        </li>
+        <li>
+          <strong class="text-oastl-gold">Beneficiary-tracked distribution.</strong> Distribution mechanics designed so the schoolchildren who are the beneficiaries can see, year over year, what they received from the trust.
+        </li>
+        <li>
+          <strong class="text-oastl-gold">Active management of the Elliott.</strong> Sustained yield and fire-resilience management of the Elliott State Forest, restoring its function as a working endowment for Oregon’s common schools.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- National context cross-bridge -->
+  <section class="bg-oastl-cream/40 border-t border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <h2 class="font-serif text-2xl md:text-3xl text-oastl-ink font-semibold leading-tight mb-6">
+        Oregon is one of twenty trust-lands states.
+      </h2>
+      <CrossBridge
+        building="ASTL National"
+        href="https://schooltrustlands.net/state-tracker/"
+        prompt="See Oregon in the national context"
+        note="ASTL’s State Tracker compares all twenty trust-lands states on grant size, corpus, distribution mechanics, and reform status."
+      />
+    </div>
+  </section>
+</BaseLayout>

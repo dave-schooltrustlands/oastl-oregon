@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const board = [
+  {
+    name: 'Margaret Bird',
+    role: 'Director · Co-author, founding scholarship',
+    bio: 'Co-author of <em>Oregon’s Constitutional Duties to Schools</em> (2025). Also co-author of <em>Schools of the Republic</em> at the Library. Longtime school-trust-lands scholar; one of the foundational voices on beneficiary enforcement of trust-lands duties.',
+  },
+  {
+    name: 'Dave Sullivan',
+    role: 'President · Co-author, founding scholarship',
+    bio: 'President of OASTL. Co-author of <em>Oregon’s Constitutional Duties to Schools</em> (2025). Co-architect of the broader Eighth Anchor Institute campus, of which OASTL is the Oregon chapter.',
+  },
+  {
+    name: 'Bob Zybach',
+    role: 'Director · Pacific Northwest forestry',
+    bio: 'Maintainer of ORWW Field Station — the Pacific Northwest forestry and Elliott State Forest historical archive. Decades of research on Oregon coastal-range forest history; keeper of Jerry Phillips’s Elliott book online.',
+  },
+];
+---
+<BaseLayout
+  title="Coalition Table · OASTL"
+  description="The OASTL Board of Directors — volunteers enforcing Oregon’s constitutional duties to public schools."
+  path="/coalition-table/"
+>
+  <PageHero
+    eyebrow="Coalition Table"
+    title="Volunteers, accountable to the beneficiaries."
+    dek="OASTL is governed by volunteers dedicated to enforcing Oregon’s constitutional duties to public schools. The board brings together expertise in constitutional law, forestry science, trust management, and education policy."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Board of Directors
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight mb-10">
+        Named members of the OASTL board.
+      </h2>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        {board.map((m) => (
+          <article class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-6">
+            <h3 class="font-serif text-2xl text-oastl-forest font-semibold leading-tight">{m.name}</h3>
+            <div class="mt-1 font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">
+              {m.role}
+            </div>
+            <p class="mt-4 text-[15px] text-oastl-ink/85 leading-relaxed" set:html={m.bio} />
+          </article>
+        ))}
+
+        {/* Placeholder cards for the remaining unconfirmed board members.
+            TODO[Dave]: confirm full roster (3-5 additional names + bios). */}
+        {[0, 1, 2].map((i) => (
+          <article
+            data-todo="board-member"
+            class="border border-dashed border-oastl-blueprint/40 bg-oastl-bone rounded-sm p-6 text-oastl-ink/55"
+          >
+            <h3 class="font-serif text-2xl font-semibold leading-tight">Additional director</h3>
+            <div class="mt-1 font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-blueprint">
+              Pending confirmation
+            </div>
+            <p class="mt-4 text-[15px] leading-relaxed">
+              Placeholder card. The full OASTL roster includes additional volunteer directors whose names and bios will be added here once confirmed by the board secretary.
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-12 border border-oastl-forest/15 bg-oastl-cream/40 rounded-sm p-6 text-sm text-oastl-ink/80">
+        <strong class="text-oastl-forest">Governance note.</strong>
+        OASTL board members are volunteers. They receive no compensation. Bylaws are modeled after the bylaws of Advocates for School Trust Lands (ASTL) National. The IRS 501(c)(3) determination letter and bylaws are available on request to <a href="mailto:info@oastl.org" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">info@oastl.org</a>.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

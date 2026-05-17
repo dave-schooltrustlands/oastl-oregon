@@ -1,0 +1,23 @@
+---
+export interface Props {
+  building: string;
+  href: string;
+  prompt: string;
+  note?: string;
+}
+const { building, href, prompt, note } = Astro.props;
+---
+<a
+  href={href}
+  class="block group border border-oastl-blueprint/30 bg-oastl-bone rounded-sm p-5 hover:border-oastl-gold transition-colors"
+>
+  <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-blueprint mb-2">
+    Cross-bridge → {building}
+  </div>
+  <div class="font-serif text-lg text-oastl-ink group-hover:text-oastl-forest leading-snug">
+    {prompt} <span class="text-oastl-gold">→</span>
+  </div>
+  {note && (
+    <div class="mt-2 text-sm text-oastl-ink/60 leading-relaxed">{note}</div>
+  )}
+</a>

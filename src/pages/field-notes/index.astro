@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CrossBridge from '../../components/CrossBridge.astro';
+---
+<BaseLayout
+  title="Field Notes · OASTL"
+  description="OASTL Field Notes — short updates from the Oregon school-trust beat. Section under construction."
+  path="/field-notes/"
+>
+  <PageHero
+    eyebrow="Field Notes"
+    title="Short updates from the Oregon school-trust beat."
+    dek="A working journal — court hearings, Common School Fund disclosures, Elliott State Forest news, coalition activity. Coming online with v1.1."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-3xl px-5 py-16">
+      <div class="border border-dashed border-oastl-blueprint/40 bg-oastl-cream/30 rounded-sm p-8 text-oastl-ink/80">
+        <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-blueprint mb-3">
+          Section under construction
+        </div>
+        <h2 class="font-serif text-2xl text-oastl-forest font-semibold leading-tight">
+          The first Field Notes will land alongside the case-merits filings.
+        </h2>
+        <p class="mt-4 leading-relaxed">
+          In the meantime, the most recent material is on the Legal Desk and in the Briefing Room. To be notified when Field Notes go live, drop a line to <a href="mailto:info@oastl.org" class="text-oastl-action hover:text-oastl-gold underline decoration-oastl-gold/40">info@oastl.org</a>.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-4">
+        <CrossBridge
+          building="OASTL · Legal Desk"
+          href="/legal-desk/"
+          prompt="The January 28, 2026 ruling and the active case file"
+        />
+        <CrossBridge
+          building="OASTL · Briefing Room"
+          href="/briefing-room/"
+          prompt="The Oregon dossier — Common School Fund, Elliott, recovery program"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

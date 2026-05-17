@@ -1,0 +1,14 @@
+---
+export interface Props {
+  facts: Array<{ label: string; value: string }>;
+}
+const { facts } = Astro.props;
+---
+<dl class="grid grid-cols-2 md:grid-cols-5 gap-px bg-oastl-forest/20 border border-oastl-forest/20 rounded-sm overflow-hidden">
+  {facts.map((f) => (
+    <div class="bg-oastl-bone p-4">
+      <dt class="font-mono text-[9px] tracking-[0.22em] uppercase text-oastl-forest mb-1">{f.label}</dt>
+      <dd class="font-serif text-lg leading-tight text-oastl-ink">{f.value}</dd>
+    </div>
+  ))}
+</dl>
