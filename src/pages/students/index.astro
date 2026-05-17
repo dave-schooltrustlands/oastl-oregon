@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+---
+<BaseLayout
+  title="Students · OASTL"
+  description="Stand for your future: Oregon students are eligible to be named co-plaintiffs in the school-trust-lands case. Zero cost, zero risk, reviewed by OASTL’s General Counsel."
+  path="/students/"
+>
+  <PageHero
+    variant="dark"
+    eyebrow="Student Sign-Up"
+    title="Stand for Your Future: Join the Lawsuit."
+    dek="The Court of Appeals has ruled: Oregon students have the right to sue for their own future. Now, we need student co-plaintiffs."
+  />
+
+  <!-- The Corvallis Effect -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Why We Need You
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        The “Corvallis Effect.”
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          On January 28, 2026, we won a historic victory. The Oregon Court of Appeals ruled that students have standing to sue.
+        </p>
+        <p>
+          We won that ruling in part because the hearing was held at <strong>Corvallis High School</strong>, with real students in the audience. Their presence reminded the judges that this case isn’t about theory — it’s about real people, real students.
+        </p>
+        <p>
+          To win the final victory, we need to show the court that students across Oregon are watching.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Join -->
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-5xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Why Join?
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+        What it means to be a plaintiff.
+      </h2>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <div class="border border-oastl-forest/20 bg-oastl-bone rounded-sm p-6">
+          <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-2">01 · Protect the Legacy</div>
+          <p class="text-[15px] text-oastl-ink/85 leading-relaxed">
+            Help ensure that the millions of acres of School Trust Lands are managed for <strong>schools</strong>, not political projects.
+          </p>
+        </div>
+        <div class="border border-oastl-forest/20 bg-oastl-bone rounded-sm p-6">
+          <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-2">02 · Civics in Action</div>
+          <p class="text-[15px] text-oastl-ink/85 leading-relaxed">
+            A rare chance to participate in a constitutional lawsuit from the inside.
+          </p>
+        </div>
+        <div class="border border-oastl-forest/20 bg-oastl-bone rounded-sm p-6">
+          <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-2">03 · Zero Cost &amp; Zero Risk</div>
+          <p class="text-[15px] text-oastl-ink/85 leading-relaxed">
+            OASTL covers all legal fees. You are a beneficiary fighting for your rights, not a defendant.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety Check for Parents -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        For Parents
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+        Safety Check.
+      </h2>
+
+      <LedgerCard tone="cream" class="mt-6">
+        <div class="space-y-4 text-[16px] leading-relaxed">
+          <p>
+            Signing this form is an <strong>expression of interest only</strong>. It is not a binding legal contract.
+          </p>
+          <p>
+            Once you sign up, our General Counsel, <strong>Daniel Zene Crowe</strong>, will review your information. If we proceed, we will send you a formal engagement letter to review with you.
+          </p>
+          <p class="text-sm text-oastl-ink/70">
+            Read more about Mr. Crowe and the Pincer Movement strategy on the <a href="/legal-desk/" class="text-oastl-action hover:text-oastl-gold underline decoration-oastl-gold/40">Legal Desk</a>.
+          </p>
+        </div>
+      </LedgerCard>
+    </div>
+  </section>
+
+  <!-- Sign-up CTA -->
+  <section id="signup" class="bg-oastl-forest text-oastl-cream">
+    <div class="mx-auto max-w-3xl px-5 py-16 text-center">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
+        Sign Up
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl font-semibold leading-tight">
+        Ready to stand for your future?
+      </h2>
+      <p class="mt-4 text-[17px] text-oastl-cream/90 leading-relaxed font-serif">
+        Parents and legal guardians enroll Class A members on behalf of their K-12 students. Dues are $1/year — symbolic, to mark you as a beneficiary on the record.
+      </p>
+      <a
+        href="/join/#class-a"
+        class="mt-7 inline-flex items-center gap-2 bg-oastl-gold text-oastl-forest px-5 py-3 rounded-sm font-medium hover:bg-oastl-cream transition-colors"
+      >
+        Enroll a student co-plaintiff →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

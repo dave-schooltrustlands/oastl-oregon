@@ -1,34 +1,179 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
 ---
 <BaseLayout
   title="Donate · OASTL"
-  description="Donations to OASTL — a 501(c)(3) Oregon nonprofit — fund the litigation, scholarship, and coalition work that hold Oregon to its constitutional duties to public schools."
+  description="Fuel the fight to restore $40 million a year to Oregon schools. OASTL is a volunteer-driven 501(c)(3); donations process through Donorbox, by check, or as major gifts."
   path="/donate/"
 >
   <PageHero
+    variant="dark"
     eyebrow="Donate"
-    title="Fund the case. Fund the recovery."
-    dek="OASTL is a 501(c)(3) Oregon nonprofit. Donations fund the litigation, the scholarship, and the coalition work."
+    title="Fuel the Fight to Restore $40 Million a Year to Oregon Schools."
+    dek="A sacred trust has been broken. Help us hold the state accountable."
   />
 
+  <!-- Hero CTA -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-3xl px-5 py-16 text-center">
+      <a
+        href="https://donorbox.org/support-oastl"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 bg-oastl-gold text-oastl-forest text-lg px-8 py-4 rounded-sm font-semibold hover:bg-oastl-forest hover:text-oastl-cream transition-colors shadow-sm"
+      >
+        Donate Now →
+      </a>
+      <p class="mt-3 text-sm text-oastl-ink/60 font-mono uppercase tracking-wide">
+        Secure payment via Donorbox
+      </p>
+    </div>
+  </section>
+
+  <!-- Body: the case -->
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-3xl px-5 py-16 space-y-5 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+      <p>
+        Oregon made a constitutional promise: lands like the Elliott State Forest must fund public schools forever.
+      </p>
+      <p>
+        <strong>Today, that promise is being betrayed.</strong>
+      </p>
+      <p>
+        Due to political mismanagement and the recent “theft” of the 82,000-acre Elliott Forest, Oregon schools are deprived of $40 million per year.
+      </p>
+      <p class="text-oastl-forest font-semibold">
+        Our children are paying the price for political deals.
+      </p>
+    </div>
+  </section>
+
+  <!-- We Are Fighting Back -->
   <section class="bg-oastl-bone">
     <div class="mx-auto max-w-3xl px-5 py-16">
-      <div class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-8">
-        <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
-          Donate · v1
-        </div>
-        <h2 class="font-serif text-2xl md:text-3xl text-oastl-forest font-semibold leading-tight">
-          Payment integration arrives with v1.1.
-        </h2>
-        <p class="mt-4 text-oastl-ink/85 leading-relaxed">
-          For v1, please email <a href="mailto:info@oastl.org" class="text-oastl-action hover:text-oastl-gold underline decoration-oastl-gold/40">info@oastl.org</a> for donor instructions — including check, wire, and donor-advised-fund routing. A self-serve donation form will be added once Stripe is wired.
-        </p>
-        <p class="mt-3 text-sm text-oastl-ink/60">
-          OASTL is a 501(c)(3) nonprofit private foundation; donations are deductible to the extent allowed by law. IRS determination letter on file.
-        </p>
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        We Are Fighting Back
       </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        And we need your help.
+      </h2>
+      <p class="mt-5 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        OASTL, along with parents, students, and school districts, is taking legal action and launching a statewide campaign to restore this inheritance. Our goal is clear: reverse the Elliott sale and restore fiduciary stewardship.
+      </p>
+      <a
+        href="/legal-desk/"
+        class="mt-5 inline-flex items-center gap-2 text-oastl-action font-medium hover:text-oastl-gold"
+      >
+        See the Legal Desk for the active case →
+      </a>
+    </div>
+  </section>
+
+  <!-- Judge Combs quote -->
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-3xl px-5 py-16">
+      <blockquote class="border-l-4 border-oastl-gold pl-6">
+        <p class="font-serif text-2xl md:text-3xl italic text-oastl-ink/90 leading-snug">
+          “The court understands why plaintiffs would be frustrated. The Oregon legislature consistently underfunds public schools…”
+        </p>
+        <footer class="mt-4 font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-forest">
+          — <strong>Judge Andrew Combs</strong>, Coos County Circuit Court<br />
+          <span class="text-oastl-ink/60">(<em>Oregon’s Constitutional Duties to Schools</em>, p. 50)</span>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Other Ways to Support -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Other Ways to Support OASTL
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight mb-8">
+        Check, major gift, or membership.
+      </h2>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <LedgerCard tone="cream">
+          <div class="space-y-2">
+            <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Mail a Check</div>
+            <h3 class="font-serif text-lg text-oastl-forest font-semibold leading-snug">Make checks payable to OASTL.</h3>
+            <address class="mt-2 not-italic font-mono text-[13px] leading-relaxed text-oastl-ink/80">
+              OASTL<br />
+              c/o Dave Sullivan<br />
+              12875 Kings Valley Highway<br />
+              Monmouth, OR 97361
+            </address>
+          </div>
+        </LedgerCard>
+
+        <LedgerCard tone="cream">
+          <div class="space-y-2">
+            <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Major Gifts &amp; In-Kind</div>
+            <h3 class="font-serif text-lg text-oastl-forest font-semibold leading-snug">Legal, printing, marketing support.</h3>
+            <p class="text-[15px] text-oastl-ink/80 leading-relaxed">
+              Contact Dave Sullivan to discuss major gifts and professional in-kind support.
+            </p>
+            <p class="text-[14px] text-oastl-ink/75">
+              <a href="mailto:drdavesullivan@gmail.com" class="text-oastl-action hover:text-oastl-gold underline decoration-oastl-gold/40">drdavesullivan@gmail.com</a><br />
+              541-791-6470
+            </p>
+          </div>
+        </LedgerCard>
+
+        <LedgerCard tone="cream">
+          <div class="space-y-2">
+            <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Become a Member</div>
+            <h3 class="font-serif text-lg text-oastl-forest font-semibold leading-snug">Build the grassroots coalition.</h3>
+            <p class="text-[15px] text-oastl-ink/80 leading-relaxed">
+              Donations fund the fight; membership builds the political infrastructure.
+            </p>
+            <a href="/join/" class="inline-flex items-center gap-1 text-oastl-action hover:text-oastl-gold font-medium">
+              Join OASTL →
+            </a>
+          </div>
+        </LedgerCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Your Gift Does -->
+  <section class="bg-oastl-forest text-oastl-cream">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
+        What Your Gift Does
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl font-semibold leading-tight">
+        Three concrete uses for every donation.
+      </h2>
+      <ul class="mt-6 space-y-4 text-[17px] text-oastl-cream/90 leading-relaxed font-serif">
+        <li>
+          <strong class="text-oastl-gold">Research and legal filings</strong> that enforce Oregon’s constitutional duties to schools.
+        </li>
+        <li>
+          <strong class="text-oastl-gold">Public-education toolkits</strong> that help families, boards, and reporters understand the trust.
+        </li>
+        <li>
+          <strong class="text-oastl-gold">Coalition organizing</strong> so parents, educators, and partners can act together statewide.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Receipts / Legal -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-3xl px-5 py-12 space-y-4 text-sm text-oastl-ink/70 leading-relaxed">
+      <p>
+        <strong class="text-oastl-forest">Receipts &amp; Tax Status.</strong>
+        Donations are processed by Donorbox. You’ll receive an email receipt immediately. OASTL is a 501(c)(3) public charity. See <a href="/governance/" class="text-oastl-action hover:text-oastl-gold underline decoration-oastl-gold/40">Governance &amp; Founding Documents</a> for the IRS determination letter.
+      </p>
+      <p>
+        <strong class="text-oastl-forest">Legal Notice.</strong>
+        Information here is for public education and formal notice; it is not legal advice.
+      </p>
     </div>
   </section>
 </BaseLayout>

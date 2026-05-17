@@ -4,10 +4,56 @@ import PageHero from '../../components/PageHero.astro';
 import LedgerCard from '../../components/LedgerCard.astro';
 import TrusteeDuties from '../../components/TrusteeDuties.astro';
 import CrossBridge from '../../components/CrossBridge.astro';
+
+const evidence = [
+  {
+    title: "Defendants’ Answer",
+    filed: 'Oct 24, 2025',
+    significance:
+      'The “Smoking Gun”: State’s “No Duty” Defense. The State’s formal Answer explicitly denying all fiduciary duties.',
+    href: 'https://drive.google.com/file/d/1kX5b2rOlkfXKMAOwvcApp2_BDE71ZCZ8/view?usp=sharing',
+  },
+  {
+    title: 'First AMENDED Complaint',
+    filed: 'April 2025',
+    significance:
+      'Full complaint detailing the breaches of fiduciary duty, constitutional claims, and plaintiff classes.',
+    href: 'https://drive.google.com/file/d/1tzZuHvzqP7tnw7b6avW00di_R4whVZeL/view?usp=sharing',
+  },
+  {
+    title: 'The Full Case (background book)',
+    filed: '—',
+    significance:
+      'Comprehensive background on the legal and historical foundation of the Common School Fund.',
+    href: 'https://drive.google.com/file/d/1f0qdbfeM5owE-7t9Vz-lDWy183uBRebC/view?usp=sharing',
+  },
+  {
+    title: 'Letter Opinion Granting Standing',
+    filed: 'Mar 6, 2025',
+    significance:
+      'Court Order Affirming Plaintiff Standing. Affirmed standing for schools and students and allowed 2024 claims.',
+    href: 'https://drive.google.com/file/d/1FDKcmuE9_UfxynqxbHA9G79LyzQI76Bk/view?usp=sharing',
+  },
+  {
+    title: 'Letter Opinion Denying Motion to Dismiss',
+    filed: 'Sept 5, 2025',
+    significance:
+      "Judge Combs’s opinion affirming plaintiffs’ authority to sue and denying the State’s immunity defenses.",
+    href: 'https://drive.google.com/file/d/19KHkCavaX4qGmmjcX5ac3yf0tKgquPdv/view?usp=sharing',
+  },
+];
+
+const richardsonMapping = [
+  { left: 'Vineyard and grapes', right: 'Treefarm and trees' },
+  { left: 'Richardson Trust', right: 'Oregon Constitution Article VIII, establishing School Trust Lands and the Common School Fund' },
+  { left: 'Beaver State Bank', right: 'Oregon State Land Board' },
+  { left: 'Oregon Vineyard Management', right: 'Oregon Department of Forestry' },
+  { left: 'Beaver Consultants', right: 'Elliott State Research Forest Authority' },
+];
 ---
 <BaseLayout
   title="Legal Desk · OASTL"
-  description="Where the Oregon school-trust case is documented, tracked, and pursued. Court of Appeals ruling, lead counsel, current campaign, and the trustee-duties framework that grounds the litigation."
+  description="Where the Oregon school-trust case is documented, tracked, and pursued. Court of Appeals ruling, lead counsel, general counsel, the Pincer Movement strategy, Evidence Locker, six trustee duties, and the Richardson Trust case study."
   path="/legal-desk/"
 >
   <PageHero
@@ -16,19 +62,18 @@ import CrossBridge from '../../components/CrossBridge.astro';
     dek="The legal record is the spine of OASTL’s work. This is the page beneficiaries, journalists, and future plaintiffs come back to."
   />
 
-  <!-- Section 1 — January 28, 2026 ruling -->
+  <!-- Section 1 — Historic Victory -->
   <section class="bg-oastl-bone">
     <div class="mx-auto max-w-4xl px-5 py-16">
       <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-2">
-        Section 1 · The ruling
+        Section 1 · January 28, 2026 — Oregon Court of Appeals
       </div>
       <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
-        January 28, 2026 — <em>Advocates for School Trust Lands v. State of Oregon</em>
+        <em>Advocates for School Trust Lands v. State of Oregon</em>
       </h2>
       <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
         <p>
-          On January 28, 2026, the Oregon Court of Appeals issued a precedential ruling in
-          <em>Advocates for School Trust Lands v. State of Oregon</em>. The Court reversed the trial court’s dismissal of OASTL’s suit and held that Oregon schoolchildren — the beneficiaries of the Common School Fund — have legal standing to hold the State accountable for the management of the trust.
+          On January 28, 2026, the Oregon Court of Appeals issued a precedential ruling in <em>Advocates for School Trust Lands v. State of Oregon</em>. The Court reversed the trial court’s dismissal and held that Oregon schoolchildren — the beneficiaries of the Common School Fund — have legal standing to hold the State accountable for management of the trust.
         </p>
         <p>
           The reversal is a watershed for trust-lands litigation nationwide. For more than a century, the consistent procedural defense across the twenty trust-lands states has been that beneficiaries cannot sue. After January 28, 2026, that defense is no longer available in Oregon.
@@ -38,11 +83,14 @@ import CrossBridge from '../../components/CrossBridge.astro';
         </p>
       </div>
 
-      <div class="mt-6 inline-block border border-oastl-blueprint/40 bg-oastl-cream/40 rounded-sm px-4 py-3 text-sm text-oastl-ink/80">
-        {/* TODO[Dave]: insert link to the published opinion PDF once URL is captured */}
-        <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-blueprint">Pending</span>
-        <span class="ml-2">Court opinion PDF — link to follow when Dave provides the URL.</span>
-      </div>
+      <a
+        href="https://drive.google.com/file/d/1sRp0okzyIkRvVgUZvOlfM_Bcxp3rj0eI/view?usp=drive_link"
+        target="_blank"
+        rel="noopener"
+        class="mt-6 inline-flex items-center gap-2 bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+      >
+        Read the Court Opinion (PDF) →
+      </a>
     </div>
   </section>
 
@@ -62,7 +110,10 @@ import CrossBridge from '../../components/CrossBridge.astro';
             <strong>Natalie Scott</strong>, founder of <strong>The Scott Law Group</strong>, served as Lead Appellate Counsel in the case OASTL won on January 28, 2026. Her brief and oral argument carried the standing question across the line.
           </p>
           <p>
-            <strong>The Corvallis Effect.</strong> Oral arguments in the case were held at Corvallis High School with a student audience present. The strategic choice put the beneficiaries — Oregon schoolchildren — visibly in the room while the standing question was argued. Lawyers, journalists, and judges have remarked on the effect.
+            Natalie graduated <strong>summa cum laude</strong> from the University of Oregon School of Law and previously clerked for <strong>Judge David Brewer on the Oregon Court of Appeals</strong>.
+          </p>
+          <p>
+            <strong>The Corvallis Effect.</strong> Oral arguments were held at Corvallis High School with a student audience present. The strategic choice put the beneficiaries — Oregon schoolchildren — visibly in the room while the standing question was argued. Lawyers, journalists, and judges have remarked on the effect.
           </p>
           <p>
             <strong>The argument.</strong> Oregon’s constitutional duties to its schools are legally enforceable by the students themselves. Where the State has redirected the trust corpus or its income away from the common schools, the beneficiaries — not just a hypothetical attorney general — can sue.
@@ -72,54 +123,251 @@ import CrossBridge from '../../components/CrossBridge.astro';
     </div>
   </section>
 
-  <!-- Section 3 — Current campaign -->
-  <section class="bg-oastl-forest text-oastl-cream">
+  <!-- Section 3 — General Counsel: Daniel Zene Crowe -->
+  <section class="bg-oastl-bone">
     <div class="mx-auto max-w-4xl px-5 py-16">
-      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-2">
-        Section 3 · Current campaign
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Section 3 · General Counsel
       </div>
-      <h2 class="font-serif text-3xl md:text-4xl text-oastl-cream font-semibold leading-tight">
-        Recruiting K-12 student co-plaintiffs.
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+        Daniel Zene Crowe — leading the expanded legal offensive
       </h2>
-      <p class="mt-5 text-[17px] text-oastl-cream/90 leading-relaxed font-serif">
-        The next phase of the litigation names Oregon students as co-plaintiffs. Parents and guardians enroll on behalf of their children as Class A members ($1/year). Class A is the practical bridge between a family who cares and a student named in the case caption.
-      </p>
-      <a
-        href="/join/#class-a"
-        class="mt-7 inline-flex items-center gap-2 bg-oastl-gold text-oastl-forest px-5 py-3 rounded-sm font-medium hover:bg-oastl-cream transition-colors"
-      >
-        Become a student co-plaintiff →
-      </a>
+
+      <LedgerCard tone="cream" class="mt-6">
+        <div class="space-y-5 text-[16px] leading-relaxed">
+          <p>
+            Daniel Zene Crowe has been retained as OASTL’s General Counsel to lead the expanded legal offensive against the State of Oregon.
+          </p>
+
+          <div>
+            <h3 class="font-serif text-xl text-oastl-forest font-semibold mb-2">Background &amp; Expertise</h3>
+            <ul class="list-disc pl-5 space-y-2">
+              <li>
+                <strong>Constitutional Litigator.</strong> Nationally recognized advocate for constitutional rights. Successfully challenged <em>Crowe v. Oregon State Bar</em>. Not afraid to take on the State’s most powerful agencies.
+              </li>
+              <li>
+                <strong>Military Leadership.</strong> West Point graduate. Army Ranger. Retired Lieutenant Colonel. Served as a JAG officer.
+              </li>
+              <li>
+                <strong>Public Service.</strong> Oregon’s inaugural Veterans’ Advocate. Sat on the Mt. Angel School Board.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-serif text-xl text-oastl-forest font-semibold mb-2">The Strategy: A “Pincer Movement”</h3>
+            <p>
+              Building on the foundational victory secured by attorney Natalie Scott, Mr. Crowe is executing a two-pronged strategy:
+            </p>
+            <ul class="mt-3 list-disc pl-5 space-y-2">
+              <li>
+                <strong>The Broad Front (Constitutional Challenge).</strong> Leveraging the recent Court of Appeals victory to establish that the State has violated its fiduciary duties.
+              </li>
+              <li>
+                <strong>The Precision Strike (Forensic Investigation).</strong> Launching a targeted legal discovery process to expose the specific accounting failures and mismanagement.
+              </li>
+            </ul>
+          </div>
+
+          <blockquote class="border-l-4 border-oastl-gold pl-4 italic text-oastl-ink/85">
+            “We are no longer just arguing policy; we are demanding the math. The State acts as a trustee for our children.”
+            <footer class="not-italic mt-2 font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-forest">
+              — Daniel Zene Crowe, General Counsel, OASTL
+            </footer>
+          </blockquote>
+        </div>
+      </LedgerCard>
     </div>
   </section>
 
-  <!-- Section 4 — Six duties of a trustee -->
+  <!-- Section 4 — Board of Director's Perspective: Laura Cooper -->
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Section 4 · Board of Director’s Perspective
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+        Laura D. Cooper, OSB# 863589
+      </h2>
+
+      <LedgerCard tone="bone" class="mt-6">
+        <div class="space-y-4 text-[16px] leading-relaxed">
+          <p>
+            Ms. Cooper serves on the OASTL Board of Directors. She was admitted to the Oregon State Bar in <span data-todo="cooper-admission-year">[year pending]</span> and brings decades of high-level legal experience in civil rights and complex litigation. She is a former General Counsel for the Pain Relief Network and counsel for additional civil rights organizations.
+          </p>
+
+          <blockquote class="border-l-4 border-oastl-gold pl-4 italic text-oastl-ink/85">
+            “As an attorney, you rarely see a constitutional question this clean and ready for adjudication.”
+            <footer class="not-italic mt-2 font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-forest">
+              — Laura Cooper, OSB# 863589
+            </footer>
+          </blockquote>
+        </div>
+      </LedgerCard>
+    </div>
+  </section>
+
+  <!-- Section 5 — Six Duties of a Trustee -->
   <section class="bg-oastl-bone">
     <div class="mx-auto max-w-5xl px-5 py-16">
       <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
-        Section 4 · The framework
+        Section 5 · The Framework
       </div>
       <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
         The six duties of a trustee.
       </h2>
       <p class="mt-4 text-oastl-ink/80 max-w-3xl leading-relaxed">
-        Trust law is older than Oregon and older than the United States. It speaks in six duties. Together they tell you what the State of Oregon owes its schoolchildren — and where the failures lie.
+        Trust law is older than Oregon and older than the United States. It speaks in six duties. Together they tell you what the State of Oregon owes Oregon’s schoolchildren — and has failed to deliver.
       </p>
       <div class="mt-8">
         <TrusteeDuties />
       </div>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-2">
+        <div class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-5">
+          <h3 class="font-serif text-lg text-oastl-forest font-semibold">1. Undivided Loyalty to the Beneficiary</h3>
+          <p class="mt-2 text-[15px] text-oastl-ink/80 leading-relaxed">
+            The trustee may act only for the schoolchildren’s benefit — not for the State’s general fund, not for political agendas, not for environmental ideology untethered from trust law.
+          </p>
+        </div>
+        <div class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-5">
+          <h3 class="font-serif text-lg text-oastl-forest font-semibold">2. Preserve Trust Property</h3>
+          <p class="mt-2 text-[15px] text-oastl-ink/80 leading-relaxed">
+            The 3.8 million acres granted in trust at statehood must remain trust property in perpetuity; the trustee cannot allow them to be conveyed below market value or repurposed.
+          </p>
+        </div>
+        <div class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-5">
+          <h3 class="font-serif text-lg text-oastl-forest font-semibold">3. Reasonable Care and Skill</h3>
+          <p class="mt-2 text-[15px] text-oastl-ink/80 leading-relaxed">
+            The trustee must apply the standard of care a prudent trustee would apply to the management of irreplaceable trust assets.
+          </p>
+        </div>
+        <div class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-5">
+          <h3 class="font-serif text-lg text-oastl-forest font-semibold">4. Make Trust Property Productive</h3>
+          <p class="mt-2 text-[15px] text-oastl-ink/80 leading-relaxed">
+            The trustee must generate revenue from the trust for the beneficiaries. Operating at a net loss violates this duty.
+          </p>
+        </div>
+        <div class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-5">
+          <h3 class="font-serif text-lg text-oastl-forest font-semibold">5. Take and Keep Exclusive Control</h3>
+          <p class="mt-2 text-[15px] text-oastl-ink/80 leading-relaxed">
+            The trustee may not delegate its core fiduciary functions to political bodies, advisory committees, or outside entities in ways that compromise trust integrity.
+          </p>
+        </div>
+        <div class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-5">
+          <h3 class="font-serif text-lg text-oastl-forest font-semibold">6. Pay Income to Beneficiary</h3>
+          <p class="mt-2 text-[15px] text-oastl-ink/80 leading-relaxed">
+            Revenue generated by the trust must flow to the schools, not be redirected to non-school purposes.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Section 5 — Cross-bridge to Library Court Room -->
+  <!-- Section 6 — Educational Layer: Richardson Trust -->
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Section 6 · Educational Layer
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Why this is broken — in plain English.
+      </h2>
+      <p class="mt-3 text-oastl-ink/70 font-mono text-[11px] tracking-[0.22em] uppercase">
+        A case study: the Richardson Trust
+      </p>
+
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          Tom and Kathy Richardson spent a lifetime building a vineyard. They put it into a <strong>Trust Agreement</strong> that transferred ownership to <strong>Beaver State Bank</strong>, with the schoolchildren of Oregon as beneficiaries.
+        </p>
+        <p>
+          For decades, the trust worked: Beaver State Bank managed the vineyard productively. Revenues went to the schools.
+        </p>
+        <p>
+          Then a new trustee, troubled by the ethics of grape-growing, signed an agreement with <strong>Beaver Consultants</strong> to convert the vineyard into a public research park. A central feature: transfer ownership of the land from the Richardson Trust to the State.
+        </p>
+        <p>
+          This case is factually the same as the Elliott State Forest. Only the names have been changed:
+        </p>
+      </div>
+
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full border border-oastl-forest/20 bg-oastl-bone rounded-sm text-[15px]">
+          <thead>
+            <tr class="bg-oastl-forest text-oastl-cream font-mono text-[11px] tracking-[0.18em] uppercase">
+              <th class="text-left px-4 py-3">Richardson Trust</th>
+              <th class="px-2 py-3" aria-hidden="true">→</th>
+              <th class="text-left px-4 py-3">Elliott Reality</th>
+            </tr>
+          </thead>
+          <tbody>
+            {richardsonMapping.map((row, i) => (
+              <tr class={i % 2 === 0 ? 'bg-oastl-cream/30' : ''}>
+                <td class="px-4 py-3 text-oastl-ink/85 leading-relaxed">{row.left}</td>
+                <td class="px-2 py-3 text-oastl-gold text-center" aria-hidden="true">→</td>
+                <td class="px-4 py-3 text-oastl-ink/85 leading-relaxed">{row.right}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-6 text-[17px] text-oastl-ink/85 leading-relaxed font-serif italic">
+        Just as it doesn’t make sense to shut down vineyards over concerns about alcohol use, it doesn’t make sense to convert school-trust forests into research preserves at fire-sale prices.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 7 — Evidence Locker -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-5xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Section 7 · The Evidence Locker
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+        Review the key documents.
+      </h2>
+      <p class="mt-4 text-oastl-ink/80 max-w-3xl leading-relaxed">
+        Five court filings — the documents that establish the case, the State’s denial of duty, the rulings granting standing, and the order denying the motion to dismiss.
+      </p>
+
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {evidence.map((doc) => (
+          <a
+            href={doc.href}
+            target="_blank"
+            rel="noopener"
+            class="block border border-oastl-forest/20 bg-oastl-cream rounded-sm p-6 hover:border-oastl-gold transition-colors group"
+          >
+            <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-2">
+              Filed: {doc.filed}
+            </div>
+            <h3 class="font-serif text-xl text-oastl-forest font-semibold leading-snug group-hover:text-oastl-canopy">
+              {doc.title}
+            </h3>
+            <p class="mt-3 text-[15px] text-oastl-ink/80 leading-relaxed">{doc.significance}</p>
+            <div class="mt-4 font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-action">
+              Download PDF →
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8 — Cross-bridge to Library Court Room -->
   <section class="bg-oastl-cream/40 border-t border-oastl-forest/15">
     <div class="mx-auto max-w-4xl px-5 py-16">
       <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
-        Section 5 · The broader record
+        Section 8 · The Broader Record
       </div>
       <h2 class="font-serif text-2xl md:text-3xl text-oastl-ink font-semibold leading-tight mb-6">
-        For the historical legal record across all twenty trust-lands states, the Library keeps a Court Room.
+        For the historical legal record across all twenty trust-lands states — plus the full Case File annotated bibliography — see the Library’s Court Room.
       </h2>
+      <p class="text-oastl-ink/80 leading-relaxed max-w-3xl mb-6">
+        Statutes, AG opinions, official correspondence, litigation history, expert declarations, and precedent cases live at the Library. The Legal Desk keeps the active campaign.
+      </p>
       <CrossBridge
         building="The Library"
         href="https://schooltrusts.net/court/"

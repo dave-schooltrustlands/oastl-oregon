@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+---
+<BaseLayout
+  title="Governance & Founding Documents · OASTL"
+  description="OASTL governance: 501(c)(3) determination letter, bylaws, founding context as the Oregon affiliate of national Advocates for School Trust Lands."
+  path="/governance/"
+>
+  <PageHero
+    eyebrow="Governance"
+    title="Governance &amp; Founding Documents"
+    dek="OASTL is a volunteer-run 501(c)(3) public charity, the Oregon affiliate of national Advocates for School Trust Lands."
+  />
+
+  <!-- About OASTL -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-3xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        About OASTL
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        A 501(c)(3) nonprofit private foundation.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          OASTL — Oregon Advocates for School Trust Lands — is a 501(c)(3) nonprofit private foundation. OASTL is the Oregon affiliate of the national nonprofit <strong>Advocates for School Trust Lands</strong>, founded in Utah in 2000.
+        </p>
+        <p>
+          Our motto, inherited from national ASTL: <em>“Working to ensure trust lands remain an endowment for today’s and future generations of schoolchildren.”</em>
+        </p>
+        <p>
+          OASTL is run by volunteers. Board members receive no compensation for their services.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founding Documents -->
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-5xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Founding Documents
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight mb-8">
+        Downloads.
+      </h2>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <LedgerCard tone="bone">
+          <div class="space-y-3">
+            <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Adopted 2022-12-13</div>
+            <h3 class="font-serif text-xl text-oastl-forest font-semibold leading-snug">OASTL Bylaws</h3>
+            <p class="text-[15px] text-oastl-ink/80 leading-relaxed">
+              The bylaws of OASTL, modeled after the bylaws of national Advocates for School Trust Lands.
+            </p>
+            <a
+              href="https://drive.google.com/file/d/1J2i-7CbrJoqaahUQziqH-ryoDRV0lJcl/view"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-1 rounded-sm border border-oastl-forest bg-oastl-forest text-oastl-cream px-4 py-2 hover:bg-oastl-canopy text-sm font-medium"
+            >
+              Download Bylaws (PDF) →
+            </a>
+          </div>
+        </LedgerCard>
+
+        <LedgerCard tone="bone">
+          <div class="space-y-3">
+            <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">IRS Determination</div>
+            <h3 class="font-serif text-xl text-oastl-forest font-semibold leading-snug">501(c)(3) Determination Letter</h3>
+            <p class="text-[15px] text-oastl-ink/80 leading-relaxed">
+              The IRS letter confirming OASTL’s status as a tax-exempt public charity.
+            </p>
+            <a
+              href="https://drive.google.com/file/d/1bHCBvjLWWFlg0PmIJj_qU5XWQAGWNEpl/view"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-1 rounded-sm border border-oastl-forest bg-oastl-forest text-oastl-cream px-4 py-2 hover:bg-oastl-canopy text-sm font-medium"
+            >
+              Download IRS Letter (PDF) →
+            </a>
+          </div>
+        </LedgerCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo credit -->
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-3xl px-5 py-12">
+      <div class="border border-oastl-forest/15 bg-oastl-cream/40 rounded-sm p-5 text-sm text-oastl-ink/75">
+        <strong class="text-oastl-forest">Logo credit.</strong>
+        OASTL logo designed by Barb Sullivan.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

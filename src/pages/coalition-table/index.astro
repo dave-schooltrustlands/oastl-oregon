@@ -4,21 +4,47 @@ import PageHero from '../../components/PageHero.astro';
 
 const board = [
   {
+    name: 'Dave Sullivan, Ph.D.',
+    role: 'President',
+    bio: 'Dave brings a background in systems analysis and public service. Co-author of <em>Oregon’s Constitutional Duties to Schools</em> (2025). Dave and his wife Barb are small woodland owners who live on their 200-acre tree farm in Kings Valley.',
+    contact: '<a href="mailto:drdavesullivan@gmail.com" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">drdavesullivan@gmail.com</a> · 541-791-6470',
+    initials: 'DS',
+  },
+  {
+    name: 'Barb Sullivan',
+    role: 'Treasurer',
+    bio: 'Barb oversees the non-profit’s financial compliance and resource management. Dave’s wife and co-owner of the 200-acre family tree farm in Kings Valley. Barb created the OASTL logo.',
+    contact: '<a href="mailto:barbaraksullivan@yahoo.com" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">barbaraksullivan@yahoo.com</a> · 541-791-6470',
+    initials: 'BS',
+  },
+  {
+    name: 'Laura D. Cooper',
+    role: 'Board Member, Attorney · OSB# 863589',
+    bio: 'Decades of high-level legal experience in civil rights and complex litigation. Former General Counsel for the Pain Relief Network. Counsel for additional civil rights organizations.',
+    pullquote: '“As an attorney, you rarely see a constitutional question this clean and ready for adjudication.”',
+    initials: 'LC',
+  },
+  {
     name: 'Margaret Bird',
-    role: 'Director · Co-author, founding scholarship',
-    bio: 'Co-author of <em>Oregon’s Constitutional Duties to Schools</em> (2025). Also co-author of <em>Schools of the Republic</em> at the Library. Longtime school-trust-lands scholar; one of the foundational voices on beneficiary enforcement of trust-lands duties.',
+    role: 'Board Member · School-trust-lands scholar',
+    bio: 'Economist and nationally recognized school trust lands expert based in Utah. Co-founder of national Advocates for School Trust Lands. Co-author of <em>Oregon’s Constitutional Duties to Schools</em> (2025) with Dave Sullivan. Led the historic reform of Utah’s school trust lands.',
+    initials: 'MB',
   },
   {
-    name: 'Dave Sullivan',
-    role: 'President · Co-author, founding scholarship',
-    bio: 'President of OASTL. Co-author of <em>Oregon’s Constitutional Duties to Schools</em> (2025). Co-architect of the broader Eighth Anchor Institute campus, of which OASTL is the Oregon chapter.',
-  },
-  {
-    name: 'Bob Zybach',
-    role: 'Director · Pacific Northwest forestry',
-    bio: 'Maintainer of ORWW Field Station — the Pacific Northwest forestry and Elliott State Forest historical archive. Decades of research on Oregon coastal-range forest history; keeper of Jerry Phillips’s Elliott book online.',
+    name: 'Bob Zybach, Ph.D.',
+    role: 'Secretary',
+    bio: 'Forest and wildfire historian. Maintainer of the ORWW (Oregon Websites and Watersheds Project) archive, which keeps Jerry Phillips’s Elliott book online and free. Co-founder of Phoenix Reforestation. Decades of research on Pacific Northwest forest history.',
+    initials: 'BZ',
   },
 ];
+
+const memoriam = {
+  name: 'David Gould',
+  dates: '1942–2024',
+  role: 'Past President',
+  bio: 'The heart and soul of OASTL, David served as its president throughout 2023. A great-grandchild of an early Oregon homesteader, he carried the history of the land in person.',
+  initials: 'DG',
+};
 ---
 <BaseLayout
   title="Coalition Table · OASTL"
@@ -40,38 +66,97 @@ const board = [
         Named members of the OASTL board.
       </h2>
 
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {board.map((m) => (
-          <article class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-6">
+          <article class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-6 flex flex-col">
+            <div
+              data-todo="board-photo"
+              class="aspect-[4/5] w-full mb-4 rounded-sm border border-oastl-forest/20 bg-oastl-bone flex items-center justify-center"
+              aria-hidden="true"
+            >
+              <span class="font-serif text-5xl text-oastl-forest/40 select-none">{m.initials}</span>
+            </div>
             <h3 class="font-serif text-2xl text-oastl-forest font-semibold leading-tight">{m.name}</h3>
             <div class="mt-1 font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">
               {m.role}
             </div>
             <p class="mt-4 text-[15px] text-oastl-ink/85 leading-relaxed" set:html={m.bio} />
-          </article>
-        ))}
-
-        {/* Placeholder cards for the remaining unconfirmed board members.
-            TODO[Dave]: confirm full roster (3-5 additional names + bios). */}
-        {[0, 1, 2].map((i) => (
-          <article
-            data-todo="board-member"
-            class="border border-dashed border-oastl-blueprint/40 bg-oastl-bone rounded-sm p-6 text-oastl-ink/55"
-          >
-            <h3 class="font-serif text-2xl font-semibold leading-tight">Additional director</h3>
-            <div class="mt-1 font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-blueprint">
-              Pending confirmation
-            </div>
-            <p class="mt-4 text-[15px] leading-relaxed">
-              Placeholder card. The full OASTL roster includes additional volunteer directors whose names and bios will be added here once confirmed by the board secretary.
-            </p>
+            {m.pullquote && (
+              <blockquote class="mt-4 border-l-2 border-oastl-gold pl-3 text-[15px] italic text-oastl-ink/80 leading-relaxed">
+                {m.pullquote}
+              </blockquote>
+            )}
+            {m.contact && (
+              <div class="mt-4 pt-3 border-t border-oastl-forest/10 text-sm text-oastl-ink/70" set:html={m.contact} />
+            )}
           </article>
         ))}
       </div>
 
-      <div class="mt-12 border border-oastl-forest/15 bg-oastl-cream/40 rounded-sm p-6 text-sm text-oastl-ink/80">
+      <!-- In Memoriam -->
+      <div class="mt-14">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-blueprint mb-3">
+          In Memoriam
+        </div>
+        <article class="border border-oastl-blueprint/30 bg-oastl-bone/70 rounded-sm p-6 md:p-8 grid gap-6 md:grid-cols-[180px,1fr] items-start">
+          <div
+            data-todo="board-photo"
+            class="aspect-[4/5] w-full rounded-sm border border-oastl-blueprint/30 bg-oastl-cream/50 flex items-center justify-center"
+            aria-hidden="true"
+          >
+            <span class="font-serif text-5xl text-oastl-blueprint/50 select-none">{memoriam.initials}</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl text-oastl-ink font-semibold leading-tight">{memoriam.name}</h3>
+            <div class="mt-1 font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-blueprint">
+              {memoriam.dates} · {memoriam.role}
+            </div>
+            <p class="mt-4 text-[15px] text-oastl-ink/80 leading-relaxed">{memoriam.bio}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Our Coalition -->
+  <section class="bg-oastl-cream/40 border-t border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Join Our Coalition
+      </div>
+      <h2 class="font-serif text-2xl md:text-3xl text-oastl-ink font-semibold leading-tight">
+        We invite inquiries from prospective board members.
+      </h2>
+      <p class="mt-4 text-oastl-ink/85 leading-relaxed">
+        OASTL seeks to represent a diverse cross-section of Oregonians.
+      </p>
+      <ul class="mt-6 grid gap-4 md:grid-cols-3">
+        <li class="border border-oastl-forest/20 bg-oastl-bone rounded-sm p-5">
+          <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-2">Education</div>
+          <p class="text-[15px] text-oastl-ink/80 leading-relaxed">Students, Teachers, School Board Members, and Administrators.</p>
+        </li>
+        <li class="border border-oastl-forest/20 bg-oastl-bone rounded-sm p-5">
+          <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-2">Forestry & Industry</div>
+          <p class="text-[15px] text-oastl-ink/80 leading-relaxed">Foresters, Tree Farm Owners, and Forest Industry Professionals.</p>
+        </li>
+        <li class="border border-oastl-forest/20 bg-oastl-bone rounded-sm p-5">
+          <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold mb-2">Government</div>
+          <p class="text-[15px] text-oastl-ink/80 leading-relaxed">Current or former employees of the Department of Education or Forestry.</p>
+        </li>
+      </ul>
+
+      <div class="mt-8 border border-oastl-forest/20 bg-oastl-cream rounded-sm p-6">
+        <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest mb-2">Contact Us</div>
+        <p class="text-[15px] text-oastl-ink/85 leading-relaxed">
+          <strong>Dave Sullivan, President.</strong><br />
+          Email: <a href="mailto:drdavesullivan@gmail.com" class="text-oastl-action hover:text-oastl-gold underline decoration-oastl-gold/40">drdavesullivan@gmail.com</a><br />
+          Phone/Text: 541-791-6470
+        </p>
+      </div>
+
+      <div class="mt-10 border border-oastl-forest/15 bg-oastl-cream/40 rounded-sm p-6 text-sm text-oastl-ink/80">
         <strong class="text-oastl-forest">Governance note.</strong>
-        OASTL board members are volunteers. They receive no compensation. Bylaws are modeled after the bylaws of Advocates for School Trust Lands (ASTL) National. The IRS 501(c)(3) determination letter and bylaws are available on request to <a href="mailto:info@oastl.org" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">info@oastl.org</a>.
+        OASTL board members are volunteers. They receive no compensation. Bylaws are modeled after the bylaws of Advocates for School Trust Lands (ASTL) National. See <a href="/governance/" class="text-oastl-action hover:text-oastl-gold underline decoration-oastl-gold/40">Governance &amp; Founding Documents</a> for the IRS 501(c)(3) determination letter and the bylaws PDF.
       </div>
     </div>
   </section>
