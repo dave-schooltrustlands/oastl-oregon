@@ -8,33 +8,43 @@ const board = [
     role: 'President',
     bio: 'Dave brings a background in systems analysis and public service. Co-author of <em>Oregon’s Constitutional Duties to Schools</em> (2025). Dave and his wife Barb are small woodland owners who live on their 200-acre tree farm in Kings Valley.',
     contact: '<a href="mailto:drdavesullivan@gmail.com" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">drdavesullivan@gmail.com</a> · 541-791-6470',
-    initials: 'DS',
+    photo: '/images/board/dave-and-barb-sullivan.jpg',
+    photoAlt: 'Dave Sullivan',
+    photoPosition: 'left center',
   },
   {
     name: 'Barb Sullivan',
     role: 'Treasurer',
     bio: 'Barb oversees the non-profit’s financial compliance and resource management. Dave’s wife and co-owner of the 200-acre family tree farm in Kings Valley. Barb created the OASTL logo.',
     contact: '<a href="mailto:barbaraksullivan@yahoo.com" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">barbaraksullivan@yahoo.com</a> · 541-791-6470',
-    initials: 'BS',
+    photo: '/images/board/dave-and-barb-sullivan.jpg',
+    photoAlt: 'Barb Sullivan',
+    photoPosition: 'right center',
   },
   {
     name: 'Laura D. Cooper',
     role: 'Board Member, Attorney · OSB# 863589',
     bio: 'Decades of high-level legal experience in civil rights and complex litigation. Former General Counsel for the Pain Relief Network. Counsel for additional civil rights organizations.',
     pullquote: '“As an attorney, you rarely see a constitutional question this clean and ready for adjudication.”',
-    initials: 'LC',
+    photo: '/images/board/laura-cooper.jpg',
+    photoAlt: 'Laura D. Cooper',
+    photoPosition: 'center top',
   },
   {
     name: 'Margaret Bird',
     role: 'Board Member · School-trust-lands scholar',
     bio: 'Economist and nationally recognized school trust lands expert based in Utah. Co-founder of national Advocates for School Trust Lands. Co-author of <em>Oregon’s Constitutional Duties to Schools</em> (2025) with Dave Sullivan. Led the historic reform of Utah’s school trust lands.',
-    initials: 'MB',
+    photo: '/images/board/margaret-bird.png',
+    photoAlt: 'Margaret Bird',
+    photoPosition: 'center top',
   },
   {
     name: 'Bob Zybach, Ph.D.',
     role: 'Secretary',
     bio: 'Forest and wildfire historian. Maintainer of the ORWW (Oregon Websites and Watersheds Project) archive, which keeps Jerry Phillips’s Elliott book online and free. Co-founder of Phoenix Reforestation. Decades of research on Pacific Northwest forest history.',
-    initials: 'BZ',
+    photo: '/images/board/bob-zybach.jpg',
+    photoAlt: 'Bob Zybach',
+    photoPosition: 'center top',
   },
 ];
 
@@ -43,7 +53,9 @@ const memoriam = {
   dates: '1942–2024',
   role: 'Past President',
   bio: 'The heart and soul of OASTL, David served as its president throughout 2023. A great-grandchild of an early Oregon homesteader, he carried the history of the land in person.',
-  initials: 'DG',
+  photo: '/images/board/david-gould-memorial.jpg',
+  photoAlt: 'David Gould',
+  photoPosition: 'center top',
 };
 ---
 <BaseLayout
@@ -52,7 +64,7 @@ const memoriam = {
   path="/coalition-table/"
 >
   <PageHero
-    eyebrow="Coalition Table"
+    eyebrow="Our Board — at the Coalition Table"
     title="Volunteers, accountable to the beneficiaries."
     dek="OASTL is governed by volunteers dedicated to enforcing Oregon’s constitutional duties to public schools. The board brings together expertise in constitutional law, forestry science, trust management, and education policy."
   />
@@ -69,12 +81,14 @@ const memoriam = {
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {board.map((m) => (
           <article class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-6 flex flex-col">
-            <div
-              data-todo="board-photo"
-              class="aspect-[4/5] w-full mb-4 rounded-sm border border-oastl-forest/20 bg-oastl-bone flex items-center justify-center"
-              aria-hidden="true"
-            >
-              <span class="font-serif text-5xl text-oastl-forest/40 select-none">{m.initials}</span>
+            <div class="aspect-[4/5] w-full mb-4 rounded-sm border border-oastl-forest/20 bg-oastl-bone overflow-hidden">
+              <img
+                src={m.photo}
+                alt={m.photoAlt}
+                loading="lazy"
+                class="w-full h-full object-cover"
+                style={`object-position: ${m.photoPosition};`}
+              />
             </div>
             <h3 class="font-serif text-2xl text-oastl-forest font-semibold leading-tight">{m.name}</h3>
             <div class="mt-1 font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">
@@ -99,19 +113,22 @@ const memoriam = {
           In Memoriam
         </div>
         <article class="border border-oastl-blueprint/30 bg-oastl-bone/70 rounded-sm p-6 md:p-8 grid gap-6 md:grid-cols-[180px,1fr] items-start">
-          <div
-            data-todo="board-photo"
-            class="aspect-[4/5] w-full rounded-sm border border-oastl-blueprint/30 bg-oastl-cream/50 flex items-center justify-center"
-            aria-hidden="true"
-          >
-            <span class="font-serif text-5xl text-oastl-blueprint/50 select-none">{memoriam.initials}</span>
+          <div class="aspect-[4/5] w-full rounded-sm border border-oastl-blueprint/30 bg-oastl-cream/50 overflow-hidden">
+            <img
+              src={memoriam.photo}
+              alt={memoriam.photoAlt}
+              loading="lazy"
+              class="w-full h-full object-cover saturate-50"
+              style={`object-position: ${memoriam.photoPosition};`}
+            />
           </div>
           <div>
             <h3 class="font-serif text-2xl text-oastl-ink font-semibold leading-tight">{memoriam.name}</h3>
             <div class="mt-1 font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-blueprint">
               {memoriam.dates} · {memoriam.role}
             </div>
-            <p class="mt-4 text-[15px] text-oastl-ink/80 leading-relaxed">{memoriam.bio}</p>
+            <p class="mt-4 text-[15px] text-oastl-ink/80 leading-relaxed italic">In Memoriam · {memoriam.dates}</p>
+            <p class="mt-3 text-[15px] text-oastl-ink/80 leading-relaxed">{memoriam.bio}</p>
           </div>
         </article>
       </div>
