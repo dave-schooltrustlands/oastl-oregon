@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AskInterface from '../../components/AskInterface.astro';
+
+const title = 'Ask OASTL · Oregon Advocates for School Trust Lands';
+const description =
+  "Questions about Oregon's school trust lands, answered by OASTL's working substrate. Ask OASTL searches OASTL's Oregon-specific knowledge base and can supplement with web search for current events.";
+
+const examples = [
+  "Who is OASTL's General Counsel?",
+  'What did the January 28, 2026 standing ruling actually do?',
+  'What were the Chamberlain-era prosecutions?',
+  'What is the Elliott State Forest decoupling controversy?',
+  'How does Oregon compare to Utah on school-trust management?',
+];
+---
+<BaseLayout title={title} description={description} path="/ask/">
+  <section class="relative bg-oastl-forest text-oastl-cream overflow-hidden">
+    <div class="relative mx-auto max-w-3xl px-5 py-14 sm:py-18">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
+        OASTL · Ask
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+        Ask OASTL
+      </h1>
+      <p class="mt-4 font-serif italic text-lg text-oastl-cream/90 max-w-2xl leading-snug">
+        Questions about Oregon's school trust lands, answered by OASTL's working substrate.
+      </p>
+      <p class="mt-5 font-sans text-base text-oastl-cream/85 max-w-2xl leading-relaxed">
+        Ask OASTL searches the OASTL knowledge base for Oregon-specific
+        answers and can supplement with web search for current events. For
+        broader national context, see
+        <a href="https://schooltrustlands.net/ask/" class="text-oastl-gold underline hover:text-oastl-cream">
+          Ask ASTL
+        </a>
+        on the national coalition's site.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone border-t border-oastl-forest/20">
+    <div class="mx-auto max-w-3xl px-5 py-10 sm:py-12">
+      <AskInterface property="oastl" palette="oastl" examples={examples} />
+
+      <p class="mt-4 font-sans text-xs text-oastl-ink/60 leading-relaxed">
+        Ask OASTL declines individual legal advice, off-topic questions, and predictions about active litigation.
+        For individual legal questions about your situation, contact OASTL's General Counsel through the
+        <a href="/coalition-table/" class="text-oastl-action underline hover:text-oastl-forest">Coalition Table</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-3xl px-5 py-12">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-3">
+        Or browse the substrate
+      </div>
+      <h2 class="font-serif text-2xl text-oastl-forest font-semibold mb-4">
+        Where else to start
+      </h2>
+      <ul class="font-sans text-sm space-y-2">
+        <li>
+          <a href="/briefing-room/" class="text-oastl-action underline hover:text-oastl-forest">Briefing Room</a>
+          — Oregon's Common School Fund, Elliott State Forest, the legal record.
+        </li>
+        <li>
+          <a href="/legal-desk/" class="text-oastl-action underline hover:text-oastl-forest">Legal Desk</a>
+          — active case, six trustee duties, Evidence Locker, Daniel Crowe's filings.
+        </li>
+        <li>
+          <a href="/coalition-table/" class="text-oastl-action underline hover:text-oastl-forest">Coalition Table</a>
+          — board, leadership, how to reach the General Counsel.
+        </li>
+        <li>
+          <a href="/founding-texts/" class="text-oastl-action underline hover:text-oastl-forest">Founding Texts</a>
+          — <em>Oregon's Constitutional Duties to Schools</em>.
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

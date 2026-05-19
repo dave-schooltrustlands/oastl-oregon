@@ -1,0 +1,353 @@
+---
+// v85 — Ask interface (Ask ASTL + Ask OASTL).
+// Streaming-shaped UI for the three-tool agentic loop in ask_v1 Edge Function.
+// Talks to the endpoint at PUBLIC_ASK_ENDPOINT_URL with { property, messages }.
+//
+// Props:
+//   property: 'astl' | 'oastl' — picks the system prompt server-side.
+//   palette:  'astl' | 'oastl' — picks the visual register on this side.
+//
+// Default endpoint is a placeholder until the v85 backend is deployed.
+// When the endpoint is unreachable / missing, the UI shows a clean
+// "Ask is being configured" notice instead of cryptic errors.
+
+export interface Props {
+  property: 'astl' | 'oastl';
+  palette?: 'astl' | 'oastl';
+  examples?: string[];
+}
+
+const {
+  property,
+  palette = property,
+  examples = [],
+} = Astro.props;
+
+const endpoint =
+  import.meta.env.PUBLIC_ASK_ENDPOINT_URL ||
+  'https://mbdfvdevisdbpgrqtzqz.supabase.co/functions/v1/ask_v1';
+
+const isAstl = palette === 'astl';
+const uid = Math.random().toString(36).slice(2, 9);
+const panelId = `ask-panel-${uid}`;
+const logId = `ask-log-${uid}`;
+const formId = `ask-form-${uid}`;
+const inputId = `ask-input-${uid}`;
+const submitId = `ask-submit-${uid}`;
+const resetId = `ask-reset-${uid}`;
+const statusId = `ask-status-${uid}`;
+---
+<section
+  class:list={[
+    'rounded-md border shadow-sm overflow-hidden flex flex-col',
+    isAstl
+      ? 'border-astl-stone bg-[#fdfaf2]'
+      : 'border-oastl-forest/20 bg-oastl-bone',
+  ]}
+  id={panelId}
+>
+  {examples.length > 0 && (
+    <div
+      class:list={[
+        'p-4 border-b',
+        isAstl ? 'border-astl-stone bg-astl-cream/40' : 'border-oastl-forest/15 bg-oastl-cream/30',
+      ]}
+    >
+      <p
+        class:list={[
+          'font-sans text-xs uppercase tracking-[0.18em] mb-2',
+          isAstl ? 'text-astl-gold' : 'text-oastl-gold',
+        ]}
+      >
+        Try asking
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {examples.map((q) => (
+          <button
+            type="button"
+            data-example-q={q}
+            class:list={[
+              'text-left text-xs sm:text-sm font-serif italic rounded-sm px-3 py-1.5 border transition-colors',
+              isAstl
+                ? 'border-astl-stone text-astl-ink hover:border-astl-gold hover:bg-astl-cream'
+                : 'border-oastl-forest/20 text-oastl-ink hover:border-oastl-gold hover:bg-oastl-cream/50',
+            ]}
+          >
+            {q}
+          </button>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <div
+    id={logId}
+    class:list={[
+      'flex-1 overflow-y-auto p-4 sm:p-6 space-y-5 font-serif text-base leading-relaxed h-[28rem] min-h-[20rem]',
+      isAstl ? 'text-astl-ink' : 'text-oastl-ink',
+    ]}
+  >
+    <p
+      class:list={[
+        'font-sans text-sm italic',
+        isAstl ? 'text-astl-muted' : 'text-oastl-ink/60',
+      ]}
+    >
+      {property === 'astl'
+        ? 'Ask ASTL is at the desk. Ask a question to begin.'
+        : 'Ask OASTL is at the desk. Ask a question to begin.'}
+    </p>
+  </div>
+
+  <form
+    id={formId}
+    class:list={[
+      'border-t p-4 flex flex-col sm:flex-row gap-3',
+      isAstl ? 'border-astl-stone' : 'border-oastl-forest/20',
+    ]}
+  >
+    <label for={inputId} class="sr-only">Your question</label>
+    <input
+      id={inputId}
+      type="text"
+      required
+      minlength="3"
+      maxlength="500"
+      placeholder={property === 'astl'
+        ? 'Ask Ask ASTL a question…'
+        : 'Ask Ask OASTL a question…'}
+      autocomplete="off"
+      class:list={[
+        'flex-1 rounded-sm border bg-white px-4 py-3 font-sans text-sm focus:outline-none focus:ring-2',
+        isAstl
+          ? 'border-astl-stone text-astl-ink placeholder:text-astl-muted focus:ring-astl-forest'
+          : 'border-oastl-forest/20 text-oastl-ink placeholder:text-oastl-ink/50 focus:ring-oastl-forest',
+      ]}
+    />
+    <button
+      type="submit"
+      id={submitId}
+      class:list={[
+        'rounded-sm px-5 py-3 font-sans text-sm font-medium transition-colors disabled:opacity-60 disabled:cursor-not-allowed',
+        isAstl
+          ? 'bg-astl-forest text-astl-cream hover:bg-astl-forest-dark'
+          : 'bg-oastl-forest text-oastl-cream hover:bg-oastl-canopy',
+      ]}
+    >
+      Ask
+    </button>
+    <button
+      type="button"
+      id={resetId}
+      class:list={[
+        'rounded-sm border px-4 py-3 font-sans text-sm transition-colors',
+        isAstl
+          ? 'border-astl-stone text-astl-ink hover:bg-astl-cream'
+          : 'border-oastl-forest/20 text-oastl-ink hover:bg-oastl-cream/50',
+      ]}
+      title="Clear and start a new conversation"
+    >
+      New
+    </button>
+  </form>
+</section>
+
+<p
+  id={statusId}
+  class:list={[
+    'mt-2 font-sans text-xs hidden',
+    isAstl ? 'text-astl-muted' : 'text-oastl-ink/60',
+  ]}
+  role="status"
+  aria-live="polite"
+></p>
+
+<script is:inline define:vars={{ endpoint, property, panelId, logId, formId, inputId, submitId, resetId, statusId, isAstl }}>
+  (function () {
+    const panel = document.getElementById(panelId);
+    const log = document.getElementById(logId);
+    const form = document.getElementById(formId);
+    const input = document.getElementById(inputId);
+    const submit = document.getElementById(submitId);
+    const reset = document.getElementById(resetId);
+    const status = document.getElementById(statusId);
+    if (!form || !input || !log) return;
+
+    const cardBase = isAstl
+      ? 'rounded-md border border-astl-stone bg-white p-4 shadow-sm'
+      : 'rounded-md border border-oastl-forest/20 bg-white p-4 shadow-sm';
+    const linkClass = isAstl
+      ? 'text-astl-action underline hover:text-astl-forest-dark'
+      : 'text-oastl-action underline hover:text-oastl-forest';
+    const youClass = isAstl ? 'text-astl-muted' : 'text-oastl-ink/60';
+    const aiClass = isAstl ? 'text-astl-forest-dark' : 'text-oastl-forest';
+
+    /** Conversation history sent to the Edge Function each turn. */
+    const messages = [];
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+      }[c]));
+    }
+
+    function renderMarkdownish(text) {
+      const safe = escapeHtml(text);
+      const linked = safe
+        // [label](url) — both same-origin paths and absolute https links
+        .replace(/\[([^\]]+)]\((https?:\/\/[^)\s]+|\/[^)\s]*)\)/g,
+          (_m, label, href) => `<a href="${href}" class="${linkClass}" target="${href.startsWith('http') ? '_blank' : '_self'}" rel="noopener">${label}</a>`)
+        // Bare https URLs
+        .replace(/(^|[\s(])(https?:\/\/[^\s)<]+)/g,
+          (_m, pre, href) => `${pre}<a href="${href}" class="${linkClass}" target="_blank" rel="noopener">${href}</a>`);
+      return linked
+        .split(/\n\n+/)
+        .map((p) => `<p>${p.replace(/\n/g, '<br/>')}</p>`)
+        .join('');
+    }
+
+    function clearGreeting() {
+      // First user turn: remove the "at the desk" placeholder.
+      const placeholder = log.querySelector('p.font-sans.italic');
+      if (placeholder) placeholder.remove();
+    }
+
+    function appendUser(q) {
+      clearGreeting();
+      const wrap = document.createElement('div');
+      wrap.innerHTML =
+        `<p class="font-sans text-[10px] uppercase tracking-[0.18em] ${youClass} mb-1">You</p>` +
+        `<div class="${cardBase}">${escapeHtml(q)}</div>`;
+      log.appendChild(wrap);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function appendThinking() {
+      const wrap = document.createElement('div');
+      wrap.dataset.role = 'thinking';
+      wrap.innerHTML =
+        `<p class="font-sans text-[10px] uppercase tracking-[0.18em] ${aiClass} mb-1">${property === 'astl' ? 'Ask ASTL' : 'Ask OASTL'}</p>` +
+        `<div class="${cardBase} italic font-serif text-sm">Searching substrate…</div>`;
+      log.appendChild(wrap);
+      log.scrollTop = log.scrollHeight;
+      return wrap;
+    }
+
+    function appendAssistant(text, sources) {
+      const wrap = document.createElement('div');
+      let sourcesHtml = '';
+      if (sources && sources.length > 0) {
+        const items = sources.map((s) => {
+          const label = escapeHtml(s.title || s.url);
+          return `<li><a href="${escapeHtml(s.url)}" class="${linkClass}" target="${s.url && s.url.startsWith('http') ? '_blank' : '_self'}" rel="noopener">${label}</a></li>`;
+        }).join('');
+        sourcesHtml =
+          `<div class="mt-3 pt-3 border-t ${isAstl ? 'border-astl-stone' : 'border-oastl-forest/15'}">` +
+          `<p class="font-sans text-[10px] uppercase tracking-[0.18em] ${youClass} mb-1">Sources cited</p>` +
+          `<ul class="font-sans text-xs list-disc pl-5 space-y-1">${items}</ul>` +
+          `</div>`;
+      }
+      wrap.innerHTML =
+        `<p class="font-sans text-[10px] uppercase tracking-[0.18em] ${aiClass} mb-1">${property === 'astl' ? 'Ask ASTL' : 'Ask OASTL'}</p>` +
+        `<div class="${cardBase}">${renderMarkdownish(text)}${sourcesHtml}</div>`;
+      log.appendChild(wrap);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function showStatus(msg, kind) {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.remove('hidden');
+      status.classList.toggle('text-red-700', kind === 'err');
+    }
+
+    function clearStatus() {
+      if (status) {
+        status.textContent = '';
+        status.classList.add('hidden');
+      }
+    }
+
+    async function ask(query) {
+      clearStatus();
+      appendUser(query);
+      messages.push({ role: 'user', content: query });
+      const thinkingNode = appendThinking();
+      submit.disabled = true;
+
+      try {
+        const resp = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ property, messages }),
+        });
+        const ct = resp.headers.get('content-type') || '';
+        let data;
+        try {
+          data = ct.includes('application/json') ? await resp.json() : { error: await resp.text() };
+        } catch {
+          data = { error: 'Malformed response from Ask backend.' };
+        }
+        thinkingNode.remove();
+
+        if (!resp.ok) {
+          if (resp.status === 0 || resp.status === 404 || resp.status === 503) {
+            appendAssistant(
+              '_Ask is being configured. The frontend is live; the backend (Supabase Edge Function + substrate ingestion) finishes wiring shortly. Until then, this surface won\'t produce answers. See the v85 run report for status._',
+              [],
+            );
+          } else {
+            appendAssistant(`_Error from Ask: ${escapeHtml(data.error || 'Unknown error')}_`, []);
+          }
+          // Pop the failed turn off so retries don't compound.
+          messages.pop();
+          return;
+        }
+
+        const text = data.response || '_(no response)_';
+        const sources = Array.isArray(data.sources_cited) ? data.sources_cited : [];
+        appendAssistant(text, sources);
+        // Persist the assistant turn for follow-up context. The Edge Function
+        // expects { role, content } so we serialize as plain text here even
+        // though the server-side conversation includes tool_use blocks.
+        messages.push({ role: 'assistant', content: text });
+      } catch (err) {
+        thinkingNode.remove();
+        appendAssistant(
+          '_Network error reaching Ask. The backend may not yet be wired. See the v85 run report for status._',
+          [],
+        );
+        messages.pop();
+      } finally {
+        submit.disabled = false;
+        input.focus();
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (input.value || '').trim();
+      if (q.length < 3) return;
+      input.value = '';
+      ask(q);
+    });
+
+    if (reset) {
+      reset.addEventListener('click', () => {
+        messages.length = 0;
+        log.innerHTML =
+          `<p class="font-sans text-sm italic ${isAstl ? 'text-astl-muted' : 'text-oastl-ink/60'}">${property === 'astl' ? 'Ask ASTL' : 'Ask OASTL'} is at the desk. Ask a question to begin.</p>`;
+        clearStatus();
+        input.focus();
+      });
+    }
+
+    panel.querySelectorAll('[data-example-q]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const q = btn.getAttribute('data-example-q') || '';
+        if (!q) return;
+        ask(q);
+      });
+    });
+  })();
+</script>
