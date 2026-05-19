@@ -1,0 +1,140 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsroomSubscribeForm from '../../components/NewsroomSubscribeForm.astro';
+
+const entries = (await getCollection('newsroom')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const title = 'Newsroom · OASTL';
+const description =
+  "The Newsroom is the national newsletter of Advocates for School Trust Lands (ASTL), our national affiliate. OASTL Oregon carries it for Oregon advocates who benefit from national field coverage alongside Oregon-specific updates.";
+---
+<BaseLayout title={title} description={description} path="/newsroom/">
+  <section class="bg-oastl-forest text-oastl-cream">
+    <div class="mx-auto max-w-4xl px-5 py-14 sm:py-18">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
+        Newsroom · Carried for Oregon
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+        The Newsroom
+      </h1>
+      <p class="mt-5 max-w-2xl text-base sm:text-lg text-oastl-cream/90 leading-relaxed font-serif">
+        The Newsroom is the national newsletter of Advocates for School Trust
+        Lands (ASTL), our national affiliate. We carry it here because Oregon
+        advocates benefit from national field coverage — Minnesota legislation,
+        Montana exchanges, Utah doctrine, and so on, alongside Oregon-specific
+        updates. Subscribe below to receive the weekly news edition, the
+        monthly summary, or both.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-10">
+      <NewsroomSubscribeForm />
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-12">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+        <div>
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+            Archive
+          </div>
+          <h2 class="font-serif text-3xl text-oastl-forest font-semibold leading-tight">
+            All past issues
+          </h2>
+        </div>
+
+        {/* Pure-CSS cadence filter via radio :checked + sibling selectors. */}
+        <fieldset class="font-sans text-sm flex flex-wrap items-center gap-3" id="cadence-filter">
+          <legend class="sr-only">Filter by cadence</legend>
+          <label class="inline-flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="cadence" id="cf-all" value="all" checked class="accent-oastl-forest" />
+            <span>All</span>
+          </label>
+          <label class="inline-flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="cadence" id="cf-weekly" value="weekly" class="accent-oastl-forest" />
+            <span>Weekly only</span>
+          </label>
+          <label class="inline-flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="cadence" id="cf-monthly" value="monthly" class="accent-oastl-forest" />
+            <span>Monthly only</span>
+          </label>
+        </fieldset>
+      </div>
+
+      {entries.length === 0 ? (
+        <p class="font-sans text-oastl-ink/60 italic">
+          No entries published yet. The first weekly edition lands Monday.
+        </p>
+      ) : (
+        <ul class="space-y-4 cadence-list">
+          {entries.map((entry) => (
+            <li
+              class="newsroom-card bg-oastl-bone border border-oastl-forest/20 rounded-sm p-5 sm:p-6 hover:border-oastl-gold transition-colors"
+              data-cadence={entry.data.cadence}
+            >
+              <div class="flex flex-wrap items-center gap-3 mb-2">
+                <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-oastl-gold">
+                  {dateFormatter.format(entry.data.date)}
+                </p>
+                <span
+                  class:list={[
+                    'font-mono uppercase tracking-[0.14em] text-[10px] px-2 py-0.5 border rounded-sm',
+                    entry.data.cadence === 'monthly'
+                      ? 'border-oastl-action text-oastl-action'
+                      : 'border-oastl-forest text-oastl-forest',
+                  ]}
+                >
+                  {entry.data.cadence}
+                </span>
+              </div>
+              <h3 class="font-serif text-xl sm:text-2xl text-oastl-forest mb-2 leading-snug">
+                <a
+                  href={`/newsroom/${entry.slug}/`}
+                  class="hover:text-oastl-gold"
+                >
+                  {entry.data.title}
+                </a>
+              </h3>
+              <p
+                class="font-serif text-base text-oastl-ink/85 leading-relaxed"
+                set:html={entry.data.kicker}
+              />
+              <p class="mt-3 font-mono uppercase tracking-wider text-xs">
+                <a href={`/newsroom/${entry.slug}/`} class="text-oastl-gold hover:text-oastl-forest">
+                  Read the full entry →
+                </a>
+              </p>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <p class="mt-8 font-sans text-xs text-oastl-ink/60 italic">
+        Newsroom content is authored at and synced from
+        <a href="https://schooltrustlands.net/newsroom/" class="text-oastl-action underline hover:text-oastl-forest">ASTL National's /newsroom/</a>.
+        OASTL renders the same substrate in OASTL chrome.
+      </p>
+    </div>
+  </section>
+
+  <style>
+    #cadence-filter:has(#cf-weekly:checked) ~ ul.cadence-list .newsroom-card[data-cadence="monthly"] {
+      display: none;
+    }
+    #cadence-filter:has(#cf-monthly:checked) ~ ul.cadence-list .newsroom-card[data-cadence="weekly"] {
+      display: none;
+    }
+  </style>
+</BaseLayout>

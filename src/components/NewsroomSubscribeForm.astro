@@ -1,0 +1,211 @@
+---
+// v84 — OASTL Newsroom signup form. POSTs cross-origin to ASTL National's
+// /api/newsroom-subscribe Pages Function. The function applies a
+// `source:oastl` tag so analytics can attribute signups to this property.
+//
+// ASTL's function CORS-allows this property's origin explicitly.
+
+const uid = Math.random().toString(36).slice(2, 9);
+const formId = `oastl-newsroom-${uid}`;
+const emailId = `${formId}-email`;
+const nameId = `${formId}-name`;
+const weeklyId = `${formId}-weekly`;
+const monthlyId = `${formId}-monthly`;
+const hpId = `${formId}-hp`;
+const statusId = `${formId}-status`;
+
+const SUBSCRIBE_ENDPOINT = 'https://schooltrustlands.net/api/newsroom-subscribe';
+---
+<section
+  aria-labelledby={`${formId}-heading`}
+  class="bg-oastl-cream/40 border border-oastl-forest/20 rounded-sm p-6 sm:p-8 max-w-2xl"
+>
+  <p class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-2">
+    Subscribe to the Newsroom
+  </p>
+  <h2
+    id={`${formId}-heading`}
+    class="font-serif text-2xl text-oastl-forest mb-2"
+  >
+    The Newsroom in your inbox
+  </h2>
+  <p class="font-sans text-sm text-oastl-ink/70 mb-5 leading-relaxed">
+    Pick the cadence that fits — Monday weekly news edition, mid-month
+    summary, or both. Free, one-click unsubscribe, replies go to the editor.
+  </p>
+
+  <form
+    id={formId}
+    action={SUBSCRIBE_ENDPOINT}
+    method="post"
+    novalidate
+    class="flex flex-col gap-4"
+  >
+    <fieldset class="border border-oastl-forest/20 rounded-sm p-4">
+      <legend class="font-sans text-xs uppercase tracking-wide text-oastl-forest px-1">
+        Subscribe to
+      </legend>
+      <label class="flex items-start gap-3 cursor-pointer mb-2">
+        <input
+          id={weeklyId}
+          name="weekly"
+          type="checkbox"
+          value="weekly"
+          checked
+          class="mt-1 h-4 w-4 accent-oastl-forest"
+        />
+        <span class="font-sans text-sm text-oastl-ink">
+          <strong class="font-medium">Weekly news edition</strong> — Mondays. The week's moves in school-trust lands across the country.
+        </span>
+      </label>
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input
+          id={monthlyId}
+          name="monthly"
+          type="checkbox"
+          value="monthly"
+          class="mt-1 h-4 w-4 accent-oastl-forest"
+        />
+        <span class="font-sans text-sm text-oastl-ink">
+          <strong class="font-medium">Monthly summary</strong> — mid-month digest of the four prior weeks, organized by theme.
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="flex flex-col gap-1">
+        <label
+          for={emailId}
+          class="font-sans text-xs uppercase tracking-wide text-oastl-forest"
+        >
+          Email <span class="text-oastl-gold">*</span>
+        </label>
+        <input
+          id={emailId}
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          class="font-sans text-sm text-oastl-ink bg-oastl-bone border border-oastl-forest/20 rounded-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-oastl-gold focus:border-oastl-gold"
+        />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label
+          for={nameId}
+          class="font-sans text-xs uppercase tracking-wide text-oastl-forest"
+        >
+          First name <span class="text-oastl-ink/60 normal-case tracking-normal">(optional)</span>
+        </label>
+        <input
+          id={nameId}
+          name="name"
+          type="text"
+          autocomplete="given-name"
+          class="font-sans text-sm text-oastl-ink bg-oastl-bone border border-oastl-forest/20 rounded-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-oastl-gold focus:border-oastl-gold"
+        />
+      </div>
+    </div>
+
+    {/* Honeypot */}
+    <div style="display:none" aria-hidden="true">
+      <label for={hpId}>Leave this field blank</label>
+      <input id={hpId} name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <button
+      type="submit"
+      class="self-start font-sans text-sm font-semibold bg-oastl-forest text-oastl-cream hover:bg-oastl-canopy px-5 py-2.5 rounded-sm transition-colors"
+    >
+      Subscribe
+    </button>
+  </form>
+
+  <div
+    id={statusId}
+    role="status"
+    aria-live="polite"
+    tabindex="-1"
+    class="mt-4 font-sans text-sm hidden"
+  ></div>
+
+  <p class="mt-5 font-sans text-xs text-oastl-ink/60">
+    Already subscribed?
+    <a
+      href="https://buttondown.email/schooltrustlands/account"
+      class="underline hover:text-oastl-gold"
+      target="_blank"
+      rel="noopener"
+    >
+      Manage your preferences →
+    </a>
+  </p>
+</section>
+
+<script is:inline define:vars={{ formId, statusId, hpId, emailId, weeklyId, monthlyId, SUBSCRIBE_ENDPOINT }}>
+  (function () {
+    var form = document.getElementById(formId);
+    var status = document.getElementById(statusId);
+    var hp = document.getElementById(hpId);
+    var emailEl = document.getElementById(emailId);
+    var weeklyEl = document.getElementById(weeklyId);
+    var monthlyEl = document.getElementById(monthlyId);
+    if (!form || !status) return;
+
+    function setStatus(kind, html) {
+      status.classList.remove('hidden', 'text-oastl-forest', 'text-oastl-clay');
+      status.classList.add(kind === 'ok' ? 'text-oastl-forest' : 'text-oastl-clay');
+      status.innerHTML = html;
+      if (typeof status.focus === 'function') status.focus();
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (hp && hp.value) { setStatus('ok', 'Thank you.'); return; }
+
+      var email = emailEl && emailEl.value ? emailEl.value.trim() : '';
+      if (!email || email.indexOf('@') === -1) {
+        setStatus('err', 'Please enter a valid email address.');
+        if (emailEl) emailEl.focus();
+        return;
+      }
+
+      var weekly = !!(weeklyEl && weeklyEl.checked);
+      var monthly = !!(monthlyEl && monthlyEl.checked);
+      if (!weekly && !monthly) {
+        setStatus('err', 'Pick at least one cadence — weekly, monthly, or both.');
+        return;
+      }
+
+      var name = '';
+      var nameEl = document.getElementById(formId + '-name');
+      if (nameEl && nameEl.value) name = nameEl.value.trim();
+
+      setStatus('ok', 'Submitting…');
+
+      fetch(SUBSCRIBE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email: email, name: name, weekly: weekly, monthly: monthly, source: 'oastl' }),
+      })
+        .then(function (r) { return r.json().then(function (j) { return { status: r.status, body: j }; }); })
+        .then(function (res) {
+          if (res.status >= 200 && res.status < 300) {
+            setStatus(
+              'ok',
+              '<strong>Thank you.</strong> Check your inbox for a confirmation email from Buttondown to activate your subscription.'
+            );
+            try { form.reset(); } catch (err) {}
+            if (weeklyEl) weeklyEl.checked = true;
+          } else if (res.body && res.body.error) {
+            setStatus('err', res.body.error);
+          } else {
+            setStatus('err', 'Subscription failed. Please try again.');
+          }
+        })
+        .catch(function () {
+          setStatus('err', 'Network error. Please try again.');
+        });
+    });
+  })();
+</script>
