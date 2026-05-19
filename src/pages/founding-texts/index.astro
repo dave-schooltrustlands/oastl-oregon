@@ -2,39 +2,21 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import FoundingBookCard from '../../components/FoundingBookCard.astro';
-import CrossBridge from '../../components/CrossBridge.astro';
 ---
 <BaseLayout
   title="Founding Texts · OASTL"
-  description="Oregon’s Constitutional Duties to Schools (2025) by Margaret Bird and Dave Sullivan — OASTL’s founding scholarship, and peer to the campus-level founding works."
+  description="Oregon’s Constitutional Duties to Schools (2025) by Margaret Bird and Dave Sullivan — OASTL’s founding scholarship."
   path="/founding-texts/"
 >
   <PageHero
     eyebrow="Founding Texts"
     title="The scholarship that grounds the litigation."
-    dek="OASTL’s founding text and its place in the broader campus library."
+    dek="OASTL’s founding text — the legal and historical case for Oregon’s accountability."
   />
 
   <section class="bg-oastl-bone">
     <div class="mx-auto max-w-4xl px-5 py-16">
       <FoundingBookCard variant="full" />
-    </div>
-  </section>
-
-  <section class="bg-oastl-cream/40 border-t border-oastl-forest/15">
-    <div class="mx-auto max-w-4xl px-5 py-16">
-      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
-        Cross-bridge
-      </div>
-      <h2 class="font-serif text-2xl md:text-3xl text-oastl-ink font-semibold leading-tight mb-6">
-        For the founding scholarship at the campus level, the Institute.
-      </h2>
-      <CrossBridge
-        building="Eighth Anchor Institute"
-        href="https://eighthanchor.org/"
-        prompt="Read the founding scholarship at the Institute level"
-        note="The Institute keeps the campus-wide founding works — Schools of the Republic (Library) and The Eighth Anchor — that frame OASTL’s Oregon-specific argument."
-      />
     </div>
   </section>
 </BaseLayout>
