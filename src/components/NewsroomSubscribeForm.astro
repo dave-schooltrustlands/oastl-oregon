@@ -1,9 +1,28 @@
 ---
 // v84 — OASTL Newsroom signup form. POSTs cross-origin to ASTL National's
 // /api/newsroom-subscribe Pages Function. The function applies a
-// `source:oastl` tag so analytics can attribute signups to this property.
+// `source:<x>` tag so analytics can attribute signups by property + surface.
 //
 // ASTL's function CORS-allows this property's origin explicitly.
+//
+// v84.1 — props widened so this single component serves every signup
+// surface on OASTL (footer if added later, donate sidebar, /newsroom/,
+// etc.). Optional eyebrow / heading / description per surface. `source`
+// is a free-form string (e.g. "oastl-newsroom", "oastl-footer").
+
+export interface Props {
+  source?: string;
+  eyebrow?: string;
+  heading?: string;
+  description?: string;
+}
+
+const {
+  source = 'oastl-newsroom',
+  eyebrow = 'Subscribe to the Newsroom',
+  heading = 'The Newsroom in your inbox',
+  description = 'Pick the cadence that fits — Monday weekly news edition, mid-month summary, or both. Free, one-click unsubscribe, replies go to the editor.',
+} = Astro.props;
 
 const uid = Math.random().toString(36).slice(2, 9);
 const formId = `oastl-newsroom-${uid}`;
@@ -18,20 +37,19 @@ const SUBSCRIBE_ENDPOINT = 'https://schooltrustlands.net/api/newsroom-subscribe'
 ---
 <section
   aria-labelledby={`${formId}-heading`}
-  class="bg-oastl-cream/40 border border-oastl-forest/20 rounded-sm p-6 sm:p-8 max-w-2xl"
+  class="newsletter bg-oastl-cream/40 border border-oastl-forest/20 rounded-sm p-6 sm:p-8 max-w-2xl"
 >
   <p class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-2">
-    Subscribe to the Newsroom
+    {eyebrow}
   </p>
   <h2
     id={`${formId}-heading`}
     class="font-serif text-2xl text-oastl-forest mb-2"
   >
-    The Newsroom in your inbox
+    {heading}
   </h2>
   <p class="font-sans text-sm text-oastl-ink/70 mb-5 leading-relaxed">
-    Pick the cadence that fits — Monday weekly news edition, mid-month
-    summary, or both. Free, one-click unsubscribe, replies go to the editor.
+    {description}
   </p>
 
   <form
@@ -141,7 +159,7 @@ const SUBSCRIBE_ENDPOINT = 'https://schooltrustlands.net/api/newsroom-subscribe'
   </p>
 </section>
 
-<script is:inline define:vars={{ formId, statusId, hpId, emailId, weeklyId, monthlyId, SUBSCRIBE_ENDPOINT }}>
+<script is:inline define:vars={{ formId, statusId, hpId, emailId, weeklyId, monthlyId, source, SUBSCRIBE_ENDPOINT }}>
   (function () {
     var form = document.getElementById(formId);
     var status = document.getElementById(statusId);
@@ -186,7 +204,7 @@ const SUBSCRIBE_ENDPOINT = 'https://schooltrustlands.net/api/newsroom-subscribe'
       fetch(SUBSCRIBE_ENDPOINT, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email: email, name: name, weekly: weekly, monthly: monthly, source: 'oastl' }),
+        body: JSON.stringify({ email: email, name: name, weekly: weekly, monthly: monthly, source: source }),
       })
         .then(function (r) { return r.json().then(function (j) { return { status: r.status, body: j }; }); })
         .then(function (res) {
