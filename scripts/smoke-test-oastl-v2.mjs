@@ -51,6 +51,15 @@ async function fetchPage(path) {
 }
 
 const contains = (body, needle) => body.includes(needle);
+const containsInOrder = (body, needles) => {
+  let at = 0;
+  for (const needle of needles) {
+    const next = body.indexOf(needle, at);
+    if (next < 0) return false;
+    at = next + needle.length;
+  }
+  return true;
+};
 // Helper: check for typographic or straight quote variants
 const containsLoose = (body, needle) => {
   const variants = [
@@ -181,15 +190,17 @@ async function run() {
   else
     fail('v2.A', `missingBoard=${missingBoard.join(', ')}, memoriam=${hasMemoriam}`);
 
-  // v2.B — Daniel Zene Crowe + Pincer Movement
+  // v2.B — Daniel Zene Crowe + two-track strategy
   const hasCrowe = contains(legal.body, 'Daniel Zene Crowe');
-  const hasPincer = contains(legal.body, 'Pincer Movement');
-  if (hasCrowe && hasPincer)
-    pass('v2.B', 'Legal Desk contains Daniel Zene Crowe + Pincer Movement');
+  const hasTwoTracks = contains(legal.body, 'The Strategy: Two Tracks')
+                    && contains(legal.body, 'The constitutional challenge')
+                    && contains(legal.body, 'The accounting investigation');
+  if (hasCrowe && hasTwoTracks)
+    pass('v2.B', 'Legal Desk contains Daniel Zene Crowe + two-track strategy');
   else
-    fail('v2.B', `Crowe=${hasCrowe}, Pincer=${hasPincer}`);
+    fail('v2.B', `Crowe=${hasCrowe}, twoTracks=${hasTwoTracks}`);
 
-  // v2.C — Evidence Locker: 5 docs + at least one Google Drive URL
+  // v2.C — Key documents: 5 docs + at least one Google Drive URL
   const evidenceTitles = [
     'Defendants’ Answer',
     'First AMENDED Complaint',
@@ -200,7 +211,7 @@ async function run() {
   const missingEvidence = evidenceTitles.filter((t) => !contains(legal.body, t));
   const hasDriveLink = contains(legal.body, 'drive.google.com/file/d/');
   if (missingEvidence.length === 0 && hasDriveLink)
-    pass('v2.C', 'Legal Desk Evidence Locker — all 5 docs + Drive URLs present');
+    pass('v2.C', 'Legal Desk key documents — all 5 docs + Drive URLs present');
   else
     fail('v2.C', `missing=${missingEvidence.join(', ')}, drive=${hasDriveLink}`);
 
@@ -287,6 +298,23 @@ async function run() {
     pass('v2.M', 'Founding Texts links to real Drive PDF + Amazon URL');
   else
     fail('v2.M', `PDF=${hasBookPdf}, Amazon=${hasAmazon}`);
+
+  // v2.N — Counsel and board portraits stay mapped to the right people.
+  // The source filenames predate the current portrait mapping, so this test
+  // intentionally checks the page sections rather than trusting asset names.
+  const portraitChecks = [
+    ['Natalie section', legal.body, ['Natalie Scott — The Scott Law Group', 'src="/images/board/laura-cooper-attorney.png"', 'alt="Natalie Scott"']],
+    ['Daniel section', legal.body, ['Daniel Zene Crowe — leading the expanded legal work', 'src="/images/board/natalie-scott.png"', 'alt="Daniel Zene Crowe"']],
+    ['Laura legal section', legal.body, ['Laura D. Cooper, OSB# 863589', 'src="/images/board/daniel-crowe.png"', 'alt="Laura D. Cooper"']],
+    ['Laura board card', board.body, ['src="/images/board/daniel-crowe.png"', 'alt="Laura D. Cooper"', 'Laura D. Cooper']],
+  ];
+  const badPortraits = portraitChecks
+    .filter(([, body, parts]) => !containsInOrder(body, parts))
+    .map(([label]) => label);
+  if (badPortraits.length === 0)
+    pass('v2.N', 'Legal Desk + board portrait mapping is correct');
+  else
+    fail('v2.N', `portrait mapping failed: ${badPortraits.join(', ')}`);
 
   // Report
   let okAll = true;

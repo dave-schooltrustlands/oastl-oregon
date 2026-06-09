@@ -227,7 +227,7 @@ const statusId = `ask-status-${uid}`;
       wrap.dataset.role = 'thinking';
       wrap.innerHTML =
         `<p class="font-sans text-[10px] uppercase tracking-[0.18em] ${aiClass} mb-1">${property === 'astl' ? 'Ask ASTL' : 'Ask OASTL'}</p>` +
-        `<div class="${cardBase} italic font-serif text-sm">Searching the source record...</div>`;
+        `<div class="${cardBase} italic font-serif text-sm">Searching the case materials...</div>`;
       log.appendChild(wrap);
       log.scrollTop = log.scrollHeight;
       return wrap;
@@ -293,7 +293,7 @@ const statusId = `ask-status-${uid}`;
         if (!resp.ok) {
           if (resp.status === 0 || resp.status === 404 || resp.status === 503) {
             appendAssistant(
-              '_Ask is still being connected. Until this search surface is live, please use the source links on this page or contact OASTL directly._',
+              '_Ask is still being prepared. Until this question page is ready, please use the source links on this page or contact OASTL directly._',
               [],
             );
           } else {
@@ -314,7 +314,7 @@ const statusId = `ask-status-${uid}`;
       } catch (err) {
         thinkingNode.remove();
         appendAssistant(
-          '_Network error reaching Ask. This search surface may still be coming online. Please use the source links on this page or contact OASTL directly._',
+          '_Network error reaching Ask. This question page may still be in preparation. Please use the source links on this page or contact OASTL directly._',
           [],
         );
         messages.pop();
