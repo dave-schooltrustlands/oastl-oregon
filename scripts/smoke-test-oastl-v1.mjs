@@ -133,32 +133,36 @@ async function run() {
   else
     fail('O.H', 'book title missing from Founding Texts page');
 
-  // O.I — utility bar on every page, near the top of <body>
+  // O.I — no legacy utility bar on public pages
   const utilityBarIssues = [];
   for (const [route, page] of Object.entries(pages)) {
-    if (!contains(page.body, 'eai-utility-bar')) {
-      utilityBarIssues.push(`${route}: missing utility bar`);
-      continue;
-    }
-    const bodyIdx = page.body.indexOf('<body');
-    const barIdx = page.body.indexOf('eai-utility-bar');
-    if (bodyIdx < 0 || barIdx < 0 || barIdx - bodyIdx > 4000) {
-      utilityBarIssues.push(`${route}: utility bar too far from <body> (Δ=${barIdx - bodyIdx})`);
+    if (contains(page.body, 'eai-utility-bar')) {
+      utilityBarIssues.push(`${route}: legacy utility bar still present`);
     }
   }
   if (utilityBarIssues.length === 0)
-    pass('O.I', 'utility bar present near top of <body> on every page');
+    pass('O.I', 'legacy utility bar absent from every page');
   else
     fail('O.I', utilityBarIssues.join('; '));
 
-  // O.J — cross-bridge links present across the site
-  const domains = ['schooltrusts.net', 'schooltrustlands.net', 'orww.org', 'eighthanchor.org'];
-  const allHtml = Object.values(pages).map((p) => p.body).join('\n');
-  const missingDomains = domains.filter((d) => !allHtml.includes(d));
-  if (missingDomains.length === 0)
-    pass('O.J', 'cross-bridges to all four campus buildings present');
+  // O.J — top header stays on-site
+  const forbiddenHeaderDomains = ['schooltrusts.net', 'schooltrustlands.net', 'orww.org', 'eighthanchor.org', 'eighthanchor.net'];
+  const headerLinkIssues = [];
+  for (const [route, page] of Object.entries(pages)) {
+    const headerStart = page.body.indexOf('<header');
+    const headerEnd = page.body.indexOf('</header>', headerStart);
+    if (headerStart < 0 || headerEnd < 0) {
+      headerLinkIssues.push(`${route}: header not found`);
+      continue;
+    }
+    const headerHtml = page.body.slice(headerStart, headerEnd);
+    const found = forbiddenHeaderDomains.filter((d) => headerHtml.includes(d));
+    if (found.length > 0) headerLinkIssues.push(`${route}: header links ${found.join(', ')}`);
+  }
+  if (headerLinkIssues.length === 0)
+    pass('O.J', 'top header has no off-site network links');
   else
-    fail('O.J', `missing: ${missingDomains.join(', ')}`);
+    fail('O.J', headerLinkIssues.join('; '));
 
   // Report
   let okAll = true;
