@@ -7,7 +7,7 @@
 //   property: 'astl' | 'oastl' — picks the system prompt server-side.
 //   palette:  'astl' | 'oastl' — picks the visual register on this side.
 //
-// Default endpoint is a placeholder until the v85 backend is deployed.
+// Default endpoint is a placeholder until the Ask search service is deployed.
 // When the endpoint is unreachable / missing, the UI shows a clean
 // "Ask is being configured" notice instead of cryptic errors.
 
@@ -227,7 +227,7 @@ const statusId = `ask-status-${uid}`;
       wrap.dataset.role = 'thinking';
       wrap.innerHTML =
         `<p class="font-sans text-[10px] uppercase tracking-[0.18em] ${aiClass} mb-1">${property === 'astl' ? 'Ask ASTL' : 'Ask OASTL'}</p>` +
-        `<div class="${cardBase} italic font-serif text-sm">Searching substrate…</div>`;
+        `<div class="${cardBase} italic font-serif text-sm">Searching the source record...</div>`;
       log.appendChild(wrap);
       log.scrollTop = log.scrollHeight;
       return wrap;
@@ -286,14 +286,14 @@ const statusId = `ask-status-${uid}`;
         try {
           data = ct.includes('application/json') ? await resp.json() : { error: await resp.text() };
         } catch {
-          data = { error: 'Malformed response from Ask backend.' };
+          data = { error: 'Malformed response from Ask service.' };
         }
         thinkingNode.remove();
 
         if (!resp.ok) {
           if (resp.status === 0 || resp.status === 404 || resp.status === 503) {
             appendAssistant(
-              '_Ask is being configured. The frontend is live; the backend (Supabase Edge Function + substrate ingestion) finishes wiring shortly. Until then, this surface won\'t produce answers. See the v85 run report for status._',
+              '_Ask is still being connected. Until this search surface is live, please use the source links on this page or contact OASTL directly._',
               [],
             );
           } else {
@@ -314,7 +314,7 @@ const statusId = `ask-status-${uid}`;
       } catch (err) {
         thinkingNode.remove();
         appendAssistant(
-          '_Network error reaching Ask. The backend may not yet be wired. See the v85 run report for status._',
+          '_Network error reaching Ask. This search surface may still be coming online. Please use the source links on this page or contact OASTL directly._',
           [],
         );
         messages.pop();
