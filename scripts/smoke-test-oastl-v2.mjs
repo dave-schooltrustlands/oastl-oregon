@@ -26,6 +26,7 @@ const fail = (id, msg) => results.push({ id, ok: false, msg });
 
 const routes = {
   '/':                  'index.html',
+  '/404':               '404.html',
   '/legal-desk/':       'legal-desk/index.html',
   '/briefing-room/':    'briefing-room/index.html',
   '/coalition-table/':  'coalition-table/index.html',
@@ -178,6 +179,28 @@ async function run() {
     pass('O.J', 'top header has no off-site network links');
   else
     fail('O.J', headerLinkIssues.join('; '));
+
+  // O.K — public contact email and footer remain simple
+  const footerIssues = [];
+  for (const [route, page] of Object.entries(pages)) {
+    if (contains(page.body, 'info@oastl.org')) {
+      footerIssues.push(`${route}: old info@ contact still present`);
+    }
+    const footerStart = page.body.indexOf('<footer');
+    const footerEnd = page.body.indexOf('</footer>', footerStart);
+    if (footerStart < 0 || footerEnd < 0) {
+      footerIssues.push(`${route}: footer not found`);
+      continue;
+    }
+    const footerHtml = page.body.slice(footerStart, footerEnd);
+    if (footerHtml.includes('>Governance<') || footerHtml.includes('>Citation<')) {
+      footerIssues.push(`${route}: old Governance/Citation footer block present`);
+    }
+  }
+  if (footerIssues.length === 0)
+    pass('O.K', 'footer uses current contact email and no Governance/Citation blocks');
+  else
+    fail('O.K', footerIssues.join('; '));
 
   // ===== v2 assertions =====
 
