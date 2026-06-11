@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+
+const gaps = [
+  'Nobody is sure who may sue.',
+  'No one must keep open books.',
+  "The trust's lawyer is also the trustee's lawyer.",
+  'Nothing stops the cheap insider sale.',
+  'Immunity gets aimed at the remedies.',
+  'No one teaches the trustees they are trustees.',
+];
+---
+<BaseLayout
+  title="The Long-Run Repair · OASTL"
+  description="The long-run school-trust repair: a model law that writes down existing duties and gives Oregon ordinary trust machinery."
+  path="/the-repair/"
+>
+  <PageHero
+    eyebrow="The Repair"
+    title="A law that says nothing new."
+    dek="Courts can stop a breach. They cannot run a trust. Oregon's school trust needs ordinary machinery: open books, clear sale rules, conflict-free enforcement, and trustee education."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16 space-y-12 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">The problem</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          A forever trust should not depend on heroic lawsuits.
+        </h2>
+        <p>
+          Litigation is how beneficiaries defend a trust when something has already gone wrong. It is slow, expensive, and, as Oregon's cases show, much of the fight happens at the courthouse door over who is even allowed in.
+        </p>
+        <p>
+          Oregon already has the duties. They come from the 1859 Act of Congress that admitted Oregon, from Article VIII of the Oregon Constitution, and from ordinary trust law: loyalty to the beneficiary, prudent management, fair value when trust property is sold, and honest accounts.
+        </p>
+        <p>
+          What Oregon has never had is the machinery.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">What has been missing</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          The same gaps appear again and again.
+        </h2>
+        <ol class="grid gap-3 md:grid-cols-2 not-italic">
+          {gaps.map((gap, index) => (
+            <li class="border border-oastl-forest/15 bg-oastl-cream rounded-sm p-4">
+              <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">Gap {index + 1}</span>
+              <p class="mt-2 text-[16px] leading-relaxed">{gap}</p>
+            </li>
+          ))}
+        </ol>
+        <p>
+          None of these is a failure of the promise. All of them are failures of machinery.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">The proposal</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          Write down what everyone already believes, then make it enforceable.
+        </h2>
+        <p>
+          OASTL supports a proposed state law, a model act called the Uniform Public Trust Enforcement Act (UPTEA), drafted so Oregon could adopt it and so could any other school-trust state. In one breath each, it would:
+        </p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>say who may sue: beneficiaries, parents, school districts, and membership organizations;</li>
+          <li>require a complete annual public accounting, certified by a named officer and posted where anyone can read it;</li>
+          <li>make competitive sale the default and treat government self-purchase of trust land as self-dealing requiring the highest scrutiny;</li>
+          <li>give the trust a conflict-free enforcer, so the trust's lawyer is never also the trustee's;</li>
+          <li>restore the ordinary remedies of trust law, with every recovery going to the trust rather than to plaintiffs;</li>
+          <li>require trustee education, so no one holds the office without knowing what it is.</li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">Why the phrase matters</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          "Nothing new" is the whole point.
+        </h2>
+        <p>
+          The act's legal posture is declaratory. It says on its face that the duties it enforces already exist and that nothing in it may be read as evidence the duties were ever new. A legislature that adopts it confesses nothing and concedes nothing.
+        </p>
+        <p>
+          It simply equips a promise Oregon made at statehood with the same machinery any private trust of a fraction of the size would have had from day one.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        <LedgerCard tone="bone" title="Where it stands">
+          <p>
+            The act exists today as a public working draft under the title <em>A Law That Says Nothing New</em>. It has not been introduced in any legislature, and it will receive formal legal review before it is.
+          </p>
+          <p class="mt-3">
+            OASTL's role is to put the idea in front of Oregonians and keep the Oregon evidence attached to it.
+          </p>
+        </LedgerCard>
+        <LedgerCard tone="forest" title="Read the working draft" href="https://schooltrusts.net/writing/">
+          The School Trust Library's Writing Room hosts the working draft and its plain-language companion, including <em>Make School Trusts for Schools</em>.
+        </LedgerCard>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">The system this respects</div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        No fence line moves by legislative fiat.
+      </h2>
+      <p class="mt-5">
+        Nothing in this proposal moves a fence line, fires a trustee, or unwinds a transaction by legislative fiat. It respects the trust Oregon already has, the institutions Oregon already has, and the courts' role exactly as it is.
+      </p>
+      <p class="mt-4">
+        It asks one thing: that the promise made to Oregon's schoolchildren in 1859 finally get the machinery every other forever-promise in American law takes for granted.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+
+const eras = [
+  ['1859', 'Oregon receives roughly 3.4 million acres for common schools.'],
+  ['1930', 'Scattered lands are consolidated into the Elliott State Forest.'],
+  ['1950s-1990s', 'The Elliott becomes a working school-trust forest.'],
+  ['2015-2017', 'The State attempts, then abandons, a fixed-price sale.'],
+  ['2022', 'The Elliott is decoupled from the Common School Fund.'],
+  ['2023', 'Oregon State University declines the research-forest role.'],
+];
+---
+<BaseLayout
+  title="Oregon's School Trust Lands: A History · OASTL"
+  description="The history of Oregon's school trust lands, the Elliott State Forest, and the decoupling fight."
+  path="/history/"
+>
+  <PageHero
+    eyebrow="Oregon history"
+    title="Oregon's school trust lands: from statehood promise to decoupling fight."
+    dek="The story begins with a federal grant for schools, becomes a working forest endowment, and ends in the legal questions Oregon has still not answered on the merits."
+  />
+
+  <section class="bg-oastl-bone border-b border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-10">
+      <div class="grid gap-px bg-oastl-forest/20 border border-oastl-forest/20 rounded-sm overflow-hidden md:grid-cols-3">
+        {eras.map(([date, text]) => (
+          <div class="bg-oastl-bone p-5">
+            <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">{date}</div>
+            <p class="mt-2 text-sm text-oastl-ink/80 leading-relaxed">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16 space-y-12 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">1859</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">The grant.</h2>
+        <p>
+          At statehood, Congress granted Oregon sections 16 and 36 of every township, roughly 3.4 million acres, for the support of common schools. Through the second half of the nineteenth century, the State sold most of that land and placed the proceeds in the Common School Fund, the permanent endowment Oregon's Constitution makes "separate and irreducible."
+        </p>
+        <p>
+          By 1900, the land was mostly gone, but scattered parcels remained. They were too dispersed to manage well.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">1920s-1930</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">Building the Elliott.</h2>
+        <p>
+          State Forester Francis Elliott saw that scattered parcels would never function as a real endowment. His solution was to trade them to the federal government for one consolidated block of the Siuslaw National Forest south of the Umpqua River.
+        </p>
+        <p>
+          The exchange was completed in 1930, creating Oregon's first state forest: about 90,000 acres near Coos Bay, held for the schools. The land had burned heavily in the great coastal fires of the 1800s, so Oregon had traded scattered parcels for a young forest that would take decades to mature. It was a patient investment for children not yet born.
+        </p>
+        <p>
+          Jerry Phillips, who joined the Elliott as a forester in 1956 and later managed it for decades, remains the standard guide to that history through <em>Caulked Boots and Cheese Sandwiches</em>, kept online by ORWW.org.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">1955-1990s</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">The working decades.</h2>
+        <p>
+          The young forest matured, and starting in the mid-1950s the Elliott went to work. From 1960 to 1990 it produced an average of about fifty million board feet of timber a year. OASTL's filings cite more than $700 million generated for Oregon schools over the forest's working life while supporting hundreds of rural jobs.
+        </p>
+        <p>
+          However one counts the exact period, the basic fact is not in doubt: for decades, the forest did what it was created to do.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">1990s-2010s</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">Harvests fall, losses begin.</h2>
+        <p>
+          From the 1990s onward, endangered-species listings and litigation steadily reduced harvests. In 2014, the State settled a lawsuit by canceling 28 timber sales across the Elliott and other state forests. By the late 2010s, timber harvest on the Elliott had effectively stopped.
+        </p>
+        <p>
+          A forest that had funded schools for sixty years began costing the schools money. Department of State Lands expense reports show the Elliott losing money year after year once harvesting ceased. Margaret Bird, the economist who helped build Utah's school-trust reform and has studied trust lands nationally for decades, said in 2016 that she knew of no state that had managed a trust at a sustained loss the way Oregon was doing.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">2015-2017</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">The auction where bidding was not allowed.</h2>
+        <p>
+          The State Land Board's first answer was to sell the forest through an unusually constrained sale process. The Board's protocol fixed the price at exactly $220.8 million: bid less and the offer would be ignored, bid more and the offer would be non-responsive. The protocol also required buyers to give away large parts of the forest's value through public-access, no-harvest, jobs, and stream-buffer commitments.
+        </p>
+        <p>
+          One qualified offer arrived, from Lone Rock Timber Management and the Cow Creek Band of Umpqua Tribe of Indians, at exactly $220.8 million. In February 2017, the Board accepted it. In May 2017, two members reversed themselves and the Board rejected the offer it had solicited.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">2022</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">The decoupling.</h2>
+        <p>
+          In December 2022, the Board adopted a different plan: sell the Elliott to the State itself. A new public entity, the Elliott State Research Forest Authority, would hold the forest for research purposes, and the Common School Fund would be paid a $221 million compensation package: $121 million from the General Fund and $100 million in bond funding.
+        </p>
+        <p>
+          The transaction concerned the roughly 82,000-acre decoupled estate. That number is different from the roughly 90,000-acre creation figure because the creation acreage and the later decoupled estate are different facts.
+        </p>
+        <p>
+          The price traced to a $99.6 million "investment value" appraisal, a valuation standard that asks what the asset is worth to one particular buyer rather than what it would bring on the open market. OASTL's position in its court filings is plain: when a trustee sells trust property to itself, at a price it set, under a valuation standard it chose, that is self-dealing, the oldest breach in trust law.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">2023</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">The research-forest partner walks away.</h2>
+        <p>
+          Oregon State University had been slated to manage the research forest. On November 13, 2023, OSU President Jayathi Murthy informed the Land Board that the university would not take that role, citing tribal opposition to the management plan, harvest-volume limits, and the State's intent to monetize the forest's carbon.
+        </p>
+        <p>
+          The Authority continues without the research partner the plan was named for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <LedgerCard tone="bone">
+        <div class="grid gap-6 md:grid-cols-[1fr,auto] md:items-center">
+          <div>
+            <div class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-forest">Where that leaves the trust</div>
+            <h2 class="mt-2 font-serif text-3xl text-oastl-forest font-semibold leading-tight">
+              The fund survives. The last great working asset was transferred away from the schools.
+            </h2>
+            <p class="mt-4">
+              The legal question is whether Oregon's trustees may do that without giving the beneficiaries a court-tested answer on the merits.
+            </p>
+          </div>
+          <a href="/legal-battles/" class="inline-flex items-center justify-center bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy">
+            Read the legal battles →
+          </a>
+        </div>
+      </LedgerCard>
+    </div>
+  </section>
+</BaseLayout>

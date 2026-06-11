@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import FactRail from '../../components/FactRail.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+
+const facts = [
+  { label: 'Statehood', value: 'Feb 14, 1859' },
+  { label: 'Original grant', value: '~3.4M acres' },
+  { label: 'Trustee', value: 'State Land Board' },
+  { label: 'Audited fund', value: '$2.585B' },
+  { label: 'FY2025 schools', value: '$76.8M' },
+];
+---
+<BaseLayout
+  title="Start Here · OASTL"
+  description="A plain-language introduction to Oregon's school trust lands, the Common School Fund, and why the trust still matters to every Oregon school."
+  path="/start-here/"
+>
+  <PageHero
+    variant="dark"
+    eyebrow="Start Here"
+    title="A 167-year-old promise to Oregon's schoolchildren."
+    dek="Oregon received school trust lands at statehood. The promise was simple: manage the land and its money for public schools, forever."
+  />
+
+  <section class="bg-oastl-bone border-b border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-10">
+      <FactRail facts={facts} />
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16 space-y-12">
+      <div class="space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">The basic idea</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          A gift, with one condition.
+        </h2>
+        <p>
+          When Oregon became a state on February 14, 1859, the federal government gave it land: two square miles out of every thirty-six, in a grid laid across the state, roughly 3.4 million acres in all.
+        </p>
+        <p>
+          The gift came with one condition. The land, and the money it ever earned, belonged to Oregon's public schools. Not to the legislature. Not to state agencies. To the schools, permanently.
+        </p>
+        <p>
+          Twenty states still hold school trust lands today. Oregon is one of them.
+        </p>
+      </div>
+
+      <div class="space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">What "in trust" means</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          Oregon is not the owner free and clear. Oregon is the trustee.
+        </h2>
+        <p>
+          A trust is one of the oldest ideas in law. One party holds and manages property for another. The manager is the trustee; the people meant to benefit are the beneficiaries.
+        </p>
+        <p>
+          For Oregon's school trust, the trustee is the State Land Board: the Governor, the Secretary of State, and the State Treasurer. The beneficiaries are Oregon's schoolchildren: the ones in classrooms today, and every class that will follow them.
+        </p>
+        <p>
+          A trustee may not use trust property for itself, let the property sit idle, sell it cheap, or hide the books. The trustee must act loyally, prudently, and openly for the beneficiary.
+        </p>
+        <a href="/legal-desk/#trustee-duties" class="inline-flex items-center gap-2 text-oastl-action font-medium hover:text-oastl-gold">
+          Read the six trustee duties on the Legal Desk →
+        </a>
+      </div>
+
+      <div class="space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">Why it still matters</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          The fund still pays every district, every year.
+        </h2>
+        <p>
+          Most of the original land was sold in the 1800s. The proceeds went into the Common School Fund, a permanent endowment the Oregon Constitution calls "separate and irreducible."
+        </p>
+        <p>
+          The fund's audited balance was <strong>$2,585,199,612 as of June 30, 2025</strong>. In fiscal year 2025, it distributed <strong>$76.8 million</strong> to all 197 Oregon school districts, about $147 per student.
+        </p>
+        <p>
+          That money arrives in good budgets and bad because the endowment is permanent. The remaining trust land, above all the Elliott State Forest assembled for the schools in 1930, is the working heart of what survives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="mb-8 max-w-3xl">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">Watch first</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          Two short films show the national story and the proof that reform works.
+        </h2>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <figure class="border border-oastl-forest/20 bg-oastl-bone rounded-sm p-4">
+          <div class="aspect-video w-full overflow-hidden rounded-sm bg-black">
+            <iframe
+              src="https://www.youtube.com/embed/MuHxwN4W2Qk"
+              title="A Birthright Forever"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="w-full h-full"
+            ></iframe>
+          </div>
+          <figcaption class="mt-4">
+            <h3 class="font-serif text-2xl text-oastl-forest font-semibold leading-snug">A Birthright Forever</h3>
+            <p class="mt-2 text-[15px] text-oastl-ink/80 leading-relaxed">
+              Advocates for School Trust Lands' 12-minute film on where school trust lands came from, how states lost or kept them, and what a well-run trust does for children.
+            </p>
+          </figcaption>
+        </figure>
+
+        <figure class="border border-oastl-forest/20 bg-oastl-bone rounded-sm p-4">
+          <div class="aspect-video w-full overflow-hidden rounded-sm bg-black">
+            <iframe
+              src="https://www.youtube.com/embed/6EUBwF7gKgk"
+              title="A Matter of Trust"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="w-full h-full"
+            ></iframe>
+          </div>
+          <figcaption class="mt-4">
+            <h3 class="font-serif text-2xl text-oastl-forest font-semibold leading-snug">A Matter of Trust</h3>
+            <p class="mt-2 text-[15px] text-oastl-ink/80 leading-relaxed">
+              A 1990 archive film on Utah's school trust lands before reform. Utah rebuilt its system; its permanent school fund has since grown to roughly $4 billion.
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="mb-8">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">Where to go next</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-ink font-semibold leading-tight">
+          Follow the promise from history to repair.
+        </h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <LedgerCard title="History" href="/history/" tone="cream">
+          How Oregon received, sold, consolidated, and decoupled its school trust lands.
+        </LedgerCard>
+        <LedgerCard title="Legal Battles" href="/legal-battles/" tone="cream">
+          How the case moved from courthouse-door losses to a precedential standing win.
+        </LedgerCard>
+        <LedgerCard title="The Repair" href="/the-repair/" tone="cream">
+          The long-run law that would give Oregon's school trust ordinary trust machinery.
+        </LedgerCard>
+        <LedgerCard title="Join OASTL" href="/join/" tone="cream">
+          Membership starts at $1 a year for a student and builds the public coalition.
+        </LedgerCard>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

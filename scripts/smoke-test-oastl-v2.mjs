@@ -27,6 +27,10 @@ const fail = (id, msg) => results.push({ id, ok: false, msg });
 const routes = {
   '/':                  'index.html',
   '/404':               '404.html',
+  '/start-here/':       'start-here/index.html',
+  '/history/':          'history/index.html',
+  '/legal-battles/':    'legal-battles/index.html',
+  '/the-repair/':       'the-repair/index.html',
   '/legal-desk/':       'legal-desk/index.html',
   '/briefing-room/':    'briefing-room/index.html',
   '/coalition-table/':  'coalition-table/index.html',
@@ -87,6 +91,10 @@ async function run() {
   const donate  = pages['/donate/'];
   const students = pages['/students/'];
   const governance = pages['/governance/'];
+  const startHere = pages['/start-here/'];
+  const history = pages['/history/'];
+  const legalBattles = pages['/legal-battles/'];
+  const repair = pages['/the-repair/'];
 
   // ===== v1 assertions =====
 
@@ -338,6 +346,67 @@ async function run() {
     pass('v2.N', 'Legal Desk + board portrait mapping is correct');
   else
     fail('v2.N', `portrait mapping failed: ${badPortraits.join(', ')}`);
+
+  // v2.O — New explainer routes render and contain their release anchors.
+  const explainerChecks = [
+    ['/start-here/', startHere, ['A 167-year-old promise', 'MuHxwN4W2Qk', '6EUBwF7gKgk']],
+    ['/history/', history, ["Oregon's school trust lands", 'November 13, 2023', '$221 million']],
+    ['/legal-battles/', legalBattles, ['The Legal Battles', 'S072734', 'pending']],
+    ['/the-repair/', repair, ['A law that says nothing new', 'Uniform Public Trust Enforcement Act']],
+  ];
+  const explainerIssues = explainerChecks
+    .filter(([, page, parts]) => page.status !== 200 || parts.some((part) => !contains(page.body, part)))
+    .map(([route]) => route);
+  if (explainerIssues.length === 0)
+    pass('v2.O', 'new explainer routes render with expected anchors');
+  else
+    fail('v2.O', `new explainer route issues: ${explainerIssues.join(', ')}`);
+
+  // v2.P — No draft markers or unresolved verification flags ship.
+  const markerIssues = [];
+  const forbiddenMarkers = ['[VERIFY', 'RECHECK OJD', 'COUNSEL_GATE', 'GATE NOTE', 'Draft notes for implementation'];
+  for (const [route, page] of Object.entries(pages)) {
+    const found = forbiddenMarkers.filter((m) => contains(page.body, m));
+    if (found.length > 0) markerIssues.push(`${route}: ${found.join(', ')}`);
+  }
+  if (markerIssues.length === 0)
+    pass('v2.P', 'no draft verification or gate markers in public pages');
+  else
+    fail('v2.P', markerIssues.join('; '));
+
+  // v2.Q — Old student co-plaintiff recruiting copy is absent.
+  const recruitingIssues = [];
+  const recruitingPatterns = [
+    /Become a co-plaintiff/i,
+    /student co-plaintiff/i,
+    /student plaintiffs? to join/i,
+    /you can be named in the next phase/i,
+    /recruiting student plaintiffs/i,
+  ];
+  for (const [route, page] of Object.entries(pages)) {
+    const found = recruitingPatterns.filter((pattern) => pattern.test(page.body));
+    if (found.length > 0) recruitingIssues.push(route);
+  }
+  if (recruitingIssues.length === 0)
+    pass('v2.Q', 'student co-plaintiff recruiting language absent');
+  else
+    fail('v2.Q', `student recruiting language found on: ${recruitingIssues.join(', ')}`);
+
+  // v2.R — Audited CSF balance is the public number.
+  const hasAuditedBalance = contains(startHere.body, '$2,585,199,612')
+    && contains(brief.body, '$2,585,199,612')
+    && !contains(brief.body, '~$2.0B');
+  if (hasAuditedBalance)
+    pass('v2.R', 'audited CSF balance reconciled on explainer and Briefing Room');
+  else
+    fail('v2.R', 'audited CSF balance missing or old ~$2.0B figure remains');
+
+  // v2.S — Repair acronym appears at most once.
+  const upteaCount = (repair.body.match(/UPTEA/g) || []).length;
+  if (upteaCount <= 1)
+    pass('v2.S', `UPTEA acronym count acceptable (${upteaCount})`);
+  else
+    fail('v2.S', `UPTEA appears ${upteaCount} times`);
 
   // Report
   let okAll = true;

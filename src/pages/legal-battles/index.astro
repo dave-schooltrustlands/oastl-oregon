@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+---
+<BaseLayout
+  title="The Legal Battles · OASTL"
+  description="A plain-language account of how Oregon's school-trust litigation moved from courthouse-door losses to the current merits case."
+  path="/legal-battles/"
+>
+  <PageHero
+    eyebrow="The Legal Battles"
+    title="How the school-trust case began, and why the early losses mattered."
+    dek="The lawsuit Oregon's schoolchildren are pursuing today did not start with a victory. It started with threshold fights over who could even get into court."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16 space-y-12 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">Before the merits</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          The first wall was not an answer. It was the courthouse door.
+        </h2>
+        <p>
+          Between 2021 and 2023, OASTL's founder, Dave Sullivan, went to court over the management and sale of the Elliott State Forest without a lawyer, because at first none could be found to take the case.
+        </p>
+        <p>
+          In Polk County, a breach-of-trust suit argued that the State had violated its duties to the schools. The court never reached that question. It dismissed the case on standing, the threshold rule about who is allowed to bring a claim at all. The Court of Appeals affirmed on January 11, 2023, without issuing an opinion.
+        </p>
+        <p>
+          In Marion County, after the State Land Board voted to decouple the Elliott, a petition asked the court to review that decision under Oregon's agency-review law. The State did not defend the sale's lawfulness. It argued the Board's vote was not an order a court could review, and that the petitioner was "a mere bystander who is dissatisfied with the State Land Board's actions." The court agreed on threshold grounds and dismissed. Whether the sale was lawful was never decided.
+        </p>
+        <p>
+          The lesson was hard but useful. To get the children's case heard, the plaintiffs had to be people no court could call bystanders.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">The 2023 case</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          Who may sue?
+        </h2>
+        <p>
+          In 2023, with appellate counsel Natalie Scott, a new case was filed in Coos County: <em>Advocates for School Trust Lands v. State of Oregon</em> (23CV39056). This time the plaintiffs stood at the center of the trust: schoolchildren, parents, and organizations formed to protect the beneficiaries.
+        </p>
+        <p>
+          In February 2024, the circuit court dismissed the case, holding among other things that fiduciary-breach claims were torts requiring advance notice under the Oregon Tort Claims Act.
+        </p>
+        <p>
+          The appeal produced the ruling this site's homepage celebrates. On January 28, 2026, the Oregon Court of Appeals reversed in <em>Advocates for School Trust Lands v. State of Oregon</em>, 346 Or App 668. The court held that challenges to the validity of laws and rules are not torts, that the State is not immune from declaratory-judgment claims about the constitutionality of its enactments, and that Oregon schoolchildren have standing to challenge the management of the common school lands.
+        </p>
+        <p>
+          Oregon thereby joined what other school-trust states had long allowed: beneficiaries may enforce the trust.
+        </p>
+        <p>
+          The State has petitioned the Oregon Supreme Court for review. The Oregon Judicial Department's public docket lists <em>Advocates for School Trust Lands v. State of Oregon</em>, S072734, as pending, and the Court of Appeals ruling is not yet final.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest">The 2024 case</div>
+        <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+          The merits.
+        </h2>
+        <p>
+          While the appeal was pending, a narrower case was filed in the same court: <em>Siuslaw School District 97J et al. v. State of Oregon</em> (24CV38372). It focuses on the State's 2024 acts, including the Sun Pass decertifications and the 1000 Road decoupling.
+        </p>
+        <p>
+          In March 2025, Judge Andrew Combs ruled that the school-district and student plaintiffs have standing and that their trust claims state a cognizable theory. His letter opinion contains the sentence the rest of the case will test: if the defendants are in fact trustees, "they owe fiduciary duties to these plaintiffs, which would include, among others, the duty of loyalty, care, and prudence."
+        </p>
+        <p>
+          The State moved for summary judgment on May 13, 2026. The plaintiffs filed their response on May 29, 2026. Trial is set for the August 18-28, 2026 docket in Coos County.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        <LedgerCard tone="bone" title="What the cases ask for">
+          <p>
+            Not money for the plaintiffs. The cases seek declaratory relief: a court's formal statement of what the law already requires of the State as trustee, and restoration of what the trust is owed.
+          </p>
+          <p class="mt-3">
+            Any recovery goes to the Common School Fund, which is to say: to the schools.
+          </p>
+        </LedgerCard>
+        <LedgerCard tone="forest" title="Read the full case file" href="/legal-desk/">
+          Filings, rulings, counsel, the six trustee duties, and the public documents behind the current litigation live on the Legal Desk.
+        </LedgerCard>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
