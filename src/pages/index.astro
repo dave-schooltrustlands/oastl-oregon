@@ -22,15 +22,15 @@ import FoundingBookCard from '../components/FoundingBookCard.astro';
       aria-hidden="true"
     >
       <!-- Coastal-range silhouette: layered triangles representing Pacific Northwest evergreens -->
-      <polygon points="0,200 60,80 120,200" fill="#EFE6D2" />
-      <polygon points="80,200 160,40 240,200" fill="#EFE6D2" />
-      <polygon points="200,200 280,90 360,200" fill="#EFE6D2" />
-      <polygon points="320,200 420,30 520,200" fill="#EFE6D2" />
-      <polygon points="480,200 560,70 640,200" fill="#EFE6D2" />
-      <polygon points="600,200 700,50 800,200" fill="#EFE6D2" />
-      <polygon points="760,200 840,90 920,200" fill="#EFE6D2" />
-      <polygon points="880,200 980,30 1080,200" fill="#EFE6D2" />
-      <polygon points="1040,200 1120,70 1200,200" fill="#EFE6D2" />
+      <polygon points="0,200 60,80 120,200" fill="#f5f1e8" />
+      <polygon points="80,200 160,40 240,200" fill="#f5f1e8" />
+      <polygon points="200,200 280,90 360,200" fill="#f5f1e8" />
+      <polygon points="320,200 420,30 520,200" fill="#f5f1e8" />
+      <polygon points="480,200 560,70 640,200" fill="#f5f1e8" />
+      <polygon points="600,200 700,50 800,200" fill="#f5f1e8" />
+      <polygon points="760,200 840,90 920,200" fill="#f5f1e8" />
+      <polygon points="880,200 980,30 1080,200" fill="#f5f1e8" />
+      <polygon points="1040,200 1120,70 1200,200" fill="#f5f1e8" />
     </svg>
     <div class="relative mx-auto max-w-6xl px-5 py-20 md:py-28">
       <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-4">
@@ -63,7 +63,7 @@ import FoundingBookCard from '../components/FoundingBookCard.astro';
   </section>
 
   <!-- Band 2 — Why this exists -->
-  <section class="bg-oastl-bone">
+  <section data-reveal class="bg-oastl-bone">
     <div class="mx-auto max-w-3xl px-5 py-16 md:py-20">
       <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-3">
         Why OASTL exists
@@ -86,7 +86,7 @@ import FoundingBookCard from '../components/FoundingBookCard.astro';
   </section>
 
   <!-- Band 3 — Persona entry cards -->
-  <section class="bg-oastl-forest text-oastl-cream border-y border-oastl-canopy/40">
+  <section data-reveal class="bg-oastl-forest text-oastl-cream border-y border-oastl-canopy/40">
     <div class="mx-auto max-w-6xl px-5 py-10">
       <div class="grid gap-5 md:grid-cols-[1fr,auto] md:items-center">
         <div>
@@ -116,7 +116,7 @@ import FoundingBookCard from '../components/FoundingBookCard.astro';
     </div>
   </section>
 
-  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+  <section data-reveal class="bg-oastl-cream/40 border-y border-oastl-forest/15">
     <div class="mx-auto max-w-6xl px-5 py-16">
       <div class="mb-8">
         <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
@@ -134,7 +134,7 @@ import FoundingBookCard from '../components/FoundingBookCard.astro';
   <StateTrackerTeaser />
 
   <!-- Band 5 — Founding scholarship + recent victory link -->
-  <section class="bg-oastl-bone">
+  <section data-reveal class="bg-oastl-bone">
     <div class="mx-auto max-w-6xl px-5 py-16 md:py-20">
       <div class="mb-8">
         <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
@@ -162,4 +162,22 @@ import FoundingBookCard from '../components/FoundingBookCard.astro';
       </div>
     </div>
   </section>
+
+  <script>
+    const els = document.querySelectorAll('[data-reveal]');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (els.length && !reduce && 'IntersectionObserver' in window) {
+      document.documentElement.classList.add('reveal-ready');
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.classList.add('is-revealed'); io.unobserve(e.target); }
+        }
+      }, { threshold: 0.12 });
+      els.forEach((el) => io.observe(el));
+    }
+  </script>
+  <style is:global>
+    .reveal-ready [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 600ms ease, transform 600ms ease; }
+    .reveal-ready [data-reveal].is-revealed { opacity: 1; transform: none; }
+  </style>
 </BaseLayout>

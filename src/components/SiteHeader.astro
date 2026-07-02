@@ -17,7 +17,7 @@ const nav = [
 
 const current = Astro.url?.pathname || '/';
 ---
-<header class="border-b border-oastl-forest/20 bg-oastl-bone/95 backdrop-blur sticky top-0 z-30">
+<header data-site-header class="border-b border-oastl-forest/20 bg-oastl-bone/95 backdrop-blur sticky top-0 z-30">
   <div class="mx-auto max-w-6xl px-5 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
     <a href="/" class="flex items-center gap-3 group" aria-label="OASTL home">
       <img
@@ -60,3 +60,19 @@ const current = Astro.url?.pathname || '/';
     </nav>
   </div>
 </header>
+
+<script>
+  const header = document.querySelector('[data-site-header]');
+  if (header) {
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+</script>
+<style>
+  [data-site-header] { transition: box-shadow 220ms ease; }
+  [data-site-header].is-scrolled { box-shadow: 0 2px 12px rgba(20, 36, 60, 0.12); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-site-header] { transition: none; }
+  }
+</style>
