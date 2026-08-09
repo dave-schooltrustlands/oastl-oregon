@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LedgerCard from '../../components/LedgerCard.astro';
+
+const workstreams = [
+  {
+    title: 'The scholarship',
+    href: '/renewal/scholarship/',
+    body: 'A hornbook — a lawyer’s one-volume guide to a whole field of law — for the school trusts, and a book in progress, <em>Stewards of the Republic</em>, that turns the 240-year record into design lessons.',
+  },
+  {
+    title: 'The law',
+    href: '/renewal/act/',
+    body: 'A Uniform Public Trust Enforcement Act — model legislation that codifies duties which already exist and supplies the procedures, transparency, and remedies that don’t.',
+  },
+  {
+    title: 'The bar',
+    href: '/renewal/bar/',
+    body: 'A pro bono panel of trial and appellate lawyers, researchers, and law students — the gift’s next generation of defenders, equipped so no one starts from scratch.',
+  },
+  {
+    title: 'The docket',
+    href: '/renewal/docket/',
+    body: 'Test cases that turn principles into precedent, beginning in Oregon.',
+  },
+];
+---
+<BaseLayout
+  title="The Renewal · OASTL"
+  description="OASTL’s law-reform program: making forever trusts enforceable — scholarship, a Uniform Public Trust Enforcement Act, a pro bono bar, and a test-case docket."
+  path="/renewal/"
+>
+  <PageHero
+    eyebrow="The Renewal"
+    title="Making a forever promise enforceable."
+    dek="A law-reform program of Oregon Advocates for School Trust Lands: scholarship, a model act, a pro bono bar, and a docket of test cases."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Why the program exists
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        How does a promise survive the people who made it?
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          For 240 years, America’s school trusts have run the experiment every long-lived institution must face: <em>how does a promise survive the people who made it?</em> The honest answer from the record is that today’s law doesn’t protect forever promises well enough — the duties are real but scattered, the books are closed, the courthouse door sticks, and the remedies are weak. The Renewal exists to fix that, for school trusts first and for every forever-institution being chartered now — sovereign funds, climate trusts, endowments for people not yet born.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Four workstreams
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Four rooms, one repair.
+      </h2>
+
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {workstreams.map((room) => (
+          <LedgerCard tone="bone" title={room.title} href={room.href}>
+            <p set:html={room.body} />
+            <div class="mt-3 font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-action">
+              Enter →
+            </div>
+          </LedgerCard>
+        ))}
+      </div>
+
+      <p class="mt-8 text-[16px] text-oastl-ink/80 leading-relaxed">
+        Start with <a href="/renewal/diagnosis/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">the diagnosis →</a> · or read <a href="/renewal/program/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">the program charter →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        For lawyers
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        If you are a lawyer, the law is already built.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          School-trust law is real, winnable, and two centuries deep — and a promise survives only if every generation supplies its defenders. The law is gathered and organized; the hornbook is in progress; the cases are coming. There’s room for allies who aren’t lawyers, too. Write to <strong>Dave Sullivan, president of OASTL</strong>, at <a href="mailto:drdavesullivan@gmail.com?subject=Pro%20bono%20%E2%80%94%20count%20me%20in" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">drdavesullivan@gmail.com</a>.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="mailto:drdavesullivan@gmail.com?subject=Pro%20bono%20%E2%80%94%20count%20me%20in"
+          class="inline-flex items-center gap-2 bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+        >
+          I’m a lawyer — count me in →
+        </a>
+        <a
+          href="/renewal/scholarship/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          Read the drafts →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

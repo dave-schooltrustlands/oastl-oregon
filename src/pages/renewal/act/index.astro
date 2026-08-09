@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+
+const does = [
+  ['Defines the trust.', 'Public educational trust property is trust property, not unrestricted state revenue.'],
+  ['States the existing duties.', 'Loyalty, prudence, impartiality between present and future beneficiaries, fair value on disposition, accounting, and protection of trust claims — restated, not invented.'],
+  ['Requires a complete public accounting.', 'One annual, public statement of the lands, the funds, the revenues, the expenses, the transfers, the distributions, the dispositions, the debts, and anything missing or disputed.'],
+  ['Opens the courthouse.', 'Beneficiary institutions, school districts, parents and guardians, member organizations, and representatives of future generations can bring actions for the trust.'],
+  ['Creates conflict-free enforcement.', 'When the state’s ordinary lawyer is conflicted, the trust gets an independent enforcement path.'],
+  ['Safeguards dispositions.', 'Competitive sale is the default; self-dealing and buyer-controlled appraisals are policed.'],
+  ['Waives immunity narrowly.', 'Courts may grant equitable trust remedies — and every recovery goes to the trust, never to private plaintiffs as damages. Enforcement is firm but fair: personal liability is reserved for disloyal, self-interested, reckless, or clearly-established breaches; an honest trustee facing genuinely unsettled law corrects the trust rather than facing personal ruin; and the trust is made whole either way. The cost of enforcement falls on the wrongdoer or the responsible public body, never on the fund itself.'],
+  ['Protects good-faith plaintiffs.', 'Beneficiaries who sue in good faith are not punished with cost-shifting for trying to protect the trust.'],
+  ['Requires trustee education.', 'Trustees and senior managers must learn the fiduciary office they hold.'],
+  ['Requires periodic independent review.', 'A trust meant to last forever gets scheduled examination, not occasional rescue.'],
+];
+
+const doesNot = [
+  'It does not create new substantive trust duties for the first time.',
+  'It does not authorize private damages or punitive damages.',
+  'It does not place judges in charge of land management.',
+  'It does not displace stronger protections already supplied by federal law, a state constitution, the common law, or another statute — where existing law protects the trust better, existing law wins.',
+];
+
+const articles = [
+  'General provisions — findings, purpose, declaratory construction, definitions, scope',
+  'Applicability and fiduciary duties',
+  'Mandatory public accounting',
+  'Standing and representation',
+  'Independent public trust enforcement',
+  'Dispositions, valuation, and self-dealing',
+  'Jurisdiction, immunity, remedies, fees, and settlements',
+  'Trustee education',
+  'Periodic independent review',
+  'Administration, transition, severability, and uniformity',
+];
+---
+<BaseLayout
+  title="The Law · The Renewal · OASTL"
+  description="A plain-English overview of the Uniform Public Trust Enforcement Act — a model state law that adds no new duties, only the enforcement machinery that public educational trusts have always needed."
+  path="/renewal/act/"
+>
+  <PageHero
+    eyebrow="The Renewal · The Law"
+    title="A Uniform Public Trust Enforcement Act."
+    dek="Model legislation that adds no new duties — only the machinery the existing duties have always needed."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="border border-oastl-forest/20 bg-oastl-cream rounded-sm p-6 text-[16px] text-oastl-ink/85 leading-relaxed">
+        This page is a plain-English overview. The Act itself is a working draft pending review by counsel — and it is published: the <a href="/renewal/act/text/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">full text, ten articles and forty-nine sections</a>, is open to anyone who wants to read it. What follows describes what the draft does and, just as important, what it deliberately does not do.
+      </div>
+
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mt-12 mb-2">
+        Why a law at all
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        The duties are sufficient. The machinery is missing.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          The argument for the Act rests on two shelves of the same library. The first shelf holds the law: a working <a href="https://schooltrusts.net/writing/hornbook/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">hornbook of school-trust law</a> — kept by America’s School Trust Library, a separate institution — organizes 240 years of granting acts, state constitutions, and case law into a single reference, and it shows that the duties — loyalty, prudence, impartiality between the generations, fair value on disposition, the duty to account — are existing, enforceable law, not a reformer’s wish list. The second shelf holds <a href="https://schooltrusts.net/writing/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">the record</a>: 240 years of those same duties failing in practice — not because the law was unclear, but because no one could get into court, no one could see the books, and the state’s own lawyer stood on both sides of every dispute.
+        </p>
+        <p>
+          Read together, the two shelves say something precise: the duties are sufficient and always were; the machinery is missing and always was. So the Act adds no duties. It adds the machinery the duties always needed. That is why it can honestly call itself <em>declaratory</em> — and the draft’s own text forbids reading its passage as evidence that any duty it enforces is new, was previously unenforceable, or that earlier conduct was lawful. The word is not a modesty pose. It is what the law and the record, laid side by side, actually show.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        What the Act does
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Ten things, in one breath each.
+      </h2>
+      <ol class="mt-6 space-y-3 list-decimal pl-5 text-[16px] text-oastl-ink/85 leading-relaxed">
+        {does.map(([lead, rest]) => (
+          <li><strong>{lead}</strong> {rest}</li>
+        ))}
+      </ol>
+
+      <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-10">What the Act does not do</h3>
+      <ul class="mt-4 space-y-2 list-disc pl-5 text-[16px] text-oastl-ink/85 leading-relaxed">
+        {doesNot.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        The shape of the draft
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Ten articles, forty-nine sections.
+      </h2>
+      <ol class="mt-8 grid gap-3 md:grid-cols-2">
+        {articles.map((article, index) => (
+          <li class="border border-oastl-forest/15 bg-oastl-cream rounded-sm p-4">
+            <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">
+              Article {index + 1}
+            </span>
+            <p class="mt-2 text-[16px] text-oastl-ink/85 leading-relaxed">{article}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        A familiar path
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Offering the states one carefully drafted text is not a novel strategy.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          It is how American state law has repaired itself for a century. The Uniform Declaratory Judgments Act of 1922 gave courts a way to declare what the law is before harm becomes irreparable; more than forty states adopted it. The Uniform Trust Code of 2000 gathered the law of trusts into a single text now enacted in thirty-six states and the District of Columbia. The pattern repeats because it works: a shared text pools the best drafting, lets each state’s courts learn from every other state’s decisions, and delivers more predictable justice at lower cost than fifty separate improvisations. The Act is offered in that tradition — a model text for the twenty trust-land states. It is not a product of the Uniform Law Commission, though its drafters would be glad to see the Commission take the subject up.
+        </p>
+      </div>
+
+      <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-10">Status</h3>
+      <div class="mt-4 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          The Act is a merged working draft: two independently produced AI-assisted drafts were converged into one text under human direction, with the differences reconciled section by section, and revised since — the current working draft is v3, dated July 2, 2026. Review by counsel comes before any text is offered as a bill. The target conversation is the state legislatures of the twenty trust-land states, where these trusts — and these enforcement gaps — actually live.
+        </p>
+        <p>
+          The full draft is published here — read it on the site or download it. The section-by-section commentary and drafting record are available to legislators, scholars, and counsel: write to <strong>Dave Sullivan, president of OASTL</strong>, at <a href="mailto:drdavesullivan@gmail.com?subject=UPTEA%20draft" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">drdavesullivan@gmail.com</a> with the subject line “UPTEA draft.”
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/renewal/act/text/"
+          class="inline-flex items-center gap-2 bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+        >
+          Read the full text →
+        </a>
+        <a
+          href="https://schooltrusts.net/drafts/uptea-working-draft-latest.docx"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          Download (.docx) →
+        </a>
+        <a
+          href="/renewal/diagnosis/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          Read the Diagnosis →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

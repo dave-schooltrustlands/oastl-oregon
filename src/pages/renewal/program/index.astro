@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import LedgerCard from '../../../components/LedgerCard.astro';
+
+const workstreams = [
+  {
+    title: 'The scholarship',
+    href: '/renewal/scholarship/',
+    body: 'A working hornbook of school-trust law that organizes 240 years of granting acts, constitutions, and case law into one reference, plus a book in progress that turns the record into design lessons. Scholarship is the foundation the other three workstreams stand on.',
+    linkLabel: 'Enter the scholarship room →',
+  },
+  {
+    title: 'The law',
+    href: '/renewal/act/',
+    body: 'A Uniform Public Trust Enforcement Act — model legislation that adds no new duties, only the enforcement machinery the existing duties have always needed: accounting, standing, conflict-free enforcement, remedies, education, review.',
+    linkLabel: 'Enter the law room →',
+  },
+  {
+    title: 'The bar',
+    href: '/renewal/bar/',
+    body: 'A pro bono panel of trial counsel, appellate counsel, researchers, and law students — equipped with the hornbook, the Oregon case record, and model pleadings, so no defender of these trusts ever starts from scratch.',
+    linkLabel: 'Enter the bar room →',
+  },
+  {
+    title: 'The docket',
+    href: '/renewal/docket/',
+    body: 'Test cases that turn principles into precedent, beginning with a school-trust case in Oregon that is contested in active litigation. Future cases are chosen for clean facts and good law.',
+    linkLabel: 'Enter the docket room →',
+  },
+];
+---
+<BaseLayout
+  title="The Program · The Renewal · OASTL"
+  description="How the Renewal gets built: four workstreams — scholarship, a model law, a pro bono bar, and a test-case docket — run today as a program of Oregon Advocates for School Trust Lands."
+  path="/renewal/program/"
+>
+  <PageHero
+    eyebrow="The Renewal · The Program"
+    title="How the Renewal gets built."
+    dek="Four workstreams — scholarship, a model law, a pro bono bar, and a test-case docket — and a plain account of who runs them."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          America’s school trust lands are perpetual trusts for schoolchildren — created at statehood, meant to last forever. The duties of the trustee states are real; the machinery for enforcing them is broken. The Renewal builds that machinery: a body of scholarship, a model law, a corps of lawyers, and a docket of cases, so that every state’s school trust can be seen, accounted for, and enforced by the people it serves. The <a href="/renewal/diagnosis/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">Diagnosis</a> — the six recurring failures of public-trust enforcement — runs underneath all four workstreams; each one exists to cure part of it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Four workstreams
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Four rooms, one repair.
+      </h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {workstreams.map((room) => (
+          <LedgerCard tone="bone" title={room.title} href={room.href}>
+            <p>{room.body}</p>
+            <div class="mt-3 font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-action">
+              {room.linkLabel}
+            </div>
+          </LedgerCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Whose program this is
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        The Renewal is a program of OASTL — and OASTL is a litigant.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          The Renewal is run today by <strong>Oregon Advocates for School Trust Lands</strong>. It is OASTL that publishes the model act, organizes the pro bono panel, and keeps this docket. There is no separate sponsor standing behind the work, and no neutral body vouching for it.
+        </p>
+        <p>
+          OASTL is also <strong>a party in active Oregon school-trust litigation</strong>. Case status moves; the current posture, the filings, and the rulings are kept on the Legal Desk rather than restated here, where they would go stale. Anyone deciding whether to volunteer, cite these drafts, or lend a name to this program is entitled to know that the organization running it is a litigant with a case of its own. The record is on the <a href="/legal-desk/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">Legal Desk</a>; read it and judge for yourself.
+        </p>
+        <p>
+          A dedicated nonprofit home for this work is still being organized — an institution built to hold the scholarship, the model law, the bar panel, and the docket under one roof, so the program outlives any single case and any single person. That entity remains <strong>in formation</strong>; there is nothing to announce yet. When there is, it will be announced plainly, here and in the newsroom. Until then, the Renewal’s home is OASTL.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        How AI is used
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Openly, and under supervision.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          AI does the research and drafting at a scale a volunteer program could never staff — reading statutes and case law across twenty states, organizing the record, producing working drafts. Licensed humans review, decide, and sign everything that touches a court or a legislature. Nothing goes out the door on a machine’s authority; the machine’s job is to make the humans’ judgment go further.
+        </p>
+      </div>
+
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mt-12 mb-2">
+        How to follow the work
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Where the updates land.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          OASTL posts its own case and program updates in the <a href="/newsroom/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">OASTL newsroom</a>. Developments across the other trust-land states are reported by <a href="https://schooltrusts.net/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">America’s School Trust Library</a> — a separate institution, not part of OASTL — in its <a href="https://schooltrusts.net/newsroom/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">newsroom</a>, and its <a href="https://schooltrusts.net/updates/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">updates page</a> tracks what has changed in that library’s own collection.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/renewal/diagnosis/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          Start with the Diagnosis →
+        </a>
+        <a
+          href="/renewal/act/"
+          class="inline-flex items-center gap-2 bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+        >
+          Read about the Law →
+        </a>
+        <a
+          href="/renewal/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          Return to the Renewal
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

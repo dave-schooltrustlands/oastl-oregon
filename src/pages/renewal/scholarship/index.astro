@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import LedgerCard from '../../../components/LedgerCard.astro';
+
+const shelves = [
+  {
+    title: 'The hornbook of school-trust law',
+    volume: 'A legal reference — complete in first draft',
+    body: 'Nineteen chapters and a state-by-state appendix for all twenty trust-land states, organizing 240 years of granting acts, constitutions, and case law into a single citable treatise — from the granting instruments through fiduciary duties, standing, justiciability, remedies, and modern reform. It is published as a living draft: every source is checkable, and corrections are invited.',
+    linkLabel: 'Read the hornbook →',
+    href: 'https://schooltrusts.net/writing/hornbook/',
+  },
+  {
+    title: 'The Forgotten Forever Gift to Public Schools',
+    volume: 'Volume 1 — looking back',
+    body: 'The 240-year record assembled as a book: how the founding generation set aside land for schoolchildren in perpetuity, how the promise was kept and broken across the twenty trust-land states, and what the documents actually say. It is a draft, open now for reading and comment — readers can follow along chapter by chapter and tell the authors where the record needs work.',
+    linkLabel: 'Read the draft →',
+    href: 'https://schooltrusts.net/writing/schools-of-the-republic/',
+  },
+  {
+    title: 'Stewards of the Republic',
+    volume: 'Volume 2 — looking forward — in progress',
+    body: 'The companion volume turns the record into design lessons for every forever-institution now being chartered — sovereign funds, climate trusts, endowments for people not yet born — and walks the model act in plain English. It is a working draft in active development and is not yet published; readers who want to watch it take shape can follow the Writing Room.',
+    linkLabel: 'Follow the Writing Room →',
+    href: 'https://schooltrusts.net/writing/',
+  },
+];
+---
+<BaseLayout
+  title="The Scholarship · The Renewal · OASTL"
+  description="The written law of the Renewal: a hornbook of school-trust law, The Forgotten Forever Gift to Public Schools, and Stewards of the Republic — so no court, legislator, or lawyer ever starts from scratch again."
+  path="/renewal/scholarship/"
+>
+  <PageHero
+    eyebrow="The Renewal · The Scholarship"
+    title="The written law of the program."
+    dek="Before a model act can be drafted, a panel briefed, or a case argued, somebody has to do the bookwork."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          Every other workstream of the Renewal stands on this one. Before a model act can be drafted, a panel briefed, or a case argued, somebody has to do the bookwork: gather 240 years of granting acts, constitutions, and case law from twenty states, organize it, and write it down where anyone can check it. That work is on three shelves.
+        </p>
+        <p class="text-[15px] text-oastl-ink/70">
+          The three volumes below are published by <a href="https://schooltrusts.net/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">America’s School Trust Library</a>, a separate institution whose catalog is open to anyone. Every link on this page goes offsite to that library.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-5xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Three shelves
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        The bookwork, and where it stands.
+      </h2>
+
+      <div class="mt-8 space-y-5">
+        {shelves.map((shelf) => (
+          <LedgerCard tone="bone" eyebrow={shelf.volume} title={shelf.title}>
+            <p>{shelf.body}</p>
+            <a
+              href={shelf.href}
+              class="mt-4 inline-block font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-action hover:text-oastl-gold"
+            >
+              {shelf.linkLabel}
+            </a>
+          </LedgerCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Why the shelf exists
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        So no one ever starts from scratch again.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          The scholarship exists for one reason: so that no court, no legislator, and no lawyer ever has to start from scratch again. The law of these trusts has been won case by case for two centuries, and most of it sat scattered across twenty states’ reporters. Now it sits in one place, organized and checkable.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="https://schooltrusts.net/for-lawyers/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          For lawyers →
+        </a>
+        <a
+          href="https://schooltrusts.net/reference-desk/"
+          class="inline-flex items-center gap-2 bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+        >
+          The Reference Desk →
+        </a>
+        <a
+          href="/renewal/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          Return to the Renewal
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

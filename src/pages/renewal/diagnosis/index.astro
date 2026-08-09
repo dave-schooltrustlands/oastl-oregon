@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+
+const failures = [
+  {
+    heading: 'The locked courthouse door',
+    body: 'When a beneficiary tries to enforce a public trust, the first fight is rarely about the trust at all — it is about whether the beneficiary may sue. Standing for school districts, parents, and the children themselves is unclear or contested in state after state, and many cases end at the door without any court ever reaching the merits. A duty no one is allowed to enforce behaves, in practice, like no duty at all.',
+    linkLabel: 'See the record: the court file →',
+    href: 'https://schooltrusts.net/court/',
+  },
+  {
+    heading: 'Written out of the trust codes',
+    body: 'Every state maintains a trust code — a developed body of procedure that tells private trustees how to account, when beneficiaries may object, and what happens after a breach. Public trusts are commonly excluded from those codes, so the most refined fiduciary machinery in American law does not reach the trustee holding some of the most consequential trust property. The state wrote the rulebook and then wrote itself out of it.',
+    linkLabel: 'See the record: the hornbook →',
+    href: 'https://schooltrusts.net/writing/hornbook/',
+  },
+  {
+    heading: 'The lawyer on both sides',
+    body: 'In most states, the attorney general is the officer charged with enforcing charitable and public trusts — and also the lawyer who defends the state agencies accused of breaching them. When the trustee and the enforcer share counsel, enforcement loses every time, and the defense is often paid from the very funds the trust was meant to protect. No private trust arrangement would survive this structure for a week.',
+    linkLabel: 'See the record: the state files →',
+    href: 'https://schooltrusts.net/reading/',
+  },
+  {
+    heading: 'The trust that never sends a statement',
+    body: 'A private trustee must account to the beneficiaries — a statement of what the trust holds, what came in, what went out, and what was sold. Many trust-land states publish no single beneficiary-facing annual statement consolidating corpus, inventory, receipts, expenses, dispositions, and distributions. The information exists, scattered through agency reports and budget documents, but no beneficiary can see the trust whole. What cannot be seen cannot be questioned.',
+    linkLabel: 'See the record: the counting room →',
+    href: 'https://schooltrusts.net/counting/',
+  },
+  {
+    heading: 'When winning means nothing',
+    body: 'Suppose a beneficiary gets through the courthouse door and proves a breach. Sovereign immunity can then block the remedies that make a trust a trust — the surcharge that restores losses, the order that returns property, the accounting a court compels. A judgment that cannot reach the trustee is a moral victory and a practical nullity, and trustees who know it adjust their behavior accordingly.',
+    linkLabel: 'See the record: the court file →',
+    href: 'https://schooltrusts.net/court/',
+  },
+  {
+    heading: 'No one taught them, and no one checks',
+    body: 'The people who administer these trusts — boards, commissioners, agency managers — are rarely taught that they are trustees, or what that office demands. And the trusts face no scheduled independent review: no periodic outside examination asking whether administration still serves the beneficiaries. Without education, drift begins; without review, drift becomes inheritance, and each generation of trustees learns the drift as if it were the design.',
+    linkLabel: 'See the record: the atlas →',
+    href: 'https://schooltrusts.net/atlas/',
+  },
+];
+---
+<BaseLayout
+  title="The Diagnosis · The Renewal · OASTL"
+  description="The six recurring failures of public-trust enforcement: a locked courthouse door, exclusion from the trust codes, a conflicted lawyer, missing accounting, immunity against remedies, and untrained trustees."
+  path="/renewal/diagnosis/"
+>
+  <PageHero
+    eyebrow="The Renewal · The Diagnosis"
+    title="Why forever promises fail."
+    dek="Forever promises do not usually fail in a single dramatic act. They fail quietly, through defects in the machinery — and the same six defects recur."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          Forever promises do not usually fail in a single dramatic act. They fail quietly, through defects in the machinery — and the same six defects recur, state after state, across the 240-year record of America’s school trusts. The duties themselves are real and were never the problem. What follows is the diagnosis: six ways a trust meant to last forever becomes unenforceable in practice.
+        </p>
+        <p class="text-[15px] not-italic text-oastl-ink/70">
+          The record links on this page go offsite to <a href="https://schooltrusts.net/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">America’s School Trust Library</a>, a separate institution that keeps the school-trust archive and takes no position in litigation. Its public catalog is open to anyone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-5xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        The six failures
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        Six ways the machinery gives way.
+      </h2>
+
+      <ol class="mt-8 grid gap-5 md:grid-cols-2">
+        {failures.map((failure, index) => (
+          <li class="border border-oastl-forest/15 bg-oastl-bone rounded-sm p-6">
+            <span class="font-mono text-[10px] tracking-[0.22em] uppercase text-oastl-gold">
+              Failure {index + 1}
+            </span>
+            <h3 class="mt-2 font-serif text-xl text-oastl-forest font-semibold leading-snug">
+              {failure.heading}
+            </h3>
+            <p class="mt-3 text-[16px] text-oastl-ink/85 leading-relaxed">{failure.body}</p>
+            <a
+              href={failure.href}
+              class="mt-4 inline-block font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-action hover:text-oastl-gold"
+            >
+              {failure.linkLabel}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        How well documented is this?
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        The evidence is deep in two states and thin in the rest.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          These six failures are not a theory. But the published record behind them is uneven, and the honest thing is to say where it is strong and where it is not. The deep files are <a href="https://schooltrusts.net/reading/us-or/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">Oregon</a> and <a href="https://schooltrusts.net/reading/us-ut/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">Utah</a> — the grant, the sales, the fund, and the cases worked through in detail. For the remaining trust-land states the material is thin: an entry in <a href="https://schooltrusts.net/atlas/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">the atlas of the trust lands</a> and a stub of a state file, not a completed dossier. Full files for most states do not exist yet, and <a href="https://schooltrusts.net/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">America’s School Trust Library</a> — a separate institution, whose public catalog anyone may consult — says so on its own shelves.
+        </p>
+        <p>
+          What holds the six failures together across all twenty states is not a set of completed state dossiers. It is the doctrine: the working <a href="https://schooltrusts.net/writing/hornbook/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">hornbook of school-trust law</a> organizes both the duties and the places their enforcement thins out, and the two deep state files show the pattern in full. Where the shelf is thin, that is a gap in the record, not a proven case — and it is work still to be done.
+        </p>
+        <p>
+          The diagnosis points at a cure: not new duties, but new machinery. That is the work of <a href="/renewal/act/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">the Law</a>.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/renewal/act/"
+          class="inline-flex items-center gap-2 bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+        >
+          Read about the Law →
+        </a>
+        <a
+          href="/renewal/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          Return to the Renewal
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import LedgerCard from '../../../components/LedgerCard.astro';
+---
+<BaseLayout
+  title="The Docket · The Renewal · OASTL"
+  description="The Renewal’s test-case register: the live Oregon school-trust case, the January 2026 standing decision, and how the docket grows. All facts public record."
+  path="/renewal/docket/"
+>
+  <PageHero
+    eyebrow="The Renewal · The Docket"
+    title="A public-record register of test cases."
+    dek="Scholarship can show what the law is. Model legislation can show what it should be. Principles become precedent only in court."
+  />
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Why test cases
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        A duty that has never been enforced is a duty on paper.
+      </h2>
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          Scholarship can show what the law is, and model legislation can show what it should be — but principles become precedent only in court. A duty that has never been enforced is a duty on paper. The Docket is where the Renewal’s ideas meet judges, and where the answers, whatever they are, become part of the permanent record.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-cream/40 border-y border-oastl-forest/15">
+    <div class="mx-auto max-w-4xl px-5 py-16">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-forest mb-2">
+        Oregon — the live case
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
+        <em>Siuslaw School District 97J v. State of Oregon</em>
+      </h2>
+      <p class="mt-3 font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-ink/70">
+        Coos County Circuit Court · Case No. 24CV38372 · current posture on the Legal Desk
+      </p>
+
+      <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
+        <p>
+          A school district is asking the courts to enforce the State of Oregon’s trust obligations over the Common School Fund lands. The case is in active litigation, and everything reported here is a matter of public record — the filings, the schedule, and the rulings as they come. <strong>OASTL is a party in that litigation</strong>, so this register is not a disinterested account; the filings themselves are on the <a href="/legal-desk/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">OASTL Legal Desk</a>, where readers can check them.
+        </p>
+        <p>
+          In January 2026, the Oregon Court of Appeals — deciding the appeal in the companion case — recognized that school-side beneficiaries have standing to bring trust claims. With that decision, Oregon joined other trust-land states whose courts already allow beneficiaries through the courthouse door.
+        </p>
+        <p class="text-[15px] text-oastl-ink/70">
+          This register reports the public record only. It does not characterize any party’s conduct, and it does not predict outcomes.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/legal-desk/"
+          class="inline-flex items-center gap-2 bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+        >
+          The OASTL Legal Desk →
+        </a>
+        <a
+          href="https://schooltrusts.net/court/oregon-current-case/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          The Oregon case file →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oastl-bone">
+    <div class="mx-auto max-w-5xl px-5 py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        <LedgerCard tone="cream" eyebrow="Future cases" title="The docket grows deliberately.">
+          <p>
+            Future test cases will be selected for clean facts and good law, in consultation with counsel — cases where the question is sharp, the record is solid, and a ruling will mean something beyond the parties. When a case is added, it will be listed here from the public record, the same way.
+          </p>
+        </LedgerCard>
+        <LedgerCard tone="cream" eyebrow="Follow the rulings" title="Decisions land all over the country.">
+          <p>
+            School-trust decisions land in courts across the twenty trust-land states. <a href="https://schooltrusts.net/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">America’s School Trust Library</a>, a separate institution, reports them in its <a href="https://schooltrusts.net/newsroom/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">newsroom</a> as they come. OASTL’s own case updates are on the <a href="/newsroom/" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">OASTL newsroom</a>.
+          </p>
+        </LedgerCard>
+      </div>
+
+      <div class="mt-10">
+        <a
+          href="/renewal/"
+          class="inline-flex items-center gap-2 border border-oastl-forest/30 text-oastl-forest px-5 py-3 rounded-sm font-medium hover:border-oastl-gold"
+        >
+          Return to the Renewal
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
