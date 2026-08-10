@@ -7,6 +7,13 @@ import CrossBridge from '../../components/CrossBridge.astro';
 
 const evidence = [
   {
+    title: 'Letter Opinion Granting Summary Judgment',
+    filed: 'July 24, 2026',
+    significance:
+      'Judge Combs grants defendants summary judgment on both claims, holding that neither the 1859 Admission Act nor Article VIII creates a common-law trust or imposes legally enforceable fiduciary duties on the State, and cancels the August 18–28, 2026 trial. Published by America’s School Trust Library.',
+    href: 'https://schooltrusts.org/court/filings/2026-07-24-combs-summary-judgment-letter-24cv38372.pdf',
+  },
+  {
     title: "Defendants’ Answer",
     filed: 'Oct 24, 2025',
     significance:
@@ -62,36 +69,81 @@ const richardsonMapping = [
     dek="The legal record is the center of OASTL’s work. This is the page beneficiaries, journalists, and future plaintiffs come back to."
   />
 
-  <!-- Section 1 — Case Update: May 13 Motion for Summary Judgment -->
+  <!-- Case status — dated freshness stamp -->
+  <section class="bg-oastl-forest text-oastl-cream border-b-4 border-oastl-gold">
+    <div class="mx-auto max-w-4xl px-5 py-10">
+      <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-3">
+        Case status · Most recent development July 24, 2026 · Page current as of August 10, 2026
+      </div>
+      <div class="space-y-3 text-[17px] leading-relaxed font-serif">
+        <p>
+          <strong>On July 24, 2026, the Coos County Circuit Court granted the defendants summary judgment on both claims in <em>Siuslaw School District 97J, et al. v. State of Oregon, et al.</em>, Case No. 24CV38372, and canceled the trial that had been set for August 18–28, 2026.</strong> Judge Andrew E. Combs held that neither the 1859 Admission Act nor Article VIII of the Oregon Constitution creates a common-law trust or imposes legally enforceable fiduciary duties on the State.
+        </p>
+        <p>
+          The ruling came in a letter opinion. The court asked defendants to prepare and submit an order and general judgment within 28 days. Under ORS 19.255(1), the time to appeal runs from entry of the judgment in the register, not from the date of the letter.
+        </p>
+        <p>
+          Separately: on July 23, 2026 the Oregon Supreme Court denied review in S072734, so the Court of Appeals decision of January 28, 2026 — <em>Advocates for School Trust Lands v. State</em>, 346 Or App 668 (2026), the standing ruling in the 2023 case, Coos County 23CV39056 — is final.
+        </p>
+      </div>
+      <a
+        href="https://schooltrusts.org/court/filings/2026-07-24-combs-summary-judgment-letter-24cv38372.pdf"
+        target="_blank"
+        rel="noopener"
+        class="mt-5 inline-flex items-center gap-2 bg-oastl-gold text-oastl-forest px-5 py-3 rounded-sm font-medium hover:bg-oastl-cream"
+      >
+        Read the July 24, 2026 letter opinion (PDF) →
+      </a>
+      <p class="mt-3 font-mono text-[11px] tracking-[0.18em] uppercase text-oastl-cream/70">
+        Published in full by America’s School Trust Library, a separate institution
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 1 — Case Update: July 24, 2026 summary-judgment ruling -->
   <section class="bg-oastl-bone">
     <div class="mx-auto max-w-4xl px-5 py-16">
       <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-oastl-gold mb-2">
-        Section 1 · Case Update — May 13, 2026
+        Section 1 · Case Update — July 24, 2026
       </div>
       <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
-        The State’s Motion for Summary Judgment
+        The court granted the State summary judgment
       </h2>
       <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
         <p>
-          On <strong>May 13, 2026</strong>, the State of Oregon filed a Motion for Summary Judgment in <em>Siuslaw School District 97J et al. v. State of Oregon</em>, Coos County Circuit Court Case No. 24CV38372. The motion asks the court to dispose of the surviving claims — the 2024 Sun Pass decertifications and the 1000 Road decoupling — without trial.
+          On <strong>July 24, 2026</strong>, Judge Andrew E. Combs of the Coos County Circuit Court issued a letter opinion granting the defendants summary judgment on <strong>both claims</strong> in <em>Siuslaw School District 97J, et al. v. State of Oregon, et al.</em>, Case No. 24CV38372. The court held that neither the 1859 Admission Act nor Article VIII of the Oregon Constitution creates a common-law trust or imposes legally enforceable fiduciary duties on the State.
         </p>
         <p>
-          The plaintiffs filed their response on <strong>May 29, 2026</strong>. Briefing will continue under the trial schedule.
-        </p>
-
-        <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">What governs the schedule</h3>
-        <p>
-          The case is set for <strong>trial on the August 18-28, 2026 docket</strong> before Judge Andrew E. Combs in Coos County. That trial date governs the pace of summary-judgment briefing. The court will need to resolve the State’s motion well before then.
+          The court granted defendants’ first and second motions, denied plaintiffs’ first, second and fourth motions, and did not reach plaintiffs’ third.
         </p>
 
-        <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">What remains in dispute</h3>
+        <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">The trial is canceled</h3>
         <p>
-          The State’s motion turns on two legal questions: whether OASTL’s claims survive under the rule the Court of Appeals announced in <em>Advocates for School Trust Lands v. State</em>, 346 Or App 668 (January 28, 2026), and whether the trust-duty argument Judge Combs allowed to proceed in his March 6, 2025 letter opinion can be proved from the factual record. The March 2025 ruling already found standing for the school-district and student plaintiffs and denied the State’s motion to dismiss for failure to state a claim. The State now argues the claims should not reach trial. The plaintiffs have responded on the merits.
+          The case had been set for trial on the <strong>August 18–28, 2026 docket</strong> in Coos County. The court canceled it in the same letter. Its closing paragraph reads, in full:
         </p>
+        <blockquote class="border-l-4 border-oastl-gold pl-4 italic text-oastl-ink/85">
+          “The court asks that defendants prepare and submit an order and general judgment in accordance with these rulings within the next 28 days. Based on these rulings, the court is canceling the trial scheduled for August 18-28, 2026.”
+        </blockquote>
+
+        <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">What the letter is, procedurally</h3>
         <p>
-          OASTL will post updates as the briefing schedule develops. Filed papers, when they become public, will be added to the case docket on this page.
+          A letter opinion is not a judgment. The court asked defendants to prepare and submit an order and general judgment in accordance with its rulings within 28 days. Under ORS 19.255(1), the time to appeal runs from entry of the judgment in the register — not from the date of the letter. The order and general judgment will be posted here from the public docket.
+        </p>
+
+        <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">How the case reached this point</h3>
+        <p>
+          The State filed its Motion for Summary Judgment on <strong>May 13, 2026</strong>, asking the court to dispose of the surviving claims — the 2024 Sun Pass decertifications and the 1000 Road decoupling — without trial. The plaintiffs filed their response on <strong>May 29, 2026</strong>. The July 24 letter opinion resolves that briefing. The March 6, 2025 ruling that found standing for the school-district and student plaintiffs, and denied the State’s motion to dismiss for failure to state a claim, is described in Section 4 below.
         </p>
       </div>
+
+      <a
+        href="https://schooltrusts.org/court/filings/2026-07-24-combs-summary-judgment-letter-24cv38372.pdf"
+        target="_blank"
+        rel="noopener"
+        class="mt-6 inline-flex items-center gap-2 bg-oastl-forest text-oastl-cream px-5 py-3 rounded-sm font-medium hover:bg-oastl-canopy"
+      >
+        Read the letter opinion (PDF) →
+      </a>
     </div>
   </section>
 
@@ -106,7 +158,7 @@ const richardsonMapping = [
       </h2>
       <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
         <p>
-          After years of state-level litigation in Oregon, the Oregon Court of Appeals ruled on January 28, 2026 that beneficiaries may sue the State-as-trustee on Article VIII school-trust claims. The ruling — <em>Advocates for School Trust Lands v. State of Oregon</em>, 346 Or App 668 (2026) — brought Oregon into line with what other school-trust states have long allowed. <strong>The Oregon Attorney General has petitioned the Oregon Supreme Court for review; the petition, S072734, is pending. The ruling is not yet final.</strong>
+          After years of state-level litigation in Oregon, the Oregon Court of Appeals ruled on January 28, 2026 that beneficiaries may sue the State-as-trustee on Article VIII school-trust claims. The ruling — <em>Advocates for School Trust Lands v. State of Oregon</em>, 346 Or App 668 (2026) — brought Oregon into line with what other school-trust states have long allowed. <strong>On July 23, 2026, the Oregon Supreme Court denied review in S072734. The ruling is final.</strong>
         </p>
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">What the panel did</h3>
@@ -125,7 +177,7 @@ const richardsonMapping = [
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">Why it matters here</h3>
         <p>
-          The Court of Appeals decision is the foundational authority for OASTL’s response to the State’s May 13, 2026 Motion for Summary Judgment in 24CV38372. The current case status, the Oregon Tort Claims Act argument, and the right of beneficiaries to sue all turn on what <em>Advocates v. State</em> held. Oral argument on that appeal was heard at Corvallis High School on April 11, 2025; the decision came nine months later.
+          The Court of Appeals decision was the foundational authority for OASTL’s response to the State’s May 13, 2026 Motion for Summary Judgment in 24CV38372. The Oregon Tort Claims Act argument and the right of beneficiaries to sue turn on what <em>Advocates v. State</em> held. Oral argument on that appeal was heard at Corvallis High School on April 11, 2025; the decision came nine months later.
         </p>
         <p>
           For decades, Oregon courts blocked school-trust suits before beneficiaries could get to the merits. The January 28, 2026 ruling cleared that barrier. Other school-trust states had cleared it long before. The win is real — OASTL has been chasing it for years — and the win is local. The broader lesson is that Oregon has now caught up.
@@ -154,7 +206,7 @@ const richardsonMapping = [
       </h2>
       <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
         <p>
-          <em>Comcast of Oregon II, Inc. v. City of Eugene</em>, 346 Or 238 (2009), is one of those quiet Oregon Supreme Court opinions that turns out, years later, to carry major weight. It supplies the rule behind the 2026 standing victory in OASTL’s appeal — and it is a precedent the State’s May 13 Motion for Summary Judgment has to answer.
+          <em>Comcast of Oregon II, Inc. v. City of Eugene</em>, 346 Or 238 (2009), is one of those quiet Oregon Supreme Court opinions that turns out, years later, to carry major weight. It supplies the rule behind the 2026 standing victory in OASTL’s appeal — and it was a precedent the State had to answer in its May 13, 2026 Motion for Summary Judgment.
         </p>
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">What <em>Comcast</em> established</h3>
@@ -173,7 +225,7 @@ const richardsonMapping = [
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">Why it is load-bearing for OASTL</h3>
         <p>
-          The State’s argument in its May 13, 2026 Motion for Summary Judgment leans on the proposition that OASTL’s claims — that the State breached fiduciary duties to school-trust beneficiaries by enacting and amending laws like ORS 530.490 and SB 1546 (2022), and by adopting administrative rules that diverted trust property away from school funding — are tort claims requiring Oregon Tort Claims Act notice the plaintiffs did not give. <em>Comcast</em> is the controlling Supreme Court precedent that says otherwise.
+          The State’s argument in its May 13, 2026 Motion for Summary Judgment leaned on the proposition that OASTL’s claims — that the State breached fiduciary duties to school-trust beneficiaries by enacting and amending laws like ORS 530.490 and SB 1546 (2022), and by adopting administrative rules that diverted trust property away from school funding — are tort claims requiring Oregon Tort Claims Act notice the plaintiffs did not give. <em>Comcast</em> is the controlling Supreme Court precedent that says otherwise.
         </p>
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">How <em>Advocates v. State</em> (2026) built on <em>Comcast</em></h3>
@@ -187,7 +239,10 @@ const richardsonMapping = [
           The court then quoted <em>Comcast</em>’s controlling sentence and expressly overruled an older Court of Appeals decision, <em>Barns v. City of Eugene</em> (2002), to the extent it had pulled the other way. <em>Comcast</em> governs; lawmaking is not a tort; OASTL’s claims that challenge the validity of school-trust statutes and rules are not tort claims under the OTCA.
         </p>
         <p>
-          The State has petitioned the Oregon Supreme Court for review of the 2026 ruling. Until and unless that court reverses, <em>Advocates v. State</em> is binding intermediate-appellate authority and <em>Comcast</em> is binding Supreme Court authority. Both point the same direction.
+          The Oregon Supreme Court denied review of the 2026 ruling on July 23, 2026. <em>Advocates v. State</em> is now final and binding intermediate-appellate authority; <em>Comcast</em> is binding Supreme Court authority. Both point the same direction.
+        </p>
+        <p>
+          On July 24, 2026, the trial court granted the State summary judgment in 24CV38372, holding that neither the 1859 Admission Act nor Article VIII of the Oregon Constitution creates a common-law trust or imposes legally enforceable fiduciary duties on the State, and canceled the August 18–28, 2026 trial. That ruling is in the <a href="https://schooltrusts.org/court/filings/2026-07-24-combs-summary-judgment-letter-24cv38372.pdf" target="_blank" rel="noopener" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">July 24, 2026 letter opinion</a>; it is summarized in Section 1 above.
         </p>
       </div>
     </div>
@@ -200,11 +255,11 @@ const richardsonMapping = [
         Section 4 · Key Rulings
       </div>
       <h2 class="font-serif text-3xl md:text-4xl text-oastl-forest font-semibold leading-tight">
-        The two Combs letter opinions that explain where the active case stands
+        The two earlier Combs letter opinions that carried the case to the merits
       </h2>
       <div class="mt-6 space-y-4 text-[17px] text-oastl-ink/85 leading-relaxed font-serif">
         <p>
-          Two letter opinions from Judge Andrew E. Combs of the Coos County Circuit Court explain the active OASTL case, <em>Siuslaw School District 97J et al. v. State of Oregon</em>, 24CV38372. Both are signed, dated, and on the public docket. Together they tell you where the case stands.
+          Two earlier letter opinions from Judge Andrew E. Combs of the Coos County Circuit Court shaped the OASTL case, <em>Siuslaw School District 97J et al. v. State of Oregon</em>, 24CV38372. Both are signed, dated, and on the public docket. Together they explain how the case reached summary judgment — and the July 24, 2026 ruling that ended it in the trial court.
         </p>
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">February 26, 2024 — <em>Advocates v. State</em>, 23CV39056</h3>
@@ -217,7 +272,7 @@ const richardsonMapping = [
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">March 6, 2025 — <em>Siuslaw v. State</em>, 24CV38372</h3>
         <p>
-          While the appeal was pending, OASTL and a slate of co-plaintiffs led by <strong>Siuslaw School District 97J</strong> filed a new and narrower case in the same court, focused on <strong>defendants’ acts in 2024</strong> — the Sun Pass decertification of 1,920 acres and the 1000 Road decoupling. Judge Combs ruled on the State’s Rule 21 motions a year later. His ruling is the current shape of the active case:
+          While the appeal was pending, OASTL and a slate of co-plaintiffs led by <strong>Siuslaw School District 97J</strong> filed a new and narrower case in the same court, focused on <strong>defendants’ acts in 2024</strong> — the Sun Pass decertification of 1,920 acres and the 1000 Road decoupling. Judge Combs ruled on the State’s Rule 21 motions a year later. His ruling set the shape of the case that went to summary judgment:
         </p>
         <ul class="list-disc pl-5 space-y-2">
           <li><strong>Pre-2024 claims dismissed.</strong> Same sovereign-immunity reasoning as before; claim preclusion barred the Elliott decoupling claims at issue in 23CV39056.</li>
@@ -226,7 +281,7 @@ const richardsonMapping = [
           <li><strong>Failure-to-state-a-claim DENIED.</strong> The surviving claims state a cognizable theory.</li>
         </ul>
         <p>
-          The most important sentence in the March 2025 opinion is its finding on the trust theory: <em>“If plaintiffs are correct and defendants are in fact trustees, they owe fiduciary duties to these plaintiffs, which would include, among others, the duty of loyalty, care, and prudence.”</em> That sentence is the trustee-duties holding the State now has to displace at summary judgment.
+          The most important sentence in the March 2025 opinion is its finding on the trust theory: <em>“If plaintiffs are correct and defendants are in fact trustees, they owe fiduciary duties to these plaintiffs, which would include, among others, the duty of loyalty, care, and prudence.”</em> That sentence framed the trustee-duties question the State moved against at summary judgment. On July 24, 2026 the court answered it against the plaintiffs, holding that neither the Admission Act nor Article VIII creates such a trust or imposes legally enforceable fiduciary duties on the State.
         </p>
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">How the two opinions connect</h3>
@@ -236,7 +291,10 @@ const richardsonMapping = [
 
         <h3 class="font-serif text-xl text-oastl-forest font-semibold mt-6">Where the case stands</h3>
         <p>
-          Standing is established. The trustee-duties question is reserved for the merits. The State has moved for summary judgment on the surviving claims. Trial is set for the <strong>August 18-28, 2026 docket</strong>. The two Combs opinions are the procedural ground under everything that comes next.
+          On <strong>July 24, 2026</strong>, Judge Combs granted the defendants summary judgment on both claims and canceled the trial that had been set for the <strong>August 18–28, 2026 docket</strong>. He held that neither the 1859 Admission Act nor Article VIII of the Oregon Constitution creates a common-law trust or imposes legally enforceable fiduciary duties on the State — the question the March 2025 opinion had reserved for the merits. The ruling is in the <a href="https://schooltrusts.org/court/filings/2026-07-24-combs-summary-judgment-letter-24cv38372.pdf" target="_blank" rel="noopener" class="underline decoration-oastl-gold/60 hover:text-oastl-gold">July 24, 2026 letter opinion</a>.
+        </p>
+        <p>
+          That letter is not a judgment. The court asked defendants to prepare and submit an order and general judgment within 28 days; under ORS 19.255(1), the time to appeal runs from entry of the judgment in the register. The two opinions above are the procedural ground under that ruling.
         </p>
       </div>
     </div>
@@ -500,7 +558,7 @@ const richardsonMapping = [
         Review the key documents.
       </h2>
       <p class="mt-4 text-oastl-ink/80 max-w-3xl leading-relaxed">
-        Five court filings — the documents that establish the case, the State’s denial of duty, the rulings granting standing, and the order denying the motion to dismiss.
+        Six court filings — the July 24, 2026 letter opinion granting summary judgment, the documents that establish the case, the State’s denial of duty, the rulings granting standing, and the order denying the motion to dismiss.
       </p>
 
       <div class="mt-8 grid gap-5 md:grid-cols-2">
